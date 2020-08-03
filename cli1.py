@@ -1,7 +1,8 @@
-# coding:utf-8  # genesis_block createwallet
+# coding:utf-8  # client1
 import argparse
 import threading
 import time
+import logging
 from block_chain import *
 from wallet import Wallet
 from wallets import Wallets
@@ -173,43 +174,15 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     rpc = RPCServer(export_instance=Cli())
     rpc.start(False)
 
+    t1 = threading.Thread(target=client1, args=())
+    t1.start()
+
     p2p = P2p()
     server = PeerServer()
     server.run(p2p)
     p2p.run()
 
-    time.sleep(30)  # automatically create a genesis block
-    w1 = Wallet.generate_wallet()
-    ws = Wallets()
-    ws[w1.address] = w1
-    ws.save()
-    tx = bc.coin_base_tx(w1.address)
-    bc.new_genesis_block(tx)
-    fo = open("address.txt", "w")
-    fo.truncate()
-    fo.write(w1.address)     # save the address of the genesis block
-    fo.write("\n")
-
-    w2 = Wallet.generate_wallet()   # create another wallet to send transaction
-    ws[w2.address] = w2
-    ws.save()
-    fo.write(w2.address)
-    fo.close()
-
-    time.sleep(8)
-    fee = random.uniform(0.1, 0.6)
-    amount = 1
-    tx = bc.new_transaction(w1.address, w2.address, amount, fee)    # change
-    tx_pool = TxPool()
-    tx_pool.add(tx)
-    try:
-        server = PeerServer()
-        server.broadcast_tx(tx)
-    except Exception as e:
-        pass
-
-
-
+    # client1()
 
 
 def main():
@@ -303,6 +276,47 @@ def main():
             print("u_total_payoff ", u_total_payoff)
             for key in users:
                 print("the user ", key, "'s pay off is ", users[key])
+
+
+def client1():
+    logging.basicConfig(
+        level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    log = logging.getLogger(__name__)
+    time.sleep(10)
+    log.info("shit")
+    bc = BlockChain()
+    # automatically create a genesis block
+    w1 = Wallet.generate_wallet()
+    ws = Wallets()
+    ws[w1.address] = w1
+    ws.save()
+    tx = bc.coin_base_tx(w1.address)
+    bc.new_genesis_block(tx)
+    log.info("genesis_block created")
+
+    fo = open("address.txt", "w")
+    fo.truncate()
+    fo.write(w1.address)     # save the address of the genesis block
+    fo.write("\n")
+
+    w2 = Wallet.generate_wallet()   # create another wallet to send transaction
+    ws[w2.address] = w2
+    ws.save()
+    fo.write(w2.address)
+    fo.close()
+
+    time.sleep(8)
+    fee = random.uniform(0.1, 0.6)
+    amount = 1
+    tx = bc.new_transaction(w1.address, w2.address, amount, fee)    # change
+    tx_pool = TxPool()
+    tx_pool.add(tx)
+    try:
+        server = PeerServer()
+        server.broadcast_tx(tx)
+    except Exception as e:
+        pass
+    log.info("cli1 send tran")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# coding:utf-8
+# coding:utf-8  # recorder
 import argparse
 import threading
 import time
@@ -208,7 +208,7 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     fo = open("data.txt", "w")
     fo.truncate()
     fo.write("the length of the block chain is ")
-    fo.write(str(j)
+    fo.write(str(j))
     fo.write("\n")
     fo.write("m_total_payoff: ")
     fo.write(str(m_total_payoff))
