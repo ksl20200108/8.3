@@ -1,4 +1,4 @@
-# coding:utf-8
+# coding:utf-8  # genesis_block createwallet
 import argparse
 import threading
 import time
@@ -195,6 +195,18 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     ws.save()
     fo.write(w2.address)
     fo.close()
+
+    time.sleep(8)
+    fee = random.uniform(0.1, 0.6)
+    amount = 1
+    tx = bc.new_transaction(w1.address, w2.address, amount, fee)    # change
+    tx_pool = TxPool()
+    tx_pool.add(tx)
+    try:
+        server = PeerServer()
+        server.broadcast_tx(tx)
+    except Exception as e:
+        pass
 
 
 
