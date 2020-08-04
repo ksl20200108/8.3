@@ -1,4 +1,4 @@
-# coding:utf-8  # client1
+# coding:utf-8  # client1 * 1
 import argparse
 import threading
 import time
@@ -283,7 +283,7 @@ def client1():
         level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     log = logging.getLogger(__name__)
     time.sleep(10)
-    log.info("shit")
+    log.info("get started")
     bc = BlockChain()
     # automatically create a genesis block
     w1 = Wallet.generate_wallet()

@@ -1,4 +1,4 @@
-# coding:utf-8  # client2
+# coding:utf-8  # client2 * 10
 import argparse
 import threading
 import time
@@ -173,27 +173,13 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     rpc = RPCServer(export_instance=Cli())
     rpc.start(False)
 
+    t2 = threading.Thread(target=client2, args=())
+    t2.start()
+
     p2p = P2p()
     server = PeerServer()
     server.run(p2p)
     p2p.run()
-
-    time.sleep(40)
-    fo = open("address.txt", "r")
-    addrs = []
-    for line in fo:
-        addrs.append(line)
-    fo.close()
-    fee = random.uniform(0.1, 0.6)
-    amount = 1
-    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
-    tx_pool = TxPool()
-    tx_pool.add(tx)
-    try:
-        server = PeerServer()
-        server.broadcast_tx(tx)
-    except Exception as e:
-        pass
 
 
 def main():
@@ -287,6 +273,25 @@ def main():
             print("u_total_payoff ", u_total_payoff)
             for key in users:
                 print("the user ", key, "'s pay off is ", users[key])
+
+
+def client2():
+    time.sleep(20)
+    fo = open("address.txt", "r")
+    addrs = []
+    for line in fo:
+        addrs.append(line)
+    fo.close()
+    fee = random.uniform(0.1, 0.6)
+    amount = 1
+    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
+    tx_pool = TxPool()
+    tx_pool.add(tx)
+    try:
+        server = PeerServer()
+        server.broadcast_tx(tx)
+    except Exception as e:
+        pass
 
 
 if __name__ == "__main__":
