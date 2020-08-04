@@ -1,4 +1,4 @@
-# coding:utf-8  # miners * 10
+# coding:utf-8  # miners
 import argparse
 import threading
 import time
@@ -173,13 +173,15 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     rpc = RPCServer(export_instance=Cli())
     rpc.start(False)
 
-    t3 = threading.Thread(target=client3, args=())
-    t3.start()
-
     p2p = P2p()
     server = PeerServer()
     server.run(p2p)
     p2p.run()
+
+
+    time.sleep(60)
+    t1 = threading.Thread(target=finding_new_block, args=())
+    t1.start()
 
 
 def main():
@@ -273,12 +275,6 @@ def main():
             print("u_total_payoff ", u_total_payoff)
             for key in users:
                 print("the user ", key, "'s pay off is ", users[key])
-
-
-def client3():
-    time.sleep(50)
-    t1 = threading.Thread(target=finding_new_block, args=())
-    t1.start()
 
 
 if __name__ == "__main__":
