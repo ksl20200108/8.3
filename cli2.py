@@ -1,7 +1,8 @@
-# coding:utf-8  # client2
+# coding:utf-8  # client2 * 10
 import argparse
 import threading
 import time
+import os
 from block_chain import *
 from wallet import Wallet
 from wallets import Wallets
@@ -160,7 +161,11 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
         couch.delete('block_chain')
     except:
         pass
-    db = DB("http://127.0.0.1:5984")
+    env_dist = os.environ
+    db_url1 = "http://couchdb"
+    db_url1 += env_dist.get('DB_URL')
+    db_url1 += ":5984"
+    db = DB(db_url1)
 
     bc = BlockChain()   # only one blockchain called bc
     utxo_set = UTXOSet()
@@ -173,27 +178,13 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     rpc = RPCServer(export_instance=Cli())
     rpc.start(False)
 
+    t2 = threading.Thread(target=client2, args=())
+    t2.start()
+
     p2p = P2p()
     server = PeerServer()
     server.run(p2p)
     p2p.run()
-
-    time.sleep(40)
-    fo = open("address.txt", "r")
-    addrs = []
-    for line in fo:
-        addrs.append(line)
-    fo.close()
-    fee = random.uniform(0.1, 0.6)
-    amount = 1
-    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
-    tx_pool = TxPool()
-    tx_pool.add(tx)
-    try:
-        server = PeerServer()
-        server.broadcast_tx(tx)
-    except Exception as e:
-        pass
 
 
 def main():
@@ -287,6 +278,29 @@ def main():
             print("u_total_payoff ", u_total_payoff)
             for key in users:
                 print("the user ", key, "'s pay off is ", users[key])
+
+
+def client2():
+    time.sleep(60)
+    fo = open("address.txt", "r")
+    addrs = []
+    for line in fo:
+        addrs.append(line)
+    fo.close()
+    fee = random.uniform(0.1, 0.6)
+    amount = 1
+    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
+    f = open("shit.txt", "w")
+    f.write("broadcast done")
+    f.close()
+    tx_pool = TxPool()
+    tx_pool.add(tx)
+    try:
+        server = PeerServer()
+        server.broadcast_tx(tx)
+    except Exception as e:
+        pass
+    log.info("cli2 send tran")
 
 
 if __name__ == "__main__":

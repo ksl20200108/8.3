@@ -1,1 +1,4 @@
-None
+the length of the block chain is 4
+m_total_payoff: -10.761554079758442
+u_total_payoff: 11.091554079758442
+the user "192.168.118.131"'s pay off is 0.991554079758442

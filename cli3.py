@@ -1,7 +1,8 @@
-# coding:utf-8  # miners
+# coding:utf-8  # miners * 10
 import argparse
 import threading
 import time
+import os
 from block_chain import *
 from wallet import Wallet
 from wallets import Wallets
@@ -160,7 +161,11 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
         couch.delete('block_chain')
     except:
         pass
-    db = DB("http://127.0.0.1:5984")
+    env_dist = os.environ
+    db_url1 = "http://couchdb"
+    db_url1 += env_dist.get('DB_URL')
+    db_url1 += ":5984"
+    db = DB(db_url1)
 
     bc = BlockChain()   # only one blockchain called bc
     utxo_set = UTXOSet()
@@ -173,15 +178,13 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     rpc = RPCServer(export_instance=Cli())
     rpc.start(False)
 
+    t3 = threading.Thread(target=client3, args=())
+    t3.start()
+
     p2p = P2p()
     server = PeerServer()
     server.run(p2p)
     p2p.run()
-
-
-    time.sleep(60)
-    t1 = threading.Thread(target=finding_new_block, args=())
-    t1.start()
 
 
 def main():
@@ -275,6 +278,12 @@ def main():
             print("u_total_payoff ", u_total_payoff)
             for key in users:
                 print("the user ", key, "'s pay off is ", users[key])
+
+
+def client3():
+    time.sleep(100)
+    t1 = threading.Thread(target=finding_new_block, args=())
+    t1.start()
 
 
 if __name__ == "__main__":

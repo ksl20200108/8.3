@@ -1,8 +1,9 @@
-# coding:utf-8  # client1
+# coding:utf-8  # client1 * 1
 import argparse
 import threading
 import time
 import logging
+import os
 from block_chain import *
 from wallet import Wallet
 from wallets import Wallets
@@ -161,7 +162,11 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
         couch.delete('block_chain')
     except:
         pass
-    db = DB("http://127.0.0.1:5984")
+    env_dist = os.environ
+    db_url1 = "http://couchdb"
+    db_url1 += env_dist.get('DB_URL')
+    db_url1 += ":5984"
+    db = DB(db_url1)
 
     bc = BlockChain()   # only one blockchain called bc
     utxo_set = UTXOSet()
@@ -283,7 +288,7 @@ def client1():
         level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     log = logging.getLogger(__name__)
     time.sleep(10)
-    log.info("shit")
+    log.info("get started")
     bc = BlockChain()
     # automatically create a genesis block
     w1 = Wallet.generate_wallet()
@@ -305,7 +310,7 @@ def client1():
     fo.write(w2.address)
     fo.close()
 
-    time.sleep(8)
+    time.sleep(10)
     fee = random.uniform(0.1, 0.6)
     amount = 1
     tx = bc.new_transaction(w1.address, w2.address, amount, fee)    # change

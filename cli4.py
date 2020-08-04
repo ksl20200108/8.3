@@ -1,7 +1,8 @@
-# coding:utf-8  # recorder
+# coding:utf-8  # recorder * 1
 import argparse
 import threading
 import time
+import os
 from block_chain import *
 from wallet import Wallet
 from wallets import Wallets
@@ -160,7 +161,11 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
         couch.delete('block_chain')
     except:
         pass
-    db = DB("http://127.0.0.1:5984")
+    env_dist = os.environ
+    db_url1 = "http://couchdb"
+    db_url1 += env_dist.get('DB_URL')
+    db_url1 += ":5984"
+    db = DB(db_url1)
 
     bc = BlockChain()   # only one blockchain called bc
     utxo_set = UTXOSet()
@@ -173,59 +178,13 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     rpc = RPCServer(export_instance=Cli())
     rpc.start(False)
 
+    t4 = threading.Thread(target=client4, args=())
+    t4.start()
+
     p2p = P2p()
     server = PeerServer()
     server.run(p2p)
     p2p.run()
-
-    time.sleep(660)
-    chain_doc = []
-    bc1 = BlockChain()
-    last_blo = bc1.get_last_block()
-    last_height = last_blo.block_header.height
-    j = 0
-    m_total_payoff = -11
-    u_total_payoff = 11.33
-    users = {}
-    for i in range(0, last_height+1):
-        j += 1
-        blo = bc1.get_block_by_height(i)
-        if blo:
-            txs = blo._transactions
-            for tx in txs:
-                if tx.ip:
-                    u_total_payoff -= tx.amount
-                    m_total_payoff += tx.amount
-                    if tx.ip in users.keys():
-                        users[tx.ip] += (1.33 - tx.amount - 0.05 * j)
-                    else:
-                        users[tx.ip] = (1.33 - tx.amount - 0.05 * j)
-            print(blo.serialize())
-            print("")
-        else:
-            print("problems in the docs")
-            break
-    fo = open("data.txt", "w")
-    fo.truncate()
-    fo.write("the length of the block chain is ")
-    fo.write(str(j))
-    fo.write("\n")
-    fo.write("m_total_payoff: ")
-    fo.write(str(m_total_payoff))
-    fo.write("\n")
-    fo.write("u_total_payoff: ")
-    fo.write(str(u_total_payoff))
-    for key in users:
-        fo.write("\n")
-        fo.write("the user ")
-        fo.write(str(key))
-        fo.write("'s pay off is ")
-        fo.write(str(users[key]))
-    # print(j)
-    # print("m_total_payoff ", m_total_payoff)
-    # print("u_total_payoff ", u_total_payoff)
-    # for key in users:
-        # print("the user ", key, "'s pay off is ", users[key])
 
 
 def main():
@@ -319,6 +278,60 @@ def main():
             print("u_total_payoff ", u_total_payoff)
             for key in users:
                 print("the user ", key, "'s pay off is ", users[key])
+
+
+def client4():
+    time.sleep(100)
+    t1 = threading.Thread(target=finding_new_block, args=())
+    t1.start()
+    time.sleep(300)
+    chain_doc = []
+    bc1 = BlockChain()
+    last_blo = bc1.get_last_block()
+    last_height = last_blo.block_header.height
+    j = 0
+    m_total_payoff = -11
+    u_total_payoff = 11.33
+    users = {}
+    for i in range(0, last_height+1):
+        j += 1
+        blo = bc1.get_block_by_height(i)
+        if blo:
+            txs = blo._transactions
+            for tx in txs:
+                if tx.ip:
+                    u_total_payoff -= tx.amount
+                    m_total_payoff += tx.amount
+                    if tx.ip in users.keys():
+                        users[tx.ip] += (1.33 - tx.amount - 0.05 * j)
+                    else:
+                        users[tx.ip] = (1.33 - tx.amount - 0.05 * j)
+            print(blo.serialize())
+            print("")
+        else:
+            print("problems in the docs")
+            break
+    fo = open("data.txt", "w")
+    fo.truncate()
+    fo.write("the length of the block chain is ")
+    fo.write(str(j))
+    fo.write("\n")
+    fo.write("m_total_payoff: ")
+    fo.write(str(m_total_payoff))
+    fo.write("\n")
+    fo.write("u_total_payoff: ")
+    fo.write(str(u_total_payoff))
+    for key in users:
+        fo.write("\n")
+        fo.write("the user ")
+        fo.write(str(key))
+        fo.write("'s pay off is ")
+        fo.write(str(users[key]))
+    # print(j)
+    # print("m_total_payoff ", m_total_payoff)
+    # print("u_total_payoff ", u_total_payoff)
+    # for key in users:
+        # print("the user ", key, "'s pay off is ", users[key])
 
 
 if __name__ == "__main__":
