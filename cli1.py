@@ -285,7 +285,6 @@ def main():
 def client1():
     # time.sleep(30)
     bc = BlockChain()
-    # automatically create a genesis block
     f = open('address.txt', 'r')
     addrs = []
     for line in f:
