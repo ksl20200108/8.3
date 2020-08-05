@@ -58,7 +58,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -100,7 +100,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli4.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -142,7 +142,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -184,7 +184,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -226,7 +226,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -268,7 +268,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -310,7 +310,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -352,7 +352,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -394,7 +394,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli2.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -436,7 +436,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -478,7 +478,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -520,7 +520,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -562,7 +562,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -604,7 +604,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -646,7 +646,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -688,7 +688,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -730,7 +730,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -772,7 +772,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -814,7 +814,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
