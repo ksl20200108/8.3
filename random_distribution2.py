@@ -34,15 +34,18 @@ def results():
             index1 = distribution.index(i)
             break
     result1 = random.uniform(distribution[index1-1][0], distribution[index1][0])
-    print("python3 cli.py send --from 1EiVGWYsWiM7shgR5i9KTE2kUjzqcyQU9W --to 1CjsJ3JguwfGRAW1CKgVYor4UgcSG2XF9n --amount 1 --fee %f " % result1)
-    print("")
+    return result1
 
-for i in range(1, 51):
-    print("expeirment %d --------------------" % i)
-    print("")
-    for j in range(1, 12):
-        client_send = random.uniform(0, 1)
-        if client_send <= 0.95:
-            results()
+
+if random.uniform(0, 1) <= 0.95:
+    print(results())
+
+# for i in range(1, 51):
+#     print("expeirment %d --------------------" % i)
+#     print("")
+#     for j in range(1, 12):
+#         client_send = random.uniform(0, 1)
+#         if client_send <= 0.95:
+#             results()
 
 # print(line[:17], "|| ", line[18:])
