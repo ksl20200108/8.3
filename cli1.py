@@ -283,10 +283,9 @@ def main():
 
 
 def client1():
-    time.sleep(30)
+    # time.sleep(30)
     bc = BlockChain()
     # automatically create a genesis block
-    time.sleep(30)
     f = open('address.txt', 'r')
     addrs = []
     for line in f:
@@ -294,6 +293,7 @@ def client1():
     tx = bc.coin_base_tx(addrs[0])
     bc.new_genesis_block(tx)
 
+    time.sleep(30)
     fee = random.uniform(0.1, 0.6)
     amount = 1
     tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
