@@ -17,7 +17,6 @@ from transactions import *
 from db import *
 import couchdb
 import random
-import pdb  # 7.11
 # import sys # change
 # from sorting import *   # change
 
@@ -285,13 +284,14 @@ def client2():
     fo = open("address.txt", "r")
     addrs = []
     for line in fo:
-        addrs.append(line)
+        addrs.append(line[:34])
     fo.close()
     fee = random.uniform(0.1, 0.6)
     amount = 1
+    bc = BlockChain()
     tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
-    f = open("shit.txt", "w")
-    f.write("broadcast done")
+    f = open('shit.txt', 'w')
+    f.write('success')
     f.close()
     tx_pool = TxPool()
     tx_pool.add(tx)

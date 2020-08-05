@@ -284,36 +284,20 @@ def main():
 
 
 def client1():
-    logging.basicConfig(
-        level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    log = logging.getLogger(__name__)
     time.sleep(10)
-    log.info("get started")
     bc = BlockChain()
     # automatically create a genesis block
-    w1 = Wallet.generate_wallet()
-    ws = Wallets()
-    ws[w1.address] = w1
-    ws.save()
-    tx = bc.coin_base_tx(w1.address)
+    f = open('address.txt', 'r')
+    addrs = []
+    for line in f:
+        addrs.append(line[:34])
+    tx = bc.coin_base_tx(addrs[0])
     bc.new_genesis_block(tx)
-    log.info("genesis_block created")
-
-    fo = open("address.txt", "w")
-    fo.truncate()
-    fo.write(w1.address)     # save the address of the genesis block
-    fo.write("\n")
-
-    w2 = Wallet.generate_wallet()   # create another wallet to send transaction
-    ws[w2.address] = w2
-    ws.save()
-    fo.write(w2.address)
-    fo.close()
 
     time.sleep(10)
     fee = random.uniform(0.1, 0.6)
     amount = 1
-    tx = bc.new_transaction(w1.address, w2.address, amount, fee)    # change
+    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
     tx_pool = TxPool()
     tx_pool.add(tx)
     try:
@@ -321,7 +305,6 @@ def client1():
         server.broadcast_tx(tx)
     except Exception as e:
         pass
-    log.info("cli1 send tran")
 
 
 if __name__ == "__main__":

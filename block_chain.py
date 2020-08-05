@@ -4,6 +4,7 @@ import socket
 import struct
 import fcntl
 import os
+import pickle
 from block import Block
 from block_header import BlockHeader
 from db import DB
@@ -90,8 +91,10 @@ class BlockChain(object):
         block_header = BlockHeader('', height, prev_hash)
 
         # reward to wallets[0]
-        wallets = Wallets()
-        keys = list(wallets.wallets.keys())
+        # wallets = Wallets()
+        f = open('wallet.dat', 'rb')
+        wallets = pickle.load(f)
+        keys = list(wallets.keys())
         w = wallets[keys[0]]
         coin_base_tx = self.coin_base_tx(w.address, fee)    # change 6.19
         transactions.insert(0, coin_base_tx)
@@ -209,7 +212,9 @@ class BlockChain(object):
 
         env_dist = os.environ
         ip = env_dist.get('LOCAL_IP')
-        wallets = Wallets()
+        # wallets = Wallets()
+        f = open('wallet.dat', 'rb')
+        wallets = pickle.load(f)
         from_wallet = wallets[from_addr]
         pub_key = from_wallet.public_key
 

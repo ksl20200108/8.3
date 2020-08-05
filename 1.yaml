@@ -25,11 +25,11 @@ services:
     ports:
       - 5987:5984
 
-  couchdb5:
-    image: hyperledger/fabric-couchdb
-    container_name: c5
-    ports:
-      - 5988:5984
+  # couchdb5:
+  #   image: hyperledger/fabric-couchdb
+  #   container_name: c5
+  #   ports:
+  #     - 5988:5984
 
   # couchdb6:
   #   image: hyperledger/fabric-couchdb

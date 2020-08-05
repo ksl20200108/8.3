@@ -4,13 +4,13 @@ services:
   net_check2:
     image: net_check:1.0
     container_name: k2
-    environment: 
+    environment:
       - DB_URL=2
       - LOCAL_IP="192.168.118.132"
     ports:
       - 5679:5678
     privileged: true
-    volumes:                       
+    volumes:
       - ./conf2.py:/run/conf.py
       - ./base58.py:/run/base58.py
       - ./block.py:/run/block.py
