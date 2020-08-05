@@ -281,10 +281,12 @@ def main():
 
 
 def client4():
-    time.sleep(50)
+    fo = open("data.txt", "w")
+    fo.truncate()
+    time.sleep(60)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
-    time.sleep(300)
+    time.sleep(600)
     chain_doc = []
     bc1 = BlockChain()
     last_blo = bc1.get_last_block()
@@ -293,8 +295,6 @@ def client4():
     m_total_payoff = -11
     u_total_payoff = 11.33
     users = {}
-    fo = open("data.txt", "w")
-    fo.truncate()
     for i in range(0, last_height+1):
         j += 1
         blo = bc1.get_block_by_height(i)

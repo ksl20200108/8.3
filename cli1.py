@@ -283,7 +283,7 @@ def main():
 
 
 def client1():
-    time.sleep(10)
+    time.sleep(5)
     bc = BlockChain()
     # automatically create a genesis block
     f = open('address.txt', 'r')
