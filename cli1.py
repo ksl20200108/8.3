@@ -283,7 +283,7 @@ def main():
 
 
 def client1():
-    time.sleep(23)
+    time.sleep(30)
     bc = BlockChain()
     # automatically create a genesis block
     time.sleep(30)

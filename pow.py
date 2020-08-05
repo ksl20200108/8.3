@@ -50,7 +50,7 @@ class ProofOfWork(object):
 
             nonce += 1
         if found:
-            time.sleep(36)
+            time.sleep(60)
             pass
         else:
             # print('Not Found nonce')
