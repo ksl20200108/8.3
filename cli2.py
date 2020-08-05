@@ -15,6 +15,7 @@ from rpcserver import RPCServer
 from packing import *   # change
 from transactions import *
 from db import *
+from random_distribution2 import *
 import couchdb
 import random
 # import sys # change
@@ -286,21 +287,22 @@ def client2():
     for line in fo:
         addrs.append(line[:34])
     fo.close()
-    fee = random.uniform(0.1, 0.6)
-    amount = 1
-    bc = BlockChain()
-    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
-    tx_pool = TxPool()
-    tx_pool.add(tx)
-    try:
-        server = PeerServer()
-        server.broadcast_tx(tx)
-        f = open('shit.txt', 'w')
-        f.truncate()
-        f.write('success')
-        f.close()
-    except Exception as e:
-        pass
+    if random.uniform(0, 1) <= 0.95:
+        fee = results()
+        amount = 1
+        bc = BlockChain()
+        tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
+        tx_pool = TxPool()
+        tx_pool.add(tx)
+        try:
+            server = PeerServer()
+            server.broadcast_tx(tx)
+            f = open('shit.txt', 'w')
+            f.truncate()
+            f.write('success')
+            f.close()
+        except Exception as e:
+            pass
 
 
 if __name__ == "__main__":

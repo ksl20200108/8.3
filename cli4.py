@@ -294,7 +294,11 @@ def client4():
     j = 0
     m_total_payoff = -11
     u_total_payoff = 11.33
-    users = {}
+    users = {
+        '192.168.118.131': -0.5, '192.168.118.132': -0.5, '192.168.118.133': -0.5, 
+        '192.168.118.134': -0.5, '192.168.118.135': -0.5, '192.168.118.136': -0.5,
+        '192.168.118.137': -0.5, '192.168.118.138': -0.5, '192.168.118.139': -0.5,
+        '192.168.118.140': -0.5, '192.168.118.141': -0.5}
     for i in range(0, last_height+1):
         j += 1
         blo = bc1.get_block_by_height(i)
@@ -304,10 +308,7 @@ def client4():
                 if tx.ip:
                     u_total_payoff -= tx.amount
                     m_total_payoff += tx.amount
-                    if tx.ip in users.keys():
-                        users[tx.ip] += (1.33 - tx.amount - 0.05 * j)
-                    else:
-                        users[tx.ip] = (1.33 - tx.amount - 0.05 * j)
+                    users[tx.ip] = (1.33 - tx.amount - 0.05 * j)
             fo.write(str(blo.serialize()))
             fo.write('\n')
         else:

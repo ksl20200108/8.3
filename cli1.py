@@ -15,9 +15,9 @@ from rpcserver import RPCServer
 from packing import *   # change
 from transactions import *
 from db import *
+from random_distribution2 import *
 import couchdb
 import random
-import pdb  # 7.11
 # import sys # change
 # from sorting import *   # change
 
@@ -293,16 +293,17 @@ def client1():
     tx = bc.coin_base_tx(addrs[0])
     bc.new_genesis_block(tx)
 
-    fee = random.uniform(0.1, 0.6)
-    amount = 1
-    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
-    tx_pool = TxPool()
-    tx_pool.add(tx)
-    try:
-        server = PeerServer()
-        server.broadcast_tx(tx)
-    except Exception as e:
-        pass
+    if random.uniform(0, 1) <= 0.95:
+        fee = results()
+        amount = 1
+        tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
+        tx_pool = TxPool()
+        tx_pool.add(tx)
+        try:
+            server = PeerServer()
+            server.broadcast_tx(tx)
+        except Exception as e:
+            pass
 
 
 if __name__ == "__main__":
