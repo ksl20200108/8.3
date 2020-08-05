@@ -280,7 +280,7 @@ def main():
 
 
 def client2():
-    time.sleep(10)
+    time.sleep(30)
     fo = open("address.txt", "r")
     addrs = []
     for line in fo:
