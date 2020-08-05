@@ -281,7 +281,7 @@ def main():
 
 
 def client4():
-    time.sleep(100)
+    time.sleep(50)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
     time.sleep(300)
@@ -293,6 +293,8 @@ def client4():
     m_total_payoff = -11
     u_total_payoff = 11.33
     users = {}
+    fo = open("data.txt", "w")
+    fo.truncate()
     for i in range(0, last_height+1):
         j += 1
         blo = bc1.get_block_by_height(i)
@@ -306,13 +308,12 @@ def client4():
                         users[tx.ip] += (1.33 - tx.amount - 0.05 * j)
                     else:
                         users[tx.ip] = (1.33 - tx.amount - 0.05 * j)
-            print(blo.serialize())
-            print("")
+            fo.write(str(blo.serialize()))
+            fo.write('\n')
         else:
-            print("problems in the docs")
+            fo.write("problems in the docs")
+            fo.write('\n')
             break
-    fo = open("data.txt", "w")
-    fo.truncate()
     fo.write("the length of the block chain is ")
     fo.write(str(j))
     fo.write("\n")
@@ -327,11 +328,6 @@ def client4():
         fo.write(str(key))
         fo.write("'s pay off is ")
         fo.write(str(users[key]))
-    # print(j)
-    # print("m_total_payoff ", m_total_payoff)
-    # print("u_total_payoff ", u_total_payoff)
-    # for key in users:
-        # print("the user ", key, "'s pay off is ", users[key])
 
 
 if __name__ == "__main__":

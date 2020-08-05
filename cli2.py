@@ -280,7 +280,7 @@ def main():
 
 
 def client2():
-    time.sleep(60)
+    time.sleep(30)
     fo = open("address.txt", "r")
     addrs = []
     for line in fo:
@@ -290,17 +290,17 @@ def client2():
     amount = 1
     bc = BlockChain()
     tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
-    f = open('shit.txt', 'w')
-    f.write('success')
-    f.close()
     tx_pool = TxPool()
     tx_pool.add(tx)
     try:
         server = PeerServer()
         server.broadcast_tx(tx)
+        f = open('shit.txt', 'w')
+        f.truncate()
+        f.write('success')
+        f.close()
     except Exception as e:
         pass
-    log.info("cli2 send tran")
 
 
 if __name__ == "__main__":

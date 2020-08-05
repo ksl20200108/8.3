@@ -1,5 +1,5 @@
 # coding:utf-8
-
+import time
 import sys
 import utils
 from errors import NonceNotFoundError
@@ -10,7 +10,7 @@ class ProofOfWork(object):
     """
     pow
     """
-    _N_BITS = 23    # e1
+    _N_BITS = 4    # e1
     MAX_BITS = 256
     MAX_SIZE = sys.maxsize
     def __init__(self, block, n_bits=_N_BITS):
@@ -50,8 +50,8 @@ class ProofOfWork(object):
 
             nonce += 1
         if found:
-            # print('Found nonce == %d' % nonce)  # change delete
-            pass    # change
+            time.sleep(36)
+            pass
         else:
             # print('Not Found nonce')
             raise NonceNotFoundError('nonce not found')
