@@ -356,16 +356,19 @@ class TCPServer(object):
                 # log.info("s handle_synchronize with local last height and last height " + str(ls_blo.block_header.height) + " " + str(block.block_header.height))
                 for data in datas:
                     block = Block.deserialize(data)
-                    if block.block_header.height > ls_blo.block_header.height:
+                    if block.block_header.height == ls_blo.block_header.height+1:
                         bc.add_block_from_peers(block)
                         log.info(
                             "------server handle_get_block add_block_from_peers------")
                     else:
                         log.info("------error add------")
             else:
-                for data in datas:
-                    block = Block.deserialize(data)
+                data = datas[0]
+                block = Block.deserialize(data)
+                try:
                     bc.add_block_from_peers(block)
+                except:
+                    pass
                     log.info(
                         "------server handle_get_block add_block_from_peers------")
             msg = Msg(Msg.NONE_MSG, "")
@@ -623,7 +626,7 @@ class TCPClient(object):
                     block = Block.deserialize(data)
                     log.info("c handle_get_block local last height and last height " +
                              str(ls_blo.block_header.height) + " " + str(block.block_header.height))
-                    if block.block_header.height > ls_blo.block_header.height:
+                    if block.block_header.height == ls_blo.block_header.height+1:
                         bc.add_block_from_peers(block)
                         log.info(
                             "------client handle_get_block add_block_from_peers------")  # 7.8
@@ -631,9 +634,12 @@ class TCPClient(object):
                         log.info("------error add as last height " +
                                  str(block.block_header.height) + "------")
             else:
-                for data in datas:
-                    block = Block.deserialize(data)
+                data = datas[0]
+                block = Block.deserialize(data)
+                try:
                     bc.add_block_from_peers(block)
+                except:
+                    pass
                     log.info(
                         "------client handle_get_block add_block_from_peers------")
             msg = Msg(Msg.NONE_MSG, "")
