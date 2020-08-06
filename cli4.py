@@ -307,8 +307,8 @@ def client4():
         except:
             pass
     j = 0
-    m_total_payoff = -11
-    u_total_payoff = 11.33
+    m_total_payoff = 0
+    u_total_payoff = 0
     users = {}
     for i in range(0, last_height+1):
         j += 1
@@ -317,12 +317,12 @@ def client4():
             txs = blo._transactions
             for tx in txs:
                 if tx.ip:
-                    u_total_payoff -= tx.amount
-                    m_total_payoff += tx.amount
+                    u_total_payoff += (1.33 - tx.amount - 0.05*j)
+                    m_total_payoff += (tx.amount - 0.1 - 0.9)
                     if tx.ip in users.keys():
-                        users[tx.ip] += (1.33 - tx.amount - 0.05 * j)
+                        users[tx.ip] += (1.33 - tx.amount - 0.05*j)
                     else:
-                        users[tx.ip] = (1.33 - tx.amount - 0.05 * j)
+                        users[tx.ip] = (1.33 - tx.amount - 0.05*j)
             fo.write(str(blo.serialize()))
             fo.write('\n')
         else:
