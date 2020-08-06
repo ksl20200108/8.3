@@ -283,7 +283,6 @@ def main():
 
 
 def client1():
-    # time.sleep(30)
     bc = BlockChain()
     f = open('address.txt', 'r')
     addrs = []
