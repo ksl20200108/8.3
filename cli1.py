@@ -171,6 +171,17 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     utxo_set = UTXOSet()
     utxo_set.reindex(bc)
 
+    try:
+        f = open('address.txt', 'r')
+        addrs = []
+        for line in f:
+            addrs.append(line[:34])
+        f.close()
+        tx = bc.coin_base_tx(addrs[0])
+        bc.new_genesis_block(tx)
+    except:
+        pass
+
     tcpserver = TCPServer()
     tcpserver.listen()
     tcpserver.run()
@@ -283,18 +294,6 @@ def main():
 
 
 def client1():
-    try:
-        bc = BlockChain()
-        f = open('address.txt', 'r')
-        addrs = []
-        for line in f:
-            addrs.append(line[:34])
-        f.close()
-        tx = bc.coin_base_tx(addrs[0])
-        bc.new_genesis_block(tx)
-    except:
-        pass
-
     while True:
         try:
             f = open('address.txt', 'r')
