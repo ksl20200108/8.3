@@ -289,7 +289,7 @@ def client3():
     tx = bc.coin_base_tx(addrs[0])
     bc.new_genesis_block(tx)
 
-    time.sleep(180)
+    time.sleep(240)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
 

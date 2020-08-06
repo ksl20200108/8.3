@@ -292,7 +292,7 @@ def client4():
     fo = open("data.txt", "w")
     fo.truncate()
 
-    time.sleep(180)
+    time.sleep(240)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
     time.sleep(720)
@@ -337,7 +337,7 @@ def client4():
     fo.write("\n")
     fo.write("u_total_payoff: ")
     fo.write(str(u_total_payoff))
-    for key in users:
+    for key in users.keys():
         fo.write("\n")
         fo.write("the user ")
         fo.write(str(key))
