@@ -280,7 +280,7 @@ def main():
 
 
 def client2():
-    time.sleep(120)
+    # time.sleep(120)
     fo = open("address.txt", "r")
     addrs = []
     for line in fo:
@@ -289,7 +289,7 @@ def client2():
     fee = random.uniform(0.1, 0.6)
     amount = 1
     bc = BlockChain()
-    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)    # change
+    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)
     tx_pool = TxPool()
     tx_pool.add(tx)
     try:

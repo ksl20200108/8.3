@@ -281,7 +281,15 @@ def main():
 
 
 def client3():
-    time.sleep(240)
+    bc = BlockChain()
+    f = open('address.txt', 'r')
+    addrs = []
+    for line in f:
+        addrs.append(line[:34])
+    tx = bc.coin_base_tx(addrs[0])
+    bc.new_genesis_block(tx)
+
+    time.sleep(120)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
 
