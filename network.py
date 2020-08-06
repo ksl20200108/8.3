@@ -393,7 +393,7 @@ class TCPServer(object):
         tx_pool1 = TxPool()
         log.info("------server tx: " + str(len(tx_pool1.pre_txs)) +
                  "client tx: " + str(int(data)) + "------")
-        if len(tx_pool1.pre_txs) <= int(data):
+        if len(tx_pool1.pre_txs) <= int(data) and len(tx_pool1.pre_txs) < 11:
             log.info("------shorter------")
             msg = Msg(Msg.GET_TRANSACTION_MSG, "")
             return msg
