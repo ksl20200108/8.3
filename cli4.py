@@ -295,11 +295,17 @@ def client4():
     time.sleep(180)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
-    time.sleep(780)
+    time.sleep(720)
     chain_doc = []
-    bc1 = BlockChain()
-    last_blo = bc1.get_last_block()
-    last_height = last_blo.block_header.height
+    while True:
+        try:
+            bc1 = BlockChain()
+            last_blo = bc1.get_last_block()
+            last_height = last_blo.block_header.height
+            if last_height >= 11:
+                break
+        except:
+            pass
     j = 0
     m_total_payoff = -11
     u_total_payoff = 11.33
