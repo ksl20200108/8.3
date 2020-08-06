@@ -292,7 +292,7 @@ def client3():
     except:
         pass
 
-    time.sleep(180)
+    time.sleep(240)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
 
