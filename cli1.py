@@ -283,15 +283,19 @@ def main():
 
 
 def client1():
-    bc = BlockChain()
-    f = open('address.txt', 'r')
-    addrs = []
-    for line in f:
-        addrs.append(line[:34])
-    tx = bc.coin_base_tx(addrs[0])
-    bc.new_genesis_block(tx)
+    while True:
+        try:
+            bc = BlockChain()
+            f = open('address.txt', 'r')
+            addrs = []
+            for line in f:
+                addrs.append(line[:34])
+            tx = bc.coin_base_tx(addrs[0])
+            bc.new_genesis_block(tx)
+            break
+        except:
+            pass
 
-    # time.sleep(120)
     while True:
         try:
             fee = random.uniform(0.1, 0.6)

@@ -280,13 +280,19 @@ def main():
 
 
 def client2():
-    bc = BlockChain()
-    f = open('address.txt', 'r')
-    addrs = []
-    for line in f:
-        addrs.append(line[:34])
-    tx = bc.coin_base_tx(addrs[0])
-    bc.new_genesis_block(tx)
+    while True:
+        try:
+            bc = BlockChain()
+            f = open('address.txt', 'r')
+            addrs = []
+            for line in f:
+                addrs.append(line[:34])
+            tx = bc.coin_base_tx(addrs[0])
+            bc.new_genesis_block(tx)
+            break
+        except:
+            pass
+
 
     while True:
         try:
