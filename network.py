@@ -198,7 +198,7 @@ class TCPServer(object):
             log.info("------server handle_handshake precede------")
             try:
                 genesis_block = block_chain[0]
-            except IndexError as e:
+            except:
                 genesis_block = None
             data = {
                 "last_height": -1,
@@ -381,7 +381,7 @@ class TCPServer(object):
             # conn.sendall(struct.pack('i', header_size))
             # conn.sendall(header_bytes)
             # conn.sendall(send_bytes)
-        except ValueError as e:
+        except:
             log.info("------server handle_get_block failed get last block------")
             log.info(str(e))
             msg = Msg(Msg.NONE_MSG, "")
@@ -498,7 +498,7 @@ class TCPClient(object):
                     block = block_chain.get_last_block()
                     try:
                         genesis_block = block_chain[0]
-                    except IndexError as e:
+                    except:
                         genesis_block = None
                     if block:
                         last_height = block.block_header.height
@@ -521,7 +521,7 @@ class TCPClient(object):
                 block = block_chain.get_last_block()
                 try:
                     genesis_block = block_chain[0]
-                except IndexError as e:
+                except:
                     genesis_block = None
                 if block:
                     last_height = block.block_header.height
@@ -644,7 +644,7 @@ class TCPClient(object):
                         "------client handle_get_block add_block_from_peers------")
             msg = Msg(Msg.NONE_MSG, "")
             self.send(msg)
-        except ValueError as e:
+        except:
             log.info(
                 "------client handle_get_block failed to add_block_from_peers------")  # 7.8
             log.info(str(e))
