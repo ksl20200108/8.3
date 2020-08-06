@@ -288,12 +288,17 @@ def client2():
     tx = bc.coin_base_tx(addrs[0])
     bc.new_genesis_block(tx)
 
-    fee = random.uniform(0.1, 0.6)
-    amount = 1
-    bc = BlockChain()
-    tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)
-    tx_pool = TxPool()
-    tx_pool.add(tx)
+    while True:
+        try:
+            fee = random.uniform(0.1, 0.6)
+            amount = 1
+            bc = BlockChain()
+            tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)
+            tx_pool = TxPool()
+            tx_pool.add(tx)
+            break
+        except:
+            pass
     try:
         server = PeerServer()
         server.broadcast_tx(tx)
