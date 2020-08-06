@@ -295,7 +295,7 @@ def client4():
     time.sleep(180)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
-    time.sleep(720)
+    time.sleep(780)
     chain_doc = []
     bc1 = BlockChain()
     last_blo = bc1.get_last_block()
