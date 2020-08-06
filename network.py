@@ -390,19 +390,20 @@ class TCPServer(object):
         tx_pool1 = TxPool()
         log.info("------server tx: " + str(len(tx_pool1.pre_txs)) +
                  "client tx: " + str(int(data)) + "------")
-        if len(tx_pool1.pre_txs) < int(data):
+        if len(tx_pool1.pre_txs) <= int(data):
             log.info("------shorter------")
             msg = Msg(Msg.GET_TRANSACTION_MSG, "")
             return msg
-        elif len(tx_pool1.pre_txs) > int(data):
+        # elif len(tx_pool1.pre_txs) > int(data):
+        else:
             log.info("------longer------")
             data = [tx.serialize() for tx in tx_pool1.txs]
             msg = Msg(Msg.MISS_TRANSACTION_MSG, data)
             return msg
-        else:
-            log.info("------the same------")
-            msg = Msg(Msg.NONE_MSG, "")
-            return msg
+        # else:
+        #     log.info("------the same------")
+        #     msg = Msg(Msg.NONE_MSG, "")
+        #     return msg
 
 
 class TCPClient(object):
