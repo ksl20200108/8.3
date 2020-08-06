@@ -363,9 +363,9 @@ class TCPServer(object):
                     else:
                         log.info("------error add------")
             else:
-                data = datas[0]
-                block = Block.deserialize(data)
                 try:
+                    data = datas[0]
+                    block = Block.deserialize(data)
                     bc.add_block_from_peers(block)
                 except:
                     pass
@@ -634,9 +634,9 @@ class TCPClient(object):
                         log.info("------error add as last height " +
                                  str(block.block_header.height) + "------")
             else:
-                data = datas[0]
-                block = Block.deserialize(data)
                 try:
+                    data = datas[0]
+                    block = Block.deserialize(data)
                     bc.add_block_from_peers(block)
                 except:
                     pass
