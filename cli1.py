@@ -304,6 +304,7 @@ def client1():
             f.close()
             fee = random.uniform(0.1, 0.6)
             amount = 1
+            bc = BlockChain()
             tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)
             tx_pool = TxPool()
             tx_pool.add(tx)
