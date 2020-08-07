@@ -123,7 +123,7 @@ class TCPServer(object):
                 conn.sendall(header_bytes)
                 conn.sendall(send_bytes)
                 log.info("------receive Unsuccessfully------")
-            time.sleep(1)
+            time.sleep(2)
 
     def listen_loop(self):
         while True:
@@ -152,14 +152,14 @@ class TCPServer(object):
             log.info("------server receive MISS_TRANSACTION_MSG------")
             res_msg = self.handle_miss(msg, conn, addr)
         else:
-            time.sleep(1)
+            time.sleep(2)
             return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
         if res_msg:
-            time.sleep(1)
+            time.sleep(2)
             return json.dumps(res_msg.__dict__)
         else:
-            time.sleep(1)
+            time.sleep(2)
             return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
     def handle_handshake(self, msg, conn, addr):

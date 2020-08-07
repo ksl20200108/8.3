@@ -295,7 +295,7 @@ def client4():
     fo = open("data.txt", "w")
     fo.truncate()
 
-    time.sleep(30)
+    time.sleep(40)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
     time.sleep(900)
