@@ -366,16 +366,21 @@ class TCPClient(object):
 
     def send(self, msg):
         log.info("------client send------")
-        data = json.dumps(msg.__dict__)
-        send_bytes = data.encode()
-        header_json = json.dumps({"send_size": len(send_bytes)})
-        header_bytes = header_json.encode()
-        header_size = len(header_bytes)
-        time.sleep(1)
-        self.sock.sendall(struct.pack('i', header_size))
-        self.sock.sendall(header_bytes)
-        self.sock.sendall(send_bytes)
-        log.info("client send to:" + self.ip + "------with these data" + data)
+        try:
+            data = json.dumps(msg.__dict__)
+            send_bytes = data.encode()
+            header_json = json.dumps({"send_size": len(send_bytes)})
+            header_bytes = header_json.encode()
+            header_size = len(header_bytes)
+            time.sleep(1)
+            self.sock.sendall(struct.pack('i', header_size))
+            self.sock.sendall(header_bytes)
+            self.sock.sendall(send_bytes)
+            log.info("client send to:" + self.ip + "------with these data" + data)
+        except:
+            p_s = PeerServer()
+            p_s.ips.remove(self.ip)
+            return
         try:
             header_size = struct.unpack('i', self.sock.recv(4))[0]
             header_bytes = self.sock.recv(header_size)
