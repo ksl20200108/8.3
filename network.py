@@ -110,6 +110,7 @@ class TCPServer(object):
                 header_json = json.dumps({"send_size": len(send_bytes)})
                 header_bytes = header_json.encode()
                 header_size = len(header_bytes)
+                time.sleep(2)
                 conn.sendall(struct.pack('i', header_size))
                 conn.sendall(header_bytes)
                 conn.sendall(send_bytes)
@@ -119,11 +120,11 @@ class TCPServer(object):
                 header_json = json.dumps({"send_size": len(send_bytes)})
                 header_bytes = header_json.encode()
                 header_size = len(header_bytes)
+                time.sleep(2)
                 conn.sendall(struct.pack('i', header_size))
                 conn.sendall(header_bytes)
                 conn.sendall(send_bytes)
                 log.info("------receive Unsuccessfully------")
-            time.sleep(2)
 
     def listen_loop(self):
         while True:
@@ -152,14 +153,14 @@ class TCPServer(object):
             log.info("------server receive MISS_TRANSACTION_MSG------")
             res_msg = self.handle_miss(msg, conn, addr)
         else:
-            time.sleep(2)
+            time.sleep(1)
             return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
         if res_msg:
-            time.sleep(2)
+            time.sleep(1)
             return json.dumps(res_msg.__dict__)
         else:
-            time.sleep(2)
+            time.sleep(1)
             return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
     def handle_handshake(self, msg, conn, addr):
@@ -311,6 +312,7 @@ class TCPServer(object):
                 for data in datas:
                     block = Block.deserialize(data)
                     if block.block_header.height == l_height + 1:
+                        time.sleep(random.uniform(0, 1))
                         bc.add_block_from_peers(block)
                         l_height += 1
                         log.info(
@@ -321,6 +323,7 @@ class TCPServer(object):
                 try:
                     data = datas[0]
                     block = Block.deserialize(data)
+                    time.sleep(random.uniform(0, 1))
                     bc.add_block_from_peers(block)
                 except:
                     pass
@@ -571,6 +574,7 @@ class TCPClient(object):
                     log.info("c handle_get_block local last height and last height " +
                              str(ls_blo.block_header.height) + " " + str(block.block_header.height))
                     if block.block_header.height == l_height + 1:
+                        time.sleep(random.uniform(0, 1))
                         bc.add_block_from_peers(block)
                         l_height += 1
                         log.info(
@@ -582,6 +586,7 @@ class TCPClient(object):
                 try:
                     data = datas[0]
                     block = Block.deserialize(data)
+                    time.sleep(random.uniform(0, 1))
                     bc.add_block_from_peers(block)
                 except:
                     pass
