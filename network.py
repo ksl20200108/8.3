@@ -132,38 +132,35 @@ class TCPServer(object):
             t = threading.Thread(target=self.handle_loop, args=(conn, addr))
             t.start()
 
-    def handle(self, msg, conn, addr):  # 7.10
+    def handle(self, msg, conn, addr):
         code = msg.get("code", 0)
         log.info("code:" + str(code))
         if code == Msg.HAND_SHAKE_MSG:
             log.info("------server receive HAND_SHAKE_MSG------")
-            res_msg = self.handle_handshake(msg, conn, addr)  # 7.10
-            # res_msg = None  # 7.10
+            res_msg = self.handle_handshake(msg, conn, addr)
         elif code == Msg.GET_BLOCK_MSG:
             log.info("------server receive GET_BLOCK_MSG------")
             res_msg = self.handle_get_block(msg, conn, addr)
         elif code == Msg.TRANSACTION_MSG:
             log.info("------server receive TRANSACTION_MSG------")
-            res_msg = self.handle_transaction(msg, conn, addr)  # 7.20
-        elif code == Msg.SYNCHRONIZE_MSG:  # 7.10
+            res_msg = self.handle_transaction(msg, conn, addr)
+        elif code == Msg.SYNCHRONIZE_MSG:
             log.info("------server receive SYNCHRONIZE_MSG------")
             res_msg = self.handle_synchronize(msg, conn, addr)
-            # res_msg = None
-        elif code == Msg.MISS_TRANSACTION_MSG:  # 7.21
+        elif code == Msg.MISS_TRANSACTION_MSG:
             log.info("------server receive MISS_TRANSACTION_MSG------")
             res_msg = self.handle_miss(msg, conn, addr)
         else:
-            # '{"code": 0, "data":""}'    # 7.23
             return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
         if res_msg:
             return json.dumps(res_msg.__dict__)
         else:
-            return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)  # 7.23
+            return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
     def handle_handshake(self, msg, conn, addr):
         log.info("------server handle_handshake from " +
-                 str(addr) + "------")  # 7.10
+                 str(addr) + "------")
         data = msg.get("data", "")
         last_height = data.get("last_height", 0)
         log.info("------with last_height " + str(last_height) + "------")
@@ -218,7 +215,7 @@ class TCPServer(object):
 
     def handle_get_block(self, msg, conn, addr):
         log.info("------server handle_get_block from " +
-                 str(addr) + "------")  # 7.8
+                 str(addr) + "------")
         get_range = msg.get("data", 1)
         log.info("------with range " +
                  str(get_range[0]) + " " + str(get_range[1]) + "------")
@@ -240,27 +237,26 @@ class TCPServer(object):
                 data.append(block)
             elif data:
                 msg = Msg(Msg.GET_BLOCK_MSG, data)
-                log.info("------server send get_block msg------")  # 7.10
+                log.info("------server send get_block msg------")
                 return msg
             else:
                 msg = Msg(Msg.NONE_MSG, "")
                 return msg
-        log.info("------server handle_get_block: get_block_by_height------")  # 7.8
+        log.info("------server handle_get_block: get_block_by_height------")
         msg = Msg(Msg.GET_BLOCK_MSG, data)
         log.info("------server send get_block msg" +
-                 str(data) + "------")  # 7.10
+                 str(data) + "------")
         return msg
 
-    def handle_transaction(self, msg, conn, addr):  # 7.20
-        log.info("------server handle_transaction------")  # 7.8
+    def handle_transaction(self, msg, conn, addr):
+        log.info("------server handle_transaction------")
         tx_pool = TxPool()
         txs = msg.get("data", {})
         for tx_data in txs:
-            log.info("------server handle_transaction: for------")  # 7.8
+            log.info("------server handle_transaction: for------")
             tx = Transaction.deserialize(tx_data)
             is_new = True
-            if tx_pool.is_new(tx):  # 7.20
-                # 7.20
+            if tx_pool.is_new(tx):
                 log.info("------server never get this transaction before------")
                 bc = BlockChain()
                 ls_bl = bc.get_last_block()
@@ -281,13 +277,12 @@ class TCPServer(object):
                                 if transaction.txid == tx.txid:
                                     log.info("------old transaction------")
                                     log.info("------the id is: " +
-                                             str(tx.txid) + "------")  # 7.20
+                                             str(tx.txid) + "------")
                                     is_new = False
-                                    # break
                                 else:
                                     log.info("------brand new------")
                                     log.info("------the id is: " +
-                                             str(tx.txid) + "------")  # 7.20
+                                             str(tx.txid) + "------")
                         if not is_new:
                             break
                 if is_new:
@@ -425,7 +420,6 @@ class TCPClient(object):
     def shake_loop(self):
         log.info("------client shake_loop ip:" + self.ip +
                  "\tport:" + str(self.port) + "------")
-        log.info("the time is " + str(time.time() - self.time))
         tx_pool1 = TxPool()
         if self.txs:
             log.info("------client server has txs------")
@@ -570,7 +564,7 @@ class TCPClient(object):
                         bc.add_block_from_peers(block)
                         l_height += 1
                         log.info(
-                            "------client handle_get_block add_block_from_peers------")  # 7.8
+                            "------client handle_get_block add_block_from_peers------")
                     else:
                         log.info("------error add as last height " +
                                  str(block.block_header.height) + "------")
@@ -584,17 +578,17 @@ class TCPClient(object):
             self.shake_loop()
         except:
             log.info(
-                "------client handle_get_block failed to add_block_from_peers------")  # 7.8
+                "------client handle_get_block failed to add_block_from_peers------")
             self.shake_loop()
 
     def handle_transaction(self, msg):
-        log.info("------client handle_transaction------")  # 7.8
+        log.info("------client handle_transaction------")
         data = msg.get("data", {})
         tx = Transaction.deserialize(data)
         tx_pool = TxPool()
         is_new = True
         if tx_pool.is_new(tx):
-            log.info("------client never get this transaction before------")  # 7.20
+            log.info("------client never get this transaction before------")
             bc = BlockChain()
             ls_bl = bc.get_last_block()
             if ls_bl:
@@ -618,7 +612,7 @@ class TCPClient(object):
             if is_new:
                 tx_pool.add(tx)
                 log.info(
-                    "------client handel_transaction txpool added------")  # 7.8
+                    "------client handel_transaction txpool added------")
                 server2 = PeerServer()
                 server2.broadcast_tx(tx)
                 log.info("------client handle_transaction broadcast------")
@@ -692,7 +686,6 @@ class TCPClient(object):
                                     log.info("------the id is: " +
                                              str(tx.txid) + "------")
                                     is_new = False
-                                    # break
                                 else:
                                     log.info("------brand new miss------")
                                     log.info("------the id is: " +
