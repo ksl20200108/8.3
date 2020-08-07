@@ -298,7 +298,7 @@ def client4():
     time.sleep(60)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
-    time.sleep(840)
+    time.sleep(900)
     chain_doc = []
     while True:
         try:
@@ -308,7 +308,7 @@ def client4():
             if last_height >= 11:
                 break
         except:
-            time.sleep(5)
+            time.sleep(30)
     j = 0
     m_total_payoff = 0
     u_total_payoff = 0
