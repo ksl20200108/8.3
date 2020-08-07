@@ -472,7 +472,7 @@ class TCPClient(object):
                     data = len(tx_pool1.pre_txs)
                     msg = Msg(Msg.MISS_TRANSACTION_MSG, data)
                     self.send(msg)
-                elif a < 0.6:
+                elif a < 0.5:
                     msg = Msg(Msg.NONE_MSG, "")
                     self.send(msg)
                 else:
