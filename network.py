@@ -294,8 +294,6 @@ class TCPServer(object):
                     tx_pool.add(tx)
                     log.info("------server add this transaction------")
                     log.info("------the id is: " + str(tx.txid) + "------")
-                    server1 = PeerServer()
-                    server1.broadcast_tx(tx)
                     log.info("------server handle_transaction broadcast------")
         msg = Msg(Msg.NONE_MSG, "")
         return msg
@@ -425,6 +423,7 @@ class TCPClient(object):
         time.sleep(1)
         log.info("------client shake_loop ip:" + self.ip +
                  "\tport:" + str(self.port) + "------")
+        log.info("the time is " + str(time.time() - self.time))
         tx_pool1 = TxPool()
         if self.txs:
             log.info("------client server has txs------")
@@ -700,8 +699,6 @@ class TCPClient(object):
                     tx_pool.add(tx)
                     log.info("------client miss add this transaction------")
                     log.info("------the id is: " + str(tx.txid) + "------")
-                    server1 = PeerServer()
-                    server1.broadcast_tx(tx)
                     log.info("------client handle_miss broadcast------")
         self.shake_loop()
 
