@@ -94,7 +94,7 @@ class TCPServer(object):
                      str(recv_data)[1:] + "------")
             if not recv_data:
                 log.info("------server handle_loop connection broke------")
-                continue
+                return
             try:
                 try:
                     recv_msg = eval(recv_data.decode())
@@ -123,6 +123,7 @@ class TCPServer(object):
                 conn.sendall(header_bytes)
                 conn.sendall(send_bytes)
                 log.info("------receive Unsuccessfully------")
+            time.sleep(1)
 
     def listen_loop(self):
         while True:
