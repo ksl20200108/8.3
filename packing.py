@@ -99,7 +99,8 @@ def finding_new_block():
         tx3, total_fee = packing()
         log.info("------return these information:" + str(tx3) + str(total_fee) + "------")
         try:
-            bc1.add_block(tx3, total_fee)    # wait try when there's no transaction
+            if tx3:
+                bc1.add_block(tx3, total_fee)    # wait try when there's no transaction
         except:
             log.info("------fall behind in mine------")
             try:

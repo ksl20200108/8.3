@@ -308,7 +308,7 @@ def client4():
             if last_height >= 11:
                 break
         except:
-            pass
+            time.sleep(5)
     j = 0
     m_total_payoff = 0
     u_total_payoff = 0
