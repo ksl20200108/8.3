@@ -309,43 +309,49 @@ def client4():
                 break
         except:
             time.sleep(30)
-    j = 0
-    m_total_payoff = 0
-    u_total_payoff = 0
-    users = {}
-    for i in range(0, last_height+1):
-        j += 1
-        blo = bc1.get_block_by_height(i)
-        if blo:
-            txs = blo._transactions
-            for tx in txs:
-                if tx.ip:
-                    u_total_payoff += (1.33 - tx.amount - 0.05*j)
-                    m_total_payoff += (tx.amount - 0.1 - 0.9)
-                    if tx.ip in users.keys():
-                        users[tx.ip] += (1.33 - tx.amount - 0.05*j)
-                    else:
-                        users[tx.ip] = (1.33 - tx.amount - 0.05*j)
-            fo.write(str(blo.serialize()))
-            fo.write('\n')
-        else:
-            fo.write("problems in the docs")
-            fo.write('\n')
+    while True:
+        try:
+            j = 0
+            m_total_payoff = 0
+            u_total_payoff = 0
+            users = {}
+            for i in range(0, last_height+1):
+                j += 1
+                blo = bc1.get_block_by_height(i)
+                if blo:
+                    txs = blo._transactions
+                    for tx in txs:
+                        if tx.ip:
+                            u_total_payoff += (1.33 - tx.amount - 0.05*j)
+                            m_total_payoff += (tx.amount - 0.1 - 0.9)
+                            if tx.ip in users.keys():
+                                users[tx.ip] += (1.33 - tx.amount - 0.05*j)
+                            else:
+                                users[tx.ip] = (1.33 - tx.amount - 0.05*j)
+                    fo.write(str(blo.serialize()))
+                    fo.write('\n')
+                else:
+                    fo.write("problems in the docs")
+                    fo.write('\n')
+                    break
+            fo.write("the length of the block chain is ")
+            fo.write(str(j))
+            fo.write("\n")
+            fo.write("m_total_payoff: ")
+            fo.write(str(m_total_payoff))
+            fo.write("\n")
+            fo.write("u_total_payoff: ")
+            fo.write(str(u_total_payoff))
+            for key in users.keys():
+                fo.write("\n")
+                fo.write("the user ")
+                fo.write(str(key))
+                fo.write("'s pay off is ")
+                fo.write(str(users[key]))
+            fo.close()
             break
-    fo.write("the length of the block chain is ")
-    fo.write(str(j))
-    fo.write("\n")
-    fo.write("m_total_payoff: ")
-    fo.write(str(m_total_payoff))
-    fo.write("\n")
-    fo.write("u_total_payoff: ")
-    fo.write(str(u_total_payoff))
-    for key in users:
-        fo.write("\n")
-        fo.write("the user ")
-        fo.write(str(key))
-        fo.write("'s pay off is ")
-        fo.write(str(users[key]))
+        except:
+            pass
 
 
 if __name__ == "__main__":
