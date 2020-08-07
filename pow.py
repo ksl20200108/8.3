@@ -32,12 +32,6 @@ class ProofOfWork(object):
         hash_hex = None
         # print('Mining a new block')   # change delete
         while nonce < self.MAX_SIZE:
-            try:
-                st = StopMine()
-                if st.h >= st.mine_h:
-                    raise NonceNotFoundError
-            except:
-                pass
             data = self._prepare_data(nonce)
             hash_hex = utils.sum256_hex(data)
 
@@ -50,8 +44,14 @@ class ProofOfWork(object):
 
             nonce += 1
         if found:
-            time.sleep(60)
-            pass
+            for i in range(0, 60):
+                try:
+                    st = StopMine()
+                    if st.h >= st.mine_h:
+                        raise NonceNotFoundError
+                    time.sleep(1)
+                except:
+                    time.sleep(1)
         else:
             # print('Not Found nonce')
             raise NonceNotFoundError('nonce not found')

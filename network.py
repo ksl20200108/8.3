@@ -121,7 +121,7 @@ class TCPServer(object):
                 conn.sendall(struct.pack('i', header_size))
                 conn.sendall(header_bytes)
                 conn.sendall(send_bytes)  # 7.10
-            except:
+            except ValueError as e:
                 # time.sleep(1)
                 send_data = json.dumps(Msg(Msg.NONE_MSG, "").__dict__)  # 7.23
                 send_bytes = send_data.encode()
@@ -198,7 +198,7 @@ class TCPServer(object):
             log.info("------server handle_handshake precede------")
             try:
                 genesis_block = block_chain[0]
-            except:
+            except IndexError as e:
                 genesis_block = None
             data = {
                 "last_height": -1,
@@ -371,8 +371,9 @@ class TCPServer(object):
             # conn.sendall(struct.pack('i', header_size))
             # conn.sendall(header_bytes)
             # conn.sendall(send_bytes)
-        except:
+        except ValueError as e:
             log.info("------server handle_get_block failed get last block------")
+            log.info(str(e))
             msg = Msg(Msg.NONE_MSG, "")
             return msg
 
@@ -386,14 +387,14 @@ class TCPServer(object):
             log.info("------shorter------")
             msg = Msg(Msg.GET_TRANSACTION_MSG, "")
             return msg
-        elif len(tx_pool1.pre_txs) == 11:
-            log.info("------the same------")
-            msg = Msg(Msg.NONE_MSG, "")
-            return msg
-        else:
+        elif int(data) > len(tx_pool1.pre_txs):
             log.info("------longer------")
             data = [tx.serialize() for tx in tx_pool1.txs]
             msg = Msg(Msg.MISS_TRANSACTION_MSG, data)
+            return msg
+        else:
+            log.info("------the same------")
+            msg = Msg(Msg.NONE_MSG, "")
             return msg
         # else:
         #     log.info("------the same------")
@@ -485,13 +486,16 @@ class TCPClient(object):
                     data = len(tx_pool1.pre_txs)
                     msg = Msg(Msg.MISS_TRANSACTION_MSG, data)
                     self.send(msg)
+                elif a < 0.5:
+                    msg = Msg(Msg.NONE_MSG, "")
+                    self.send(msg)
                 else:
                     log.info("shake")
                     block_chain = BlockChain()
                     block = block_chain.get_last_block()
                     try:
                         genesis_block = block_chain[0]
-                    except:
+                    except IndexError as e:
                         genesis_block = None
                     if block:
                         last_height = block.block_header.height
@@ -514,7 +518,7 @@ class TCPClient(object):
                 block = block_chain.get_last_block()
                 try:
                     genesis_block = block_chain[0]
-                except:
+                except IndexError as e:
                     genesis_block = None
                 if block:
                     last_height = block.block_header.height
@@ -635,9 +639,10 @@ class TCPClient(object):
                     pass
             msg = Msg(Msg.NONE_MSG, "")
             self.send(msg)
-        except:
+        except ValueError as e:
             log.info(
                 "------client handle_get_block failed to add_block_from_peers------")  # 7.8
+            log.info(str(e))
             msg = Msg(Msg.NONE_MSG, "")
             self.send(msg)
 
@@ -677,10 +682,10 @@ class TCPClient(object):
                 server2.broadcast_tx(tx)
                 log.info("------client handle_transaction broadcast------")
 
-        msg = Msg(Msg.NONE_MSG, "")  # 7.23
+        msg = Msg(Msg.NONE_MSG, "")
         self.send(msg)  # 7.23
 
-    def handle_synchronize(self, msg):  # 7.10
+    def handle_synchronize(self, msg):
         synchronize_range = msg.get("data", 1)
         block_chain = BlockChain()
         data = []
