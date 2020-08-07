@@ -428,10 +428,10 @@ class TCPClient(object):
         if self.txs:
             log.info("------client server has txs------")
             data = [tx.serialize() for tx in self.txs]
+            self.txs = []
             log.info("------client serialize transaction-------")
             msg = Msg(Msg.TRANSACTION_MSG, data)
             self.send(msg)
-            self.txs = []
         elif tx_pool1.pre_txs:
             a = random.uniform(0, 1)
             if a < 0.7 and (time.time() - self.time) < 30:
