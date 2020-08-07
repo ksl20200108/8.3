@@ -480,12 +480,12 @@ class TCPClient(object):
                 self.txs = []  # 7.21 'clear' -> '= []'
             elif tx_pool1.pre_txs:
                 a = random.uniform(0, 1)
-                if a < 0.5 and (time.time() - self.time) < 120:
+                if a < 0.5 and (time.time() - self.time) < 60:
                     log.info("------has previous transaction------")
                     data = len(tx_pool1.pre_txs)
                     msg = Msg(Msg.MISS_TRANSACTION_MSG, data)
                     self.send(msg)
-                elif a < 0.5:
+                elif a < 0.7:
                     msg = Msg(Msg.NONE_MSG, "")
                     self.send(msg)
                 else:
