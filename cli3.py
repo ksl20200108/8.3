@@ -292,7 +292,7 @@ def main():
 
 
 def client3():
-    time.sleep(180)
+    time.sleep(120)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
 
