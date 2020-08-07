@@ -298,7 +298,7 @@ def client4():
     time.sleep(60)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
-    time.sleep(780)
+    time.sleep(840)
     chain_doc = []
     while True:
         try:
