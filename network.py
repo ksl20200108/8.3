@@ -152,11 +152,14 @@ class TCPServer(object):
             log.info("------server receive MISS_TRANSACTION_MSG------")
             res_msg = self.handle_miss(msg, conn, addr)
         else:
+            time.sleep(1)
             return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
         if res_msg:
+            time.sleep(1)
             return json.dumps(res_msg.__dict__)
         else:
+            time.sleep(1)
             return json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
 
     def handle_handshake(self, msg, conn, addr):
@@ -373,7 +376,7 @@ class TCPClient(object):
             header_json = json.dumps({"send_size": len(send_bytes)})
             header_bytes = header_json.encode()
             header_size = len(header_bytes)
-            time.sleep(1)
+            time.sleep(2)
             self.sock.sendall(struct.pack('i', header_size))
             self.sock.sendall(header_bytes)
             self.sock.sendall(send_bytes)
@@ -424,7 +427,7 @@ class TCPClient(object):
             self.shake_loop()
 
     def shake_loop(self):
-        time.sleep(1)
+        time.sleep(2)
         log.info("------client shake_loop ip:" + self.ip +
                  "\tport:" + str(self.port) + "------")
         tx_pool1 = TxPool()
