@@ -294,6 +294,8 @@ class TCPServer(object):
                     tx_pool.add(tx)
                     log.info("------server add this transaction------")
                     log.info("------the id is: " + str(tx.txid) + "------")
+                    server1 = PeerServer()
+                    server1.broadcast_tx(tx)
                     log.info("------server handle_transaction broadcast------")
         msg = Msg(Msg.NONE_MSG, "")
         return msg
@@ -306,11 +308,12 @@ class TCPServer(object):
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:
-                # log.info("s handle_synchronize with local last height and last height " + str(ls_blo.block_header.height) + " " + str(block.block_header.height))
+                l_height = ls_blo.block_header.height
                 for data in datas:
                     block = Block.deserialize(data)
-                    if block.block_header.height == ls_blo.block_header.height + 1:
+                    if block.block_header.height == l_height + 1:
                         bc.add_block_from_peers(block)
+                        l_height += 1
                         log.info(
                             "------server handle_get_block add_block_from_peers------")
                     else:
@@ -420,7 +423,6 @@ class TCPClient(object):
             self.shake_loop()
 
     def shake_loop(self):
-        time.sleep(1)
         log.info("------client shake_loop ip:" + self.ip +
                  "\tport:" + str(self.port) + "------")
         log.info("the time is " + str(time.time() - self.time))
@@ -559,12 +561,14 @@ class TCPClient(object):
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:
+                l_height = ls_blo.block_header.height
                 for data in datas:
                     block = Block.deserialize(data)
                     log.info("c handle_get_block local last height and last height " +
                              str(ls_blo.block_header.height) + " " + str(block.block_header.height))
-                    if block.block_header.height == ls_blo.block_header.height + 1:
+                    if block.block_header.height == l_height + 1:
                         bc.add_block_from_peers(block)
+                        l_height += 1
                         log.info(
                             "------client handle_get_block add_block_from_peers------")  # 7.8
                     else:
