@@ -342,7 +342,7 @@ def client4():
             fo.write("\n")
             fo.write("u_total_payoff: ")
             fo.write(str(u_total_payoff))
-            for key in users.keys():
+            for key in users:
                 fo.write("\n")
                 fo.write("the user ")
                 fo.write(str(key))
