@@ -211,16 +211,6 @@ class TCPServer(object):
                 }
             msg = Msg(Msg.HAND_SHAKE_MSG, data)
             return msg
-            # send_data = json.dumps(msg.__dict__)
-            # time.sleep(1)  # 7.13
-            # send_bytes = send_data.encode()
-            # header_json = json.dumps({"send_size": len(send_bytes)})
-            # header_bytes = header_json.encode()
-            # header_size = len(header_bytes)
-            # conn.sendall(struct.pack('i', header_size))
-            # conn.sendall(header_bytes)
-            # conn.sendall(send_bytes)
-            # log.info("------server handle_handshake precede send msg: " + str(data) + "------")
 
         elif local_last_height < last_height:
             try:
@@ -420,6 +410,7 @@ class TCPClient(object):
         self.port = port  # 7.11
         log.info("connect ip:" + ip + "\tport:" + str(port))
         self.sock.connect((ip, port))
+        self.time = time.time()
 
     def add_tx(self, tx):
         log.info("------client add_tx------")  # 7.10
@@ -490,7 +481,7 @@ class TCPClient(object):
                 self.txs = []  # 7.21 'clear' -> '= []'
             elif tx_pool1.pre_txs:
                 a = random.uniform(0, 1)
-                if a < 0.5:
+                if a < 0.5 and (time.time() - self.time) < 120:
                     log.info("------has previous transaction------")
                     data = len(tx_pool1.pre_txs)
                     msg = Msg(Msg.MISS_TRANSACTION_MSG, data)
