@@ -397,7 +397,10 @@ class TCPServer(object):
             log.info("------shorter------")
             msg = Msg(Msg.GET_TRANSACTION_MSG, "")
             return msg
-        # elif len(tx_pool1.pre_txs) > int(data):
+        elif len(tx_pool1.pre_txs) == 11:
+            log.info("------the same------")
+            msg = Msg(Msg.NONE_MSG, "")
+            return msg
         else:
             log.info("------longer------")
             data = [tx.serialize() for tx in tx_pool1.txs]
