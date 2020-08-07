@@ -121,7 +121,7 @@ class TCPServer(object):
                 conn.sendall(struct.pack('i', header_size))
                 conn.sendall(header_bytes)
                 conn.sendall(send_bytes)  # 7.10
-            except ValueError as e:
+            except:
                 # time.sleep(1)
                 send_data = json.dumps(Msg(Msg.NONE_MSG, "").__dict__)  # 7.23
                 send_bytes = send_data.encode()
