@@ -197,8 +197,6 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     server.run(p2p)
     p2p.run()
 
-    # client1()
-
 
 def main():
     parser = new_parser()
