@@ -376,7 +376,7 @@ class TCPClient(object):
             header_json = json.dumps({"send_size": len(send_bytes)})
             header_bytes = header_json.encode()
             header_size = len(header_bytes)
-            time.sleep(2)
+            time.sleep(3)
             self.sock.sendall(struct.pack('i', header_size))
             self.sock.sendall(header_bytes)
             self.sock.sendall(send_bytes)
@@ -427,7 +427,7 @@ class TCPClient(object):
             self.shake_loop()
 
     def shake_loop(self):
-        time.sleep(2)
+        time.sleep(3)
         log.info("------client shake_loop ip:" + self.ip +
                  "\tport:" + str(self.port) + "------")
         tx_pool1 = TxPool()
