@@ -418,6 +418,7 @@ class TCPClient(object):
             self.shake_loop()
 
     def shake_loop(self):
+        time.sleep(1)
         log.info("------client shake_loop ip:" + self.ip +
                  "\tport:" + str(self.port) + "------")
         tx_pool1 = TxPool()
