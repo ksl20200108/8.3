@@ -84,24 +84,30 @@ class BlockChain(object):
         block.deserialize(block_data)
         return block
 
-    def add_block(self, transactions, fee=0):   # change add "fee"  6.19
+    def add_block(self, transactions, fee=0):
         last_block = self.get_last_block()
         prev_hash = last_block.get_header_hash()
         height = last_block.block_header.height + 1
         block_header = BlockHeader('', height, prev_hash)
 
-        # reward to wallets[0]
-        # wallets = Wallets()
         f = open('wallet.dat', 'rb')
         wallets = pickle.load(f)
         keys = list(wallets.keys())
         w = wallets[keys[0]]
-        coin_base_tx = self.coin_base_tx(w.address, fee)    # change 6.19
+        coin_base_tx = self.coin_base_tx(w.address, fee)
         transactions.insert(0, coin_base_tx)
 
+        for i in range(0, height):
+            blo = self.get_block_by_height(i)
+            txs = blo._transactions
+            if txs:
+                try:
+                    if txs[1].txid == transactions[1].txid:
+                        return
+                except:
+                    pass
+
         utxo_set = UTXOSet()
-        # txs = transactions  # change 6.21
-        # change clear transactions(add sort)
         txs = utxo_set.clear_transactions(transactions)
 
         block = Block(block_header, txs)
