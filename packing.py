@@ -85,6 +85,8 @@ def packing():
     return selected_txs, total_fee  # change 6.20
 
 
+
+
 def finding_new_block():
     i = 1
     while i < 12:
@@ -101,14 +103,6 @@ def finding_new_block():
                 bc1.add_block(tx3, total_fee)    # wait try when there's no transaction
         except:
             log.info("------fall behind in mine------")
-            try:
-                st = StopMine()
-                log.info("------with longest " + str(st.h) + " and local " + str(i) + "------")
-                while i < st.h:
-                    tx3, total_fee = packing()
-                    i += 1
-            except:
-                pass
         i += 1
 
 # def start_find():
