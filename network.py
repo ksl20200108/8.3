@@ -27,9 +27,6 @@ log.addHandler(handler)
 log.setLevel(logging.DEBUG)
 
 
-# signal(SIGPIPE,SIG_DFL) # 7.23
-
-
 class P2p(object):
     def __init__(self):
         self.server = Server()
@@ -44,13 +41,11 @@ class P2p(object):
         loop.run_forever()
 
     def get_nodes(self):
-        log.info("------------")  # 7.8 find it also important
+        log.info("------------")
         nodes = []
-        if self.server.protocol:  # 7.18
+        if self.server.protocol:
             for bucket in self.server.protocol.router.buckets:
-                # log.info("------int the for------")    # 7.8
                 nodes.extend(bucket.get_nodes())
-        # log.info("------will return nodes------")   # 7.8
         return nodes
 
 
@@ -60,8 +55,8 @@ class Msg(object):
     GET_BLOCK_MSG = 2
     TRANSACTION_MSG = 3
     SYNCHRONIZE_MSG = 4
-    MISS_TRANSACTION_MSG = 5  # 7.21
-    GET_TRANSACTION_MSG = 6  # 7.21
+    MISS_TRANSACTION_MSG = 5
+    GET_TRANSACTION_MSG = 6
 
     def __init__(self, code, data):
         self.code = code
@@ -76,7 +71,7 @@ class TCPServer(object):
 
     def listen(self):
         self.sock.bind((self.ip, self.port))
-        self.sock.listen(125)  # 7.5
+        self.sock.listen(125)
 
     def run(self):
         t = threading.Thread(target=self.listen_loop, args=())
@@ -84,7 +79,7 @@ class TCPServer(object):
 
     def handle_loop(self, conn, addr):
         while True:
-            log.info("------s handle loop------")  # 7.11
+            log.info("------s handle loop------")
             header_size = struct.unpack('i', conn.recv(4))[0]
             header_bytes = conn.recv(header_size)
             header = eval(header_bytes.decode())
@@ -95,49 +90,42 @@ class TCPServer(object):
                 res = conn.recv(1024)
                 recv_data += res
                 recv_size += len(res)
-            # recv_data = conn.recv(send_size)    # 7.21
             log.info("------server handle_loop recv_data:" +
-                     str(recv_data)[1:] + "------")  # 7.8
-            if not recv_data:  # 7.7
+                     str(recv_data)[1:] + "------")
+            if not recv_data:
                 log.info("------server handle_loop connection broke------")
-                continue  # 7.19
+                continue
             try:
-                # log.info("-----in try json loads these data: " + str(recv_data))    # 7.8
                 try:
-                    recv_msg = eval(recv_data.decode())  # 7.7
+                    recv_msg = eval(recv_data.decode())
                 except:
                     log.info("------server the null data is" +
-                             str(recv_data) + "------")  # 7.7
+                             str(recv_data) + "------")
 
                 log.info("------server handle loop receive------")
-                send_data = self.handle(recv_msg, conn, addr)  # 7.10
-                # time.sleep(1)
-                # if send_data:
-                log.info("tcpserver_send:" + send_data)  # 7.10
-                log.info("------data send to: " + str(addr) + "------")  # 7.21
+                send_data = self.handle(recv_msg, conn, addr)
+                log.info("tcpserver_send:" + send_data)
+                log.info("------data send to: " + str(addr) + "------")
                 send_bytes = send_data.encode()
                 header_json = json.dumps({"send_size": len(send_bytes)})
                 header_bytes = header_json.encode()
                 header_size = len(header_bytes)
                 conn.sendall(struct.pack('i', header_size))
                 conn.sendall(header_bytes)
-                conn.sendall(send_bytes)  # 7.10
+                conn.sendall(send_bytes)
             except:
-                # time.sleep(1)
-                send_data = json.dumps(Msg(Msg.NONE_MSG, "").__dict__)  # 7.23
+                send_data = json.dumps(Msg(Msg.NONE_MSG, "").__dict__)
                 send_bytes = send_data.encode()
                 header_json = json.dumps({"send_size": len(send_bytes)})
                 header_bytes = header_json.encode()
                 header_size = len(header_bytes)
                 conn.sendall(struct.pack('i', header_size))
                 conn.sendall(header_bytes)
-                conn.sendall(send_bytes)  # '{"code": 0, "data": ""}' # 7.23
+                conn.sendall(send_bytes)
                 log.info("------receive Unsuccessfully------")
 
     def listen_loop(self):
-        # log.info("------'listen_loop' called------")  # 7.8
         while True:
-            # log.info("------'while in lp' called------")  # 7.8
             conn, addr = self.sock.accept()
             log.info("--------conn: " + str(conn) +
                      "addr: " + str(addr) + "--------------")
@@ -227,28 +215,6 @@ class TCPServer(object):
                      str(synchronize_range[0]) + " " + str(synchronize_range[1]) + "------")
             send_msg = Msg(Msg.SYNCHRONIZE_MSG, synchronize_range)
             return send_msg
-            # send_data = json.dumps(send_msg.__dict__)
-            # send_bytes = send_data.encode()
-            # header_json = json.dumps({"send_size": len(send_bytes)})
-            # header_bytes = header_json.encode()
-            # header_size = len(header_bytes)
-            # conn.sendall(struct.pack('i', header_size))
-            # conn.sendall(header_bytes)
-            # conn.sendall(send_bytes)
-            # log.info("------server synchronize already send------")
-
-            # for i in range(start_height, last_height + 1):
-            #     log.info("------server handle_handshake synchronize for------")
-            #     send_msg = Msg(Msg.SYNCHRONIZE_MSG, i)
-            #     send_data = json.dumps(send_msg.__dict__)
-            #     send_bytes = send_data.encode()
-            #     header_json = json.dumps({"send_size": len(send_bytes)})
-            #     header_bytes = header_json.encode()
-            #     header_size = len(header_bytes)
-            #     conn.sendall(struct.pack('i', header_size))
-            #     conn.sendall(header_bytes)
-            #     conn.sendall(send_bytes)
-            #     log.info("------server synchronize already send------")
 
     def handle_get_block(self, msg, conn, addr):
         log.info("------server handle_get_block from " +
@@ -280,7 +246,6 @@ class TCPServer(object):
                 msg = Msg(Msg.NONE_MSG, "")
                 return msg
         log.info("------server handle_get_block: get_block_by_height------")  # 7.8
-        # data = block.serialize()
         msg = Msg(Msg.GET_BLOCK_MSG, data)
         log.info("------server send get_block msg" +
                  str(data) + "------")  # 7.10
@@ -335,11 +300,10 @@ class TCPServer(object):
         msg = Msg(Msg.NONE_MSG, "")
         return msg
 
-    def handle_synchronize(self, msg, conn, addr):  # 7.10
+    def handle_synchronize(self, msg, conn, addr):
         datas = msg.get("data", "")
         log.info("------s handle_synchronize from " + str(addr) + "------")
         log.info("------with data " + str(datas) + "------")
-        # block = Block.deserialize(data)
         bc = BlockChain()
         try:
             ls_blo = bc.get_last_block()
@@ -369,7 +333,7 @@ class TCPServer(object):
             msg = Msg(Msg.NONE_MSG, "")
             return msg
 
-    def handle_miss(self, msg, conn, addr):  # 7.21
+    def handle_miss(self, msg, conn, addr):
         log.info("------server handle miss------")
         data = msg.get("data", "")
         tx_pool1 = TxPool()
@@ -394,18 +358,18 @@ class TCPClient(object):
     def __init__(self, ip, port):
         self.txs = []
         self.sock = socket.socket()
-        self.ip = ip  # 7.11
-        self.port = port  # 7.11
+        self.ip = ip
+        self.port = port
         log.info("connect ip:" + ip + "\tport:" + str(port))
         self.sock.connect((ip, port))
         self.time = time.time()
 
     def add_tx(self, tx):
-        log.info("------client add_tx------")  # 7.10
+        log.info("------client add_tx------")
         self.txs.append(tx)
 
     def send(self, msg):
-        log.info("------client send------")  # 7.10
+        log.info("------client send------")
         data = json.dumps(msg.__dict__)
         send_bytes = data.encode()
         header_json = json.dumps({"send_size": len(send_bytes)})
@@ -433,10 +397,9 @@ class TCPClient(object):
             self.shake_loop()
         try:
             log.info("------client try loads and handle data------")
-            # recv_msg = json.loads(str(recv_data))
-            recv_msg = eval(recv_data.decode())  # 7.10
-            self.handle(recv_msg)  # 7.7 delete str
-            log.info("------client had loads and handle data------")  # 7.10
+            recv_msg = eval(recv_data.decode())
+            self.handle(recv_msg)
+            log.info("------client had loads and handle data------")
         except:
             self.shake_loop()
 
@@ -449,36 +412,34 @@ class TCPClient(object):
             self.handle_get_block(msg)
         elif code == Msg.TRANSACTION_MSG:
             self.handle_transaction(msg)
-        elif code == Msg.SYNCHRONIZE_MSG:  # 7.10
-            self.handle_synchronize(msg)  # 7.10
-        elif code == Msg.GET_TRANSACTION_MSG:  # 7.21
+        elif code == Msg.SYNCHRONIZE_MSG:
+            self.handle_synchronize(msg)
+        elif code == Msg.GET_TRANSACTION_MSG:
             self.handle_get_transaction(msg)
-        elif code == Msg.MISS_TRANSACTION_MSG:  # 7.21
+        elif code == Msg.MISS_TRANSACTION_MSG:
             self.handle_miss(msg)
         else:
             self.shake_loop()
 
     def shake_loop(self):
+        time.sleep(1)
         log.info("------client shake_loop ip:" + self.ip +
-                 "\tport:" + str(self.port) + "------")  # 7.11
+                 "\tport:" + str(self.port) + "------")
         tx_pool1 = TxPool()
         if self.txs:
-            log.info("------client server has txs------")  # 7.10
+            log.info("------client server has txs------")
             data = [tx.serialize() for tx in self.txs]
             log.info("------client serialize transaction-------")
             msg = Msg(Msg.TRANSACTION_MSG, data)
             self.send(msg)
-            self.txs = []  # 7.21 'clear' -> '= []'
+            self.txs = []
         elif tx_pool1.pre_txs:
             a = random.uniform(0, 1)
-            if a < 0.7 and (time.time() - self.time) < 60:
+            if a < 0.7 and (time.time() - self.time) < 30:
                 log.info("------has previous transaction------")
                 data = len(tx_pool1.pre_txs)
                 msg = Msg(Msg.MISS_TRANSACTION_MSG, data)
                 self.send(msg)
-            # elif a < 0.5:
-            #     msg = Msg(Msg.NONE_MSG, "")
-            #     self.send(msg)
             else:
                 log.info("shake")
                 block_chain = BlockChain()
@@ -528,7 +489,7 @@ class TCPClient(object):
 
     def handle_shake(self, msg):
         log.info("------client handle_shake from " +
-                 str(self.ip) + "------")  # 7.10
+                 str(self.ip) + "------")
         data = msg.get("data", "")
         last_height = data.get("last_height", 0)
         log.info("------with last height " + str(last_height) + "------")
@@ -540,7 +501,7 @@ class TCPClient(object):
             local_last_height = -1
         log.info("client local_last_height %d, last_height %d" %
                  (local_last_height, last_height))
-        if local_last_height > last_height:  # pass
+        if local_last_height > last_height:
             try:
                 st = StopMine()
                 if st.h < local_last_height:
@@ -592,7 +553,7 @@ class TCPClient(object):
     def handle_get_block(self, msg):
         datas = msg.get("data", "")
         log.info("------client handle_get_block from " +
-                 str(self.ip) + "------")  # 7.8
+                 str(self.ip) + "------")
         log.info("------with data " + str(datas) + "------")
         bc = BlockChain()
         log.info("------client deserialize block from peer------")
@@ -628,7 +589,7 @@ class TCPClient(object):
         data = msg.get("data", {})
         tx = Transaction.deserialize(data)
         tx_pool = TxPool()
-        is_new = True  # 7.20
+        is_new = True
         if tx_pool.is_new(tx):
             log.info("------client never get this transaction before------")  # 7.20
             bc = BlockChain()
@@ -697,16 +658,16 @@ class TCPClient(object):
         msg = Msg(Msg.TRANSACTION_MSG, data)
         self.send(msg)
 
-    def handle_miss(self, msg):  # 7.21
+    def handle_miss(self, msg):
         log.info("------client handle_miss------")
         tx_pool = TxPool()
         txs = msg.get("data", {})
         for tx_data in txs:
-            log.info("------server handle_miss: for------")  # 7.8
+            log.info("------server handle_miss: for------")
             tx = Transaction.deserialize(tx_data)
             is_new = True
-            if tx_pool.is_new(tx):  # 7.20
-                log.info("------client miss this transaction before------")  # 7.20
+            if tx_pool.is_new(tx):
+                log.info("------client miss this transaction before------")
                 bc = BlockChain()
                 ls_bl = bc.get_last_block()
                 if ls_bl:
@@ -726,13 +687,13 @@ class TCPClient(object):
                                 if transaction.txid == tx.txid:
                                     log.info("------old transaction------")
                                     log.info("------the id is: " +
-                                             str(tx.txid) + "------")  # 7.20
+                                             str(tx.txid) + "------")
                                     is_new = False
                                     # break
                                 else:
                                     log.info("------brand new miss------")
                                     log.info("------the id is: " +
-                                             str(tx.txid) + "------")  # 7.20
+                                             str(tx.txid) + "------")
                         if not is_new:
                             break
                 if is_new:
@@ -758,6 +719,8 @@ class PeerServer(Singleton):
             self.ips = []
         if not hasattr(self, "longest_chain"):
             self.longest_chain = None
+        if not hasattr(self, "time"):
+            self.time = time.time()
 
     def get_ip(self, ifname='eth0'):  # enp2s0 # ens33
         env_dist = os.environ
@@ -775,16 +738,16 @@ class PeerServer(Singleton):
             for node in nodes:
                 if node.ip not in self.ips:
                     log.info("------------nodes_find: " +
-                             node.ip + "------------")  # 7.8
+                             node.ip + "------------")
                     ip = node.ip
                     port = node.port
                     if local_ip == ip:
-                        log.info("------local_ip==ip------")  # 7.8
+                        log.info("------local_ip==ip------")
                         continue
                     log.info("------------nodes ip: " +
-                             node.ip + "------------")  # 7.8
+                             node.ip + "------------")
                     client = TCPClient(ip, port)
-                    log.info("------create TCPClient in nodes_find------")  # 7.8
+                    log.info("------create TCPClient in nodes_find------")
                     t = threading.Thread(target=client.shake_loop, args=())
                     t.start()
                     log.info(
@@ -795,11 +758,11 @@ class PeerServer(Singleton):
             time.sleep(1)
 
     def broadcast_tx(self, tx):
-        log.info("------peerserver broadcast_tx------")  # 7.10
+        log.info("------peerserver broadcast_tx------")
         for peer in self.peers:
-            log.info("------peerserver broadcast for------")  # 7.15
+            log.info("------peerserver broadcast for------")
             peer.add_tx(tx)
-            log.info("------peerserver broadcast add------")  # 7.15
+            log.info("------peerserver broadcast add------")
 
     def run(self, p2p_server):
         t = threading.Thread(target=self.nodes_find, args=(p2p_server,))
