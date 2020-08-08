@@ -1,7 +1,17 @@
 from utils import Singleton
 
 
-class StopMine(Singleton):
+class Singleton1(object):
+    __instance = None
+
+    def __new__(cls, *args, **kwargs):
+
+        if cls.__instance is None:
+            cls.__instance = super(Singleton1, cls).__new__(cls)
+        return cls.__instance
+
+
+class StopMine(Singleton1):
     def __init__(self):
         if not hasattr(self, "h"):
             self.h = 0
@@ -9,3 +19,5 @@ class StopMine(Singleton):
             self.mine_h = 1
         if not hasattr(self, "ip"):
             self.ip = None
+        if not hasattr(self, "p_ip"):
+            self.p_ip = None

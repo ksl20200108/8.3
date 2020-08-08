@@ -185,7 +185,7 @@ class TCPServer(object):
                 if st.h < local_last_height:
                     st.h = local_last_height
             except:
-                pass
+                log.info('failed to stop mine')
             log.info("------server handle_handshake precede------")
             try:
                 genesis_block = block_chain[0]
@@ -209,8 +209,9 @@ class TCPServer(object):
                 if st.h < last_height:
                     st.h = last_height
                     st.ip = addr
+                    st.p_ip = st.ip
             except:
-                pass
+                log.info('failed to stop mine')
             log.info("------server handle_handshake fall behind------")
             start_height = 0 if local_last_height == -1 else local_last_height
             synchronize_range = [start_height + 1, last_height + 1]
@@ -308,10 +309,10 @@ class TCPServer(object):
         bc = BlockChain()
         try:
             st = StopMine()
-            if st.ip != addr and st.ip:
+            if st.ip != addr and st.ip and st.p_ip != addr:
                 return Msg(Msg.NONE_MSG, "")
         except:
-            pass
+            log.info('failed to stop mine')
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:
@@ -522,7 +523,7 @@ class TCPClient(object):
                 if st.h < local_last_height:
                     st.h = local_last_height
             except:
-                pass
+                log.info('failed to stop mine')
             log.info("------error shake------")
             log.info("client local_last_height %d, last_height %d" %
                      (local_last_height, last_height))
@@ -557,8 +558,9 @@ class TCPClient(object):
                 if st.h < last_height:
                     st.h = last_height
                     st.ip = self.ip
+                    st.p_ip = st.ip
             except:
-                pass
+                log.info('failed to stop mine')
             start_height = 0 if local_last_height == -1 else local_last_height
             get_range = [start_height + 1, last_height + 1]
             send_msg = Msg(Msg.GET_BLOCK_MSG, get_range)
@@ -575,11 +577,11 @@ class TCPClient(object):
         log.info("------client deserialize block from peer------")
         try:
             st = StopMine()
-            if st.ip != self.ip and st.ip:
+            if st.ip != self.ip and st.ip and st.p_ip != self.ip:
                 self.shake_loop()
                 return
         except:
-            pass
+            log.info('failed to stop mine')
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:
