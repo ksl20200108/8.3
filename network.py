@@ -184,6 +184,7 @@ class TCPServer(object):
                 st = StopMine()
                 if st.h < local_last_height:
                     st.h = local_last_height
+                    log.info(str(addr) + " is the highest " + str(st.h))
             except:
                 log.info('failed to stop mine')
             log.info("------server handle_handshake precede------")
@@ -208,7 +209,6 @@ class TCPServer(object):
                 st = StopMine()
                 if st.h < last_height:
                     st.h = last_height
-                    st.p_ip = st.ip
                     st.ip = addr
                     log.info(str(addr) + ' is the highest ' + str(st.h))
             except:
@@ -310,7 +310,7 @@ class TCPServer(object):
         bc = BlockChain()
         try:
             st = StopMine()
-            if st.ip != addr and st.ip and st.p_ip != addr:
+            if st.ip != addr and st.ip:
                 return Msg(Msg.NONE_MSG, "")
             log.info('is the highest ' + str(st.ip))
         except:
@@ -559,7 +559,6 @@ class TCPClient(object):
                 st = StopMine()
                 if st.h < last_height:
                     st.h = last_height
-                    st.p_ip = st.ip
                     st.ip = self.ip
                     log.info(str(self.ip) + ' is the highest ' + str(st.h))
             except:
@@ -580,7 +579,7 @@ class TCPClient(object):
         log.info("------client deserialize block from peer------")
         try:
             st = StopMine()
-            if st.ip != self.ip and st.ip and st.p_ip != self.ip:
+            if st.ip != self.ip and st.ip:
                 self.shake_loop()
                 return
         except:

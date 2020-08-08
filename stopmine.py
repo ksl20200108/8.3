@@ -19,5 +19,3 @@ class StopMine(Singleton1):
             self.mine_h = 1
         if not hasattr(self, "ip"):
             self.ip = None
-        if not hasattr(self, "p_ip"):
-            self.p_ip = None
