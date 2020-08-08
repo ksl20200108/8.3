@@ -322,7 +322,7 @@ class TCPServer(object):
                 for data in datas:
                     block = Block.deserialize(data)
                     if block.block_header.height == l_height + 1:
-                        time.sleep(random.uniform(0, 1))
+                        # time.sleep(random.uniform(0, 1))
                         bc.add_block_from_peers(block)
                         l_height += 1
                         log.info(
@@ -333,7 +333,7 @@ class TCPServer(object):
                 try:
                     data = datas[0]
                     block = Block.deserialize(data)
-                    time.sleep(random.uniform(0, 1))
+                    # time.sleep(random.uniform(0, 1))
                     bc.add_block_from_peers(block)
                 except:
                     pass
@@ -441,14 +441,14 @@ class TCPClient(object):
 
     def shake_loop(self):
         time.sleep(3)
-        log.info("------client shake_loop ip:" + self.ip +
+        log.info("------c shake_loop ip:" + self.ip +
                  "\tport:" + str(self.port) + "------")
         tx_pool1 = TxPool()
         if self.txs:
-            log.info("------client server has txs------")
+            log.info("------c has txs------")
             data = [tx.serialize() for tx in self.txs]
             self.txs = []
-            log.info("------client serialize transaction-------")
+            log.info("------c serialize transaction-------")
             msg = Msg(Msg.TRANSACTION_MSG, data)
             self.send(msg)
         elif tx_pool1.pre_txs:
@@ -593,7 +593,7 @@ class TCPClient(object):
                     log.info("c handle_get_block local last height and last height " +
                              str(ls_blo.block_header.height) + " " + str(block.block_header.height))
                     if block.block_header.height == l_height + 1:
-                        time.sleep(random.uniform(0, 1))
+                        # time.sleep(random.uniform(0, 1))
                         bc.add_block_from_peers(block)
                         l_height += 1
                         log.info(
@@ -605,7 +605,7 @@ class TCPClient(object):
                 try:
                     data = datas[0]
                     block = Block.deserialize(data)
-                    time.sleep(random.uniform(0, 1))
+                    # time.sleep(random.uniform(0, 1))
                     bc.add_block_from_peers(block)
                 except:
                     pass
