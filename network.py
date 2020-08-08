@@ -417,7 +417,7 @@ class TCPClient(object):
                      "------with these data" + str(recv_data))
         except:
             log.info("c recv wrongly " + str(recv_data))
-            t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+            t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
             # self.shake_loop()
         try:
@@ -427,7 +427,7 @@ class TCPClient(object):
             log.info("------client had loads and handle data------")
         except:
             log.info("c eval wrongly " + str(recv_data))
-            t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+            t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
             # self.shake_loop()
 
@@ -447,7 +447,7 @@ class TCPClient(object):
         elif code == Msg.MISS_TRANSACTION_MSG:
             self.handle_miss(msg)
         else:
-            t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+            t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
             # self.shake_loop()
 
@@ -561,7 +561,7 @@ class TCPClient(object):
                     self.send(msg)
                     return
                 else:
-                    t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+                    t = threading.Thread(target=self.shake_loop(), args=())
                     t.start()
                     # self.shake_loop()
                     return
@@ -584,7 +584,7 @@ class TCPClient(object):
             send_msg = Msg(Msg.GET_BLOCK_MSG, get_range)
             self.send(send_msg)
         else:
-            t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+            t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
             # self.shake_loop()
 
@@ -600,7 +600,7 @@ class TCPClient(object):
             log.info('------works------')
             if st.ip != self.ip and st.ip:
                 log.info('------not ip ' + str(st.ip) + '------')
-                t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+                t = threading.Thread(target=self.shake_loop(), args=())
                 t.start()
                 # self.shake_loop()
                 return
@@ -631,13 +631,13 @@ class TCPClient(object):
                     bc.add_block_from_peers(block)
                 except:
                     pass
-            t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+            t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
             # self.shake_loop()
         except:
             log.info(
                 "------client handle_get_block failed to add_block_from_peers------")
-            t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+            t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
             # self.shake_loop()
 
@@ -677,7 +677,7 @@ class TCPClient(object):
                 server2.broadcast_tx(tx)
                 log.info("------client handle_transaction broadcast------")
 
-        t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+        t = threading.Thread(target=self.shake_loop(), args=())
         t.start()
         # self.shake_loop()
 
@@ -705,7 +705,7 @@ class TCPClient(object):
                 self.send(msg)
                 return
             else:
-                t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+                t = threading.Thread(target=self.shake_loop(), args=())
                 t.start()
                 # self.shake_loop()
                 return
@@ -761,7 +761,7 @@ class TCPClient(object):
                     log.info("------client miss add this transaction------")
                     log.info("------the id is: " + str(tx.txid) + "------")
                     log.info("------client handle_miss broadcast------")
-        t = threading.Thread(target=TCPClient.shake_loop(), args=(self))
+        t = threading.Thread(target=self.shake_loop(), args=())
         t.start()
         # self.shake_loop()
 
