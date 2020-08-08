@@ -416,14 +416,20 @@ class TCPClient(object):
             log.info("client_recv_data from:" + self.ip +
                      "------with these data" + str(recv_data))
         except:
-            self.shake_loop()
+            log.info("c recv wrongly " + str(recv_data))
+            t = threading.Thread(target=TCPClient.shake_loop(), args=())
+            t.start()
+            # self.shake_loop()
         try:
             log.info("------client try loads and handle data------")
             recv_msg = eval(recv_data.decode())
             self.handle(recv_msg)
             log.info("------client had loads and handle data------")
         except:
-            self.shake_loop()
+            log.info("c eval wrongly " + str(recv_data))
+            t = threading.Thread(target=TCPClient.shake_loop(), args=())
+            t.start()
+            # self.shake_loop()
 
     def handle(self, msg):
         code = msg.get("code", 0)
@@ -441,7 +447,9 @@ class TCPClient(object):
         elif code == Msg.MISS_TRANSACTION_MSG:
             self.handle_miss(msg)
         else:
-            self.shake_loop()
+            t = threading.Thread(target=TCPClient.shake_loop(), args=())
+            t.start()
+            # self.shake_loop()
 
     def shake_loop(self):
         time.sleep(3)
@@ -553,7 +561,9 @@ class TCPClient(object):
                     self.send(msg)
                     return
                 else:
-                    self.shake_loop()
+                    t = threading.Thread(target=TCPClient.shake_loop(), args=())
+                    t.start()
+                    # self.shake_loop()
                     return
             msg = Msg(Msg.SYNCHRONIZE_MSG, send_data)
             self.send(msg)
@@ -574,7 +584,9 @@ class TCPClient(object):
             send_msg = Msg(Msg.GET_BLOCK_MSG, get_range)
             self.send(send_msg)
         else:
-            self.shake_loop()
+            t = threading.Thread(target=TCPClient.shake_loop(), args=())
+            t.start()
+            # self.shake_loop()
 
     def handle_get_block(self, msg):
         datas = msg.get("data", "")
@@ -588,7 +600,9 @@ class TCPClient(object):
             log.info('------works------')
             if st.ip != self.ip and st.ip:
                 log.info('------not ip ' + str(st.ip) + '------')
-                self.shake_loop()
+                t = threading.Thread(target=TCPClient.shake_loop(), args=())
+                t.start()
+                # self.shake_loop()
                 return
         except:
             log.info('------failed to stop mine------')
@@ -617,11 +631,15 @@ class TCPClient(object):
                     bc.add_block_from_peers(block)
                 except:
                     pass
-            self.shake_loop()
+            t = threading.Thread(target=TCPClient.shake_loop(), args=())
+            t.start()
+            # self.shake_loop()
         except:
             log.info(
                 "------client handle_get_block failed to add_block_from_peers------")
-            self.shake_loop()
+            t = threading.Thread(target=TCPClient.shake_loop(), args=())
+            t.start()
+            # self.shake_loop()
 
     def handle_transaction(self, msg):
         log.info("------client handle_transaction------")
@@ -659,7 +677,9 @@ class TCPClient(object):
                 server2.broadcast_tx(tx)
                 log.info("------client handle_transaction broadcast------")
 
-        self.shake_loop()
+        t = threading.Thread(target=TCPClient.shake_loop(), args=())
+        t.start()
+        # self.shake_loop()
 
     def handle_synchronize(self, msg):
         synchronize_range = msg.get("data", 1)
@@ -685,7 +705,9 @@ class TCPClient(object):
                 self.send(msg)
                 return
             else:
-                self.shake_loop()
+                t = threading.Thread(target=TCPClient.shake_loop(), args=())
+                t.start()
+                # self.shake_loop()
                 return
         msg = Msg(Msg.SYNCHRONIZE_MSG, data)
         self.send(msg)
@@ -739,7 +761,9 @@ class TCPClient(object):
                     log.info("------client miss add this transaction------")
                     log.info("------the id is: " + str(tx.txid) + "------")
                     log.info("------client handle_miss broadcast------")
-        self.shake_loop()
+        t = threading.Thread(target=TCPClient.shake_loop(), args=())
+        t.start()
+        # self.shake_loop()
 
     def close(self):
         self.sock.close()
