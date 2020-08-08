@@ -184,9 +184,9 @@ class TCPServer(object):
                 st = StopMine()
                 if st.h < local_last_height:
                     st.h = local_last_height
-                    log.info(str(addr) + " is the highest " + str(st.h))
+                    log.info("------" + str(addr) + " is the highest " + str(st.h) + "------")
             except:
-                log.info('failed to stop mine')
+                log.info('------failed to stop mine------')
             log.info("------server handle_handshake precede------")
             try:
                 genesis_block = block_chain[0]
@@ -210,7 +210,7 @@ class TCPServer(object):
                 if st.h < last_height:
                     st.h = last_height
                     st.ip = addr
-                    log.info(str(addr) + ' is the highest ' + str(st.h))
+                    log.info("------" + str(addr) + ' is the highest ' + str(st.h) + "------")
             except:
                 log.info('failed to stop mine')
             log.info("------server handle_handshake fall behind------")
@@ -312,9 +312,9 @@ class TCPServer(object):
             st = StopMine()
             if st.ip != addr and st.ip:
                 return Msg(Msg.NONE_MSG, "")
-            log.info('is the highest ' + str(st.ip))
+            log.info('------is the highest ' + str(st.ip) + "------")
         except:
-            log.info('failed to stop mine')
+            log.info('------failed to stop mine------')
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:
@@ -525,7 +525,7 @@ class TCPClient(object):
                 if st.h < local_last_height:
                     st.h = local_last_height
             except:
-                log.info('failed to stop mine')
+                log.info('------failed to stop mine------')
             log.info("------error shake------")
             log.info("client local_last_height %d, last_height %d" %
                      (local_last_height, last_height))
@@ -560,9 +560,9 @@ class TCPClient(object):
                 if st.h < last_height:
                     st.h = last_height
                     st.ip = self.ip
-                    log.info(str(self.ip) + ' is the highest ' + str(st.h))
+                    log.info("------" + str(self.ip) + ' is the highest ' + str(st.h) + "------")
             except:
-                log.info('failed to stop mine')
+                log.info('------failed to stop mine------')
             start_height = 0 if local_last_height == -1 else local_last_height
             get_range = [start_height + 1, last_height + 1]
             send_msg = Msg(Msg.GET_BLOCK_MSG, get_range)
@@ -583,7 +583,7 @@ class TCPClient(object):
                 self.shake_loop()
                 return
         except:
-            log.info('failed to stop mine')
+            log.info('------failed to stop mine------')
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:
