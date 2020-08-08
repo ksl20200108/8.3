@@ -317,7 +317,10 @@ def client4():
             users = {}
             for i in range(0, last_height+1):
                 j += 1
-                blo = bc1.get_block_by_height(i)
+                blo = None
+                while not blo:
+                    blo = bc1.get_block_by_height(i)
+                    time.sleep(5)
                 if blo:
                     txs = blo._transactions
                     for tx in txs:
