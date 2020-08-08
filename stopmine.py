@@ -11,7 +11,7 @@ class Singleton1(object):
         return cls.__instance
 
 
-class StopMine(Singleton1):
+class StopMine(Singleton):
 
     def __init__(self):
         if not hasattr(self, "h"):
