@@ -298,7 +298,6 @@ def client4():
     time.sleep(60)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
-    time.sleep(900)
     chain_doc = []
     while True:
         try:
@@ -310,17 +309,22 @@ def client4():
         except:
             time.sleep(30)
     while True:
+        f = open('shit.txt', 'w')
+        f.truncate()
+        f.write('into while')
+        f.write('\n')
+        # f.close()
         try:
             j = 0
             m_total_payoff = 0
             u_total_payoff = 0
             users = {}
-            for i in range(0, last_height+1):
+            for i in range(0, 12):
                 j += 1
                 blo = None
                 while not blo:
-                    blo = bc1.get_block_by_height(i)
                     time.sleep(5)
+                    blo = bc1.get_block_by_height(i)
                 if blo:
                     txs = blo._transactions
                     for tx in txs:
@@ -345,6 +349,8 @@ def client4():
             fo.write("\n")
             fo.write("u_total_payoff: ")
             fo.write(str(u_total_payoff))
+            f.write('before key')
+            f.write('\n')
             for key in users:
                 fo.write("\n")
                 fo.write("the user ")

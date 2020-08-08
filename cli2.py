@@ -310,10 +310,6 @@ def client2():
     try:
         server = PeerServer()
         server.broadcast_tx(tx)
-        f = open('shit.txt', 'w')
-        f.truncate()
-        f.write('success')
-        f.close()
     except Exception as e:
         pass
 
