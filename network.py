@@ -208,8 +208,9 @@ class TCPServer(object):
                 st = StopMine()
                 if st.h < last_height:
                     st.h = last_height
-                    st.ip = addr
                     st.p_ip = st.ip
+                    st.ip = addr
+                    log.info(str(addr) + ' is the highest ' + str(st.h))
             except:
                 log.info('failed to stop mine')
             log.info("------server handle_handshake fall behind------")
@@ -311,6 +312,7 @@ class TCPServer(object):
             st = StopMine()
             if st.ip != addr and st.ip and st.p_ip != addr:
                 return Msg(Msg.NONE_MSG, "")
+            log.info('is the highest ' + str(st.ip))
         except:
             log.info('failed to stop mine')
         try:
@@ -557,8 +559,9 @@ class TCPClient(object):
                 st = StopMine()
                 if st.h < last_height:
                     st.h = last_height
-                    st.ip = self.ip
                     st.p_ip = st.ip
+                    st.ip = self.ip
+                    log.info(str(self.ip) + ' is the highest ' + str(st.h))
             except:
                 log.info('failed to stop mine')
             start_height = 0 if local_last_height == -1 else local_last_height
