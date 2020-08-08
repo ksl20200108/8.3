@@ -208,6 +208,7 @@ class TCPServer(object):
                 st = StopMine()
                 if st.h < last_height:
                     st.h = last_height
+                    st.ip = addr
             except:
                 pass
             log.info("------server handle_handshake fall behind------")
@@ -305,6 +306,12 @@ class TCPServer(object):
         log.info("------s handle_synchronize from " + str(addr) + "------")
         log.info("------with data " + str(datas) + "------")
         bc = BlockChain()
+        try:
+            st = StopMine()
+            if st.ip != addr and st.ip:
+                return Msg(Msg.NONE_MSG, "")
+        except:
+            pass
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:
@@ -549,6 +556,7 @@ class TCPClient(object):
                 st = StopMine()
                 if st.h < last_height:
                     st.h = last_height
+                    st.ip = self.ip
             except:
                 pass
             start_height = 0 if local_last_height == -1 else local_last_height
@@ -565,6 +573,13 @@ class TCPClient(object):
         log.info("------with data " + str(datas) + "------")
         bc = BlockChain()
         log.info("------client deserialize block from peer------")
+        try:
+            st = StopMine()
+            if st.ip != self.ip and st.ip:
+                self.shake_loop()
+                return
+        except:
+            pass
         try:
             ls_blo = bc.get_last_block()
             if ls_blo:

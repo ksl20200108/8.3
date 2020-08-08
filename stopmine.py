@@ -7,3 +7,5 @@ class StopMine(Singleton):
             self.h = 0
         if not hasattr(self, "mine_h"):
             self.mine_h = 1
+        if not hasattr(self, "ip"):
+            self.ip = None
