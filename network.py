@@ -320,7 +320,10 @@ class TCPServer(object):
         except:
             log.info('------failed to stop mine------')
         try:
-            ls_blo = bc.get_last_block()
+            ls_blo = None
+            while not ls_blo:
+                ls_blo = bc.get_last_block()
+                time.sleep(2)
             if ls_blo:
                 l_height = ls_blo.block_header.height
                 for data in datas:
@@ -329,20 +332,11 @@ class TCPServer(object):
                         # time.sleep(random.uniform(0, 1))
                         bc.add_block_from_peers(block)
                         l_height += 1
+                        ls_blo = block
                         log.info(
                             "------server handle_get_block add_block_from_peers------")
                     else:
                         log.info("------error add------")
-            else:
-                try:
-                    data = datas[0]
-                    block = Block.deserialize(data)
-                    # time.sleep(random.uniform(0, 1))
-                    bc.add_block_from_peers(block)
-                except:
-                    pass
-                    log.info(
-                        "------server handle_get_block add_block_from_peers------")
             msg = Msg(Msg.NONE_MSG, "")
             return msg
         except:
@@ -607,39 +601,32 @@ class TCPClient(object):
         except:
             log.info('------failed to stop mine------')
         try:
-            ls_blo = bc.get_last_block()
-            if ls_blo:
-                l_height = ls_blo.block_header.height
-                for data in datas:
-                    block = Block.deserialize(data)
-                    log.info("c handle_get_block local last height and last height " +
-                             str(ls_blo.block_header.height) + " " + str(block.block_header.height))
-                    if block.block_header.height == l_height + 1:
-                        # time.sleep(random.uniform(0, 1))
-                        bc.add_block_from_peers(block)
-                        l_height += 1
-                        log.info(
-                            "------client handle_get_block add_block_from_peers------")
-                    else:
-                        log.info("------error add as last height " +
-                                 str(block.block_header.height) + "------")
-            else:
-                try:
-                    data = datas[0]
-                    block = Block.deserialize(data)
+            ls_blo = None
+            while not ls_blo:
+                ls_blo = bc.get_last_block()
+                time.sleep(2)
+            l_height = ls_blo.block_header.height
+            for data in datas:
+                block = Block.deserialize(data)
+                log.info("c handle_get_block local last height and last height " +
+                         str(ls_blo.block_header.height) + " " + str(block.block_header.height))
+                if block.block_header.height == l_height + 1:
                     # time.sleep(random.uniform(0, 1))
-                    bc.add_block_from_peers(block)
-                except:
-                    pass
+                    bc.add_block_from_peers(block, ls_blo)
+                    l_height += 1
+                    ls_blo = block
+                    log.info(
+                        "------client handle_get_block add_block_from_peers------")
+                else:
+                    log.info("------error add as last height " +
+                             str(block.block_header.height) + "------")
             t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
-            # self.shake_loop()
         except:
             log.info(
                 "------client handle_get_block failed to add_block_from_peers------")
             t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
-            # self.shake_loop()
 
     def handle_transaction(self, msg):
         log.info("------client handle_transaction------")

@@ -123,11 +123,7 @@ class BlockChain(object):
 
         utxo_set.update(block)
 
-    def add_block_from_peers(self, block):
-        last_block = None
-        while not last_block:
-            last_block = self.get_last_block()
-            time.sleep(2)
+    def add_block_from_peers(self, block, last_block):
         utxo = UTXOSet()
         prev_hash = last_block.get_header_hash()
         last_height = last_block.block_header.height
