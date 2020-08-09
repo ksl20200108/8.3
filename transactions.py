@@ -1,8 +1,9 @@
 # coding:utf-8
 import binascii
 import ecdsa
-import sys  # change
-import time     # change
+import sys
+import time
+import os
 from utils import sum256_hex, hash_public_key, address_to_pubkey_hash
 
 subsidy = 50    # change
@@ -120,17 +121,19 @@ class Transaction(object):
         return tx
 
     @classmethod
-    def coinbase_tx(cls, to, data, fee=0):   # change add "fee"
+    def coinbase_tx(cls, to, data, fee=0):
         if not data:
             data = "Reward to '%s'" % to
         txin = TXInput('', -1, data)
-        txout = TXOutput(subsidy+fee, to)   # change 6.19
+        txout = TXOutput(subsidy+fee, to)
         tx = cls([txin], [txout])
         tx.set_id()
-        tx.generation_time = time.time()    # change 6.19
-        tx.amount = 50 + fee  # change
+        tx.generation_time = time.time()
+        tx.amount = 50 + fee
         tx.fee_size_ratio = (50 + fee) / (sys.getsizeof(tx.vins) + sys.getsizeof(tx.vouts) + sys.getsizeof(tx.generation_time) + sys.getsizeof(tx.amount))  # change
-        tx.ip = ""    # change 7.29
+        env_dist = os.environ
+        ip = env_dist.get('LOCAL_IP')
+        tx.ip = ip
         return tx
 
     def __repr__(self):

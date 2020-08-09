@@ -325,26 +325,20 @@ def client4():
                     blo = bc1.get_block_by_height(i)
                 f.write('after while not blo')
                 f.write('\n')
-                if blo:
-                    f.write('if blo')
-                    f.write('\n')
-                    txs = blo._transactions
-                    for tx in txs:
-                        f.write('for tx in txs')
-                        f.write('\n')
-                        if tx.ip:
-                            u_total_payoff += (1.33 - tx.amount - 0.05*j)
-                            m_total_payoff += (tx.amount - 0.1 - 0.9)
-                            if tx.ip in users.keys():
-                                users[tx.ip] += (1.33 - tx.amount - 0.05*j)
-                            else:
-                                users[tx.ip] = (1.33 - tx.amount - 0.05*j)
-                    fo.write(str(blo.serialize()))
-                    fo.write('\n')
-                else:
-                    fo.write("problems in the docs")
-                    fo.write('\n')
-                    break
+                txs = blo._transactions
+                # for tx in txs:
+                # f.write('for tx in txs')
+                # f.write('\n')
+                tx = txs[1]
+                if tx.ip:
+                    u_total_payoff += (1.33 - tx.amount - 0.05*j)
+                    m_total_payoff += (tx.amount - 0.1 - 0.9)
+                    if tx.ip in users.keys():
+                        users[tx.ip] += (1.33 - tx.amount - 0.05*j)
+                    else:
+                        users[tx.ip] = (1.33 - tx.amount - 0.05*j)
+                fo.write(str(blo.serialize()))
+                fo.write('\n')
             fo.write("the length of the block chain is ")
             fo.write(str(j))
             fo.write("\n")
