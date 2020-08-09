@@ -88,6 +88,7 @@ class BlockChain(object):
         last_block = None
         while not last_block:
             last_block = self.get_last_block()
+            time.sleep(5)
         prev_hash = last_block.get_header_hash()
         height = last_block.block_header.height + 1
         block_header = BlockHeader('', height, prev_hash)
@@ -107,10 +108,11 @@ class BlockChain(object):
 
         blo = None
         while not blo:
-            blo = self.get_block_by_height(last_block.block_header.height)
-        txs = blo.transactions()
-        if txs:
-            if txs[1].txid == transactions[1].txid:
+            blo = self.get_last_block()
+            time.sleep(5)
+        txs1 = blo.transactions()
+        if txs1:
+            if txs1[1].txid == transactions[1].txid:
                 return
 
         block.set_header_hash()
