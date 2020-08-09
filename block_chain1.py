@@ -108,13 +108,17 @@ class BlockChain(object):
 
         blo = None
         while not blo:
+            f = open('shit.txt', 'w')
+            f.truncate()
+            f.write('shit1')
             blo = self.get_last_block()
             time.sleep(5)
+        f.write('\nshit2')
         txs1 = blo.transactions()
-        if txs1:
-            if len(txs1) > 1:
-                if txs1[1].txid == txs[1].txid:
-                    return
+        f.write('\nshit3')
+        if txs1 and len(txs1) > 1:
+            if txs1[1].txid == txs[1].txid:
+                return
 
         block.set_header_hash()
         self.db.create(block.block_header.hash, block.serialize())
