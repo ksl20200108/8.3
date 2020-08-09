@@ -124,24 +124,21 @@ class BlockChain(object):
         utxo_set.update(block)
 
     def add_block_from_peers(self, block):
-        last_block = self.get_last_block()
+        last_block = None
+        while not last_block:
+            last_block = self.get_last_block()
+            time.sleep(2)
         utxo = UTXOSet()
-        if last_block:
-            prev_hash = last_block.get_header_hash()
-            last_height = last_block.block_header.height
-            if block.block_header.height < last_height:
-                raise ValueError('block height is error')
-            # if not block.validate(self):  # 7.12
-                # raise ValueError('block is not valid')    # 7.12
-            if block.block_header.height == last_height and block != last_block:
-                utxo.roll_back(last_block)
-                self.roll_back()
-            if block.block_header.height == last_height+1 and block.block_header.prev_block_hash == last_block.block_header.hash:
-                self.db.create(block.block_header.hash, block.serialize())
-                last_hash = block.block_header.hash
-                self.set_last_hash(last_hash)
-                utxo.update(block)
-        else:
+        prev_hash = last_block.get_header_hash()
+        last_height = last_block.block_header.height
+        if block.block_header.height < last_height:
+            raise ValueError('block height is error')
+        # if not block.validate(self):  # 7.12
+            # raise ValueError('block is not valid')    # 7.12
+        if block.block_header.height == last_height and block != last_block:
+            utxo.roll_back(last_block)
+            self.roll_back()
+        if block.block_header.height == last_height+1 and block.block_header.prev_block_hash == last_block.block_header.hash:
             self.db.create(block.block_header.hash, block.serialize())
             last_hash = block.block_header.hash
             self.set_last_hash(last_hash)
