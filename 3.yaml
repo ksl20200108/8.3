@@ -434,7 +434,7 @@ services:
       - ./conf12.py:/run/conf.py
       - ./base58.py:/run/base58.py
       - ./block.py:/run/block.py
-      - ./block_chain1.py:/run/block_chain.py
+      - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
       - ./cli3.py:/run/cli.py
       - ./db.py:/run/db.py
