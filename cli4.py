@@ -171,16 +171,13 @@ def start():    # wait : thread add_block(txs)   txs = []   packing function >1M
     utxo_set = UTXOSet()
     utxo_set.reindex(bc)
 
-    try:
-        f = open('address.txt', 'r')
-        addrs = []
-        for line in f:
-            addrs.append(line[:34])
-        f.close()
-        tx = bc.coin_base_tx(addrs[0])
-        bc.new_genesis_block(tx)
-    except:
-        pass
+    f = open('address.txt', 'r')
+    addrs = []
+    for line in f:
+        addrs.append(line[:34])
+    f.close()
+    tx = bc.coin_base_tx(addrs[0])
+    bc.new_genesis_block(tx)
 
     tcpserver = TCPServer()
     tcpserver.listen()
@@ -306,6 +303,7 @@ def client4():
             last_height = last_blo.block_header.height
             if last_height >= 11:
                 break
+            time.sleep(30)
         except:
             time.sleep(30)
     while True:
