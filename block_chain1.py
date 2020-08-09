@@ -114,7 +114,7 @@ class BlockChain(object):
             blo = self.get_last_block()
             time.sleep(5)
         f.write('\nshit2')
-        txs1 = blo.transactions()
+        txs1 = blo._transactions # blo.transactions()
         f.write('\nshit3')
         if txs1 and len(txs1) > 1:
             if txs1[1].txid == txs[1].txid:
