@@ -85,7 +85,9 @@ class BlockChain(object):
         return block
 
     def add_block(self, transactions, fee=0):
-        last_block = self.get_last_block()
+        last_block = None
+        while not last_block:
+            last_block = self.get_last_block()
         prev_hash = last_block.get_header_hash()
         height = last_block.block_header.height + 1
         block_header = BlockHeader('', height, prev_hash)
@@ -97,21 +99,20 @@ class BlockChain(object):
         coin_base_tx = self.coin_base_tx(w.address, fee)
         transactions.insert(0, coin_base_tx)
 
-        for i in range(0, height):
-            blo = self.get_block_by_height(i)
-            txs = blo._transactions
-            if txs:
-                try:
-                    if txs[1].txid == transactions[1].txid:
-                        return
-                except:
-                    pass
-
         utxo_set = UTXOSet()
         txs = utxo_set.clear_transactions(transactions)
 
         block = Block(block_header, txs)
         block.mine(self)
+
+        blo = None
+        while not blo:
+            blo = self.get_block_by_height(last_block.block_header.height)
+        txs = blo.transactions()
+        if txs:
+            if txs[1].txid == transactions[1].txid:
+                return
+
         block.set_header_hash()
         self.db.create(block.block_header.hash, block.serialize())
         last_hash = block.block_header.hash
@@ -236,7 +237,6 @@ class BlockChain(object):
         output = TXOutput(amount, to_addr)
         outputs.append(output)
         if acc > amount + fee:  # change
-            # a change
             outputs.append(TXOutput(acc - amount - fee, from_addr))   # change
 
         tx = Transaction(inputs, outputs, fee, ip)  # change
@@ -244,9 +244,9 @@ class BlockChain(object):
         self.sign_transaction(tx, from_wallet.private_key)
         return tx
 
-    def coin_base_tx(self, to_addr, fee=0):  # change add "fee" 6.19
+    def coin_base_tx(self, to_addr, fee=0):
         data = str(time.time())
-        tx = Transaction.coinbase_tx(to_addr, data, fee)    # change
+        tx = Transaction.coinbase_tx(to_addr, data, fee)
         return tx
 
     def find_transaction(self, txid):
