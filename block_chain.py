@@ -111,8 +111,8 @@ class BlockChain(object):
             blo = self.get_last_block()
             time.sleep(5)
         txs1 = blo.transactions()
-        if txs1:
-            if txs1[1].txid == transactions[1].txid:
+        if txs1 and len(txs1) > 1:
+            if txs1[1].txid == txs[1].txid:
                 return
 
         block.set_header_hash()
