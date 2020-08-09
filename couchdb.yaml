@@ -1,7 +1,694 @@
 version: '2'
 
+
 services:
-  couchdb:
+  couchdb1:
     image: hyperledger/fabric-couchdb
+    container_name: c1
     ports:
-    - 5984:5984
+      - 5984:5984
+
+  couchdb2:
+    image: hyperledger/fabric-couchdb
+    container_name: c2
+    ports:
+      - 5985:5984
+
+  couchdb3:
+    image: hyperledger/fabric-couchdb
+    container_name: c3
+    ports:
+      - 5986:5984
+
+  couchdb4:
+    image: hyperledger/fabric-couchdb
+    container_name: c4
+    ports:
+      - 5987:5984
+
+  couchdb5:
+    image: hyperledger/fabric-couchdb
+    container_name: c5
+    ports:
+      - 5988:5984
+
+  couchdb6:
+    image: hyperledger/fabric-couchdb
+    container_name: c6
+    ports:
+      - 5989:5984
+
+  couchdb7:
+    image: hyperledger/fabric-couchdb
+    container_name: c7
+    ports:
+      - 5990:5984
+
+  couchdb8:
+    image: hyperledger/fabric-couchdb
+    container_name: c8
+    ports:
+      - 5991:5984
+
+  couchdb9:
+    image: hyperledger/fabric-couchdb
+    container_name: c9
+    ports:
+      - 5992:5984
+
+  couchdb10:
+    image: hyperledger/fabric-couchdb
+    container_name: c10
+    ports:
+      - 5993:5984
+
+  couchdb11:
+    image: hyperledger/fabric-couchdb
+    container_name: c11
+    ports:
+      - 5994:5984
+
+  couchdb12:
+    image: hyperledger/fabric-couchdb
+    container_name: c12
+    ports:
+      - 5995:5984
+
+  couchdb13:
+    image: hyperledger/fabric-couchdb
+    container_name: c13
+    ports:
+      - 5996:5984
+
+  couchdb14:
+    image: hyperledger/fabric-couchdb
+    container_name: c14
+    ports:
+      - 5997:5984
+
+  couchdb15:
+    image: hyperledger/fabric-couchdb
+    container_name: c15
+    ports:
+      - 5998:5984
+
+  couchdb16:
+    image: hyperledger/fabric-couchdb
+    container_name: c16
+    ports:
+      - 5999:5984
+
+  couchdb17:
+    image: hyperledger/fabric-couchdb
+    container_name: c17
+    ports:
+      - 6000:5984
+
+  couchdb18:
+    image: hyperledger/fabric-couchdb
+    container_name: c18
+    ports:
+      - 6001:5984
+
+  couchdb19:
+    image: hyperledger/fabric-couchdb
+    container_name: c19
+    ports:
+      - 6002:5984
+
+  couchdb20:
+    image: hyperledger/fabric-couchdb
+    container_name: c20
+    ports:
+      - 6003:5984
+
+  couchdb21:
+    image: hyperledger/fabric-couchdb
+    container_name: c21
+    ports:
+      - 6004:5984
+
+  couchdb22:
+    image: hyperledger/fabric-couchdb
+    container_name: c22
+    ports:
+      - 6005:5984
+
+  couchdb23:
+    image: hyperledger/fabric-couchdb
+    container_name: c23
+    ports:
+      - 6006:5984
+
+  couchdb24:
+    image: hyperledger/fabric-couchdb
+    container_name: c24
+    ports:
+      - 6007:5984
+
+  couchdb25:
+    image: hyperledger/fabric-couchdb
+    container_name: c25
+    ports:
+      - 6008:5984
+
+  couchdb26:
+    image: hyperledger/fabric-couchdb
+    container_name: c26
+    ports:
+      - 6009:5984
+
+  couchdb27:
+    image: hyperledger/fabric-couchdb
+    container_name: c27
+    ports:
+      - 6010:5984
+
+  couchdb28:
+    image: hyperledger/fabric-couchdb
+    container_name: c28
+    ports:
+      - 6011:5984
+
+  couchdb29:
+    image: hyperledger/fabric-couchdb
+    container_name: c29
+    ports:
+      - 6012:5984
+
+  couchdb30:
+    image: hyperledger/fabric-couchdb
+    container_name: c30
+    ports:
+      - 6013:5984
+
+  couchdb31:
+    image: hyperledger/fabric-couchdb
+    container_name: c31
+    ports:
+      - 6014:5984
+
+  couchdb32:
+    image: hyperledger/fabric-couchdb
+    container_name: c32
+    ports:
+      - 6015:5984
+
+  couchdb33:
+    image: hyperledger/fabric-couchdb
+    container_name: c33
+    ports:
+      - 6016:5984
+
+  couchdb34:
+    image: hyperledger/fabric-couchdb
+    container_name: c34
+    ports:
+      - 6017:5984
+
+  couchdb35:
+    image: hyperledger/fabric-couchdb
+    container_name: c35
+    ports:
+      - 6018:5984
+
+  couchdb36:
+    image: hyperledger/fabric-couchdb
+    container_name: c36
+    ports:
+      - 6019:5984
+
+  couchdb37:
+    image: hyperledger/fabric-couchdb
+    container_name: c37
+    ports:
+      - 6020:5984
+
+  couchdb38:
+    image: hyperledger/fabric-couchdb
+    container_name: c38
+    ports:
+      - 6021:5984
+
+  couchdb39:
+    image: hyperledger/fabric-couchdb
+    container_name: c39
+    ports:
+      - 6022:5984
+
+  couchdb40:
+    image: hyperledger/fabric-couchdb
+    container_name: c40
+    ports:
+      - 6023:5984
+
+  couchdb41:
+    image: hyperledger/fabric-couchdb
+    container_name: c41
+    ports:
+      - 6024:5984
+
+  couchdb42:
+    image: hyperledger/fabric-couchdb
+    container_name: c42
+    ports:
+      - 6025:5984
+
+  couchdb43:
+    image: hyperledger/fabric-couchdb
+    container_name: c43
+    ports:
+      - 6026:5984
+
+  couchdb44:
+    image: hyperledger/fabric-couchdb
+    container_name: c44
+    ports:
+      - 6027:5984
+
+  couchdb45:
+    image: hyperledger/fabric-couchdb
+    container_name: c45
+    ports:
+      - 6028:5984
+
+  couchdb46:
+    image: hyperledger/fabric-couchdb
+    container_name: c46
+    ports:
+      - 6029:5984
+
+  couchdb47:
+    image: hyperledger/fabric-couchdb
+    container_name: c47
+    ports:
+      - 6030:5984
+
+  couchdb48:
+    image: hyperledger/fabric-couchdb
+    container_name: c48
+    ports:
+      - 6031:5984
+
+  couchdb49:
+    image: hyperledger/fabric-couchdb
+    container_name: c49
+    ports:
+      - 6032:5984
+
+  couchdb50:
+    image: hyperledger/fabric-couchdb
+    container_name: c50
+    ports:
+      - 6033:5984
+
+  couchdb51:
+    image: hyperledger/fabric-couchdb
+    container_name: c51
+    ports:
+      - 6034:5984
+
+  couchdb52:
+    image: hyperledger/fabric-couchdb
+    container_name: c52
+    ports:
+      - 6035:5984
+
+  couchdb53:
+    image: hyperledger/fabric-couchdb
+    container_name: c53
+    ports:
+      - 6036:5984
+
+  couchdb54:
+    image: hyperledger/fabric-couchdb
+    container_name: c54
+    ports:
+      - 6037:5984
+
+  couchdb55:
+    image: hyperledger/fabric-couchdb
+    container_name: c55
+    ports:
+      - 6038:5984
+
+  couchdb56:
+    image: hyperledger/fabric-couchdb
+    container_name: c56
+    ports:
+      - 6039:5984
+
+  couchdb57:
+    image: hyperledger/fabric-couchdb
+    container_name: c57
+    ports:
+      - 6040:5984
+
+  couchdb58:
+    image: hyperledger/fabric-couchdb
+    container_name: c58
+    ports:
+      - 6041:5984
+
+  couchdb59:
+    image: hyperledger/fabric-couchdb
+    container_name: c59
+    ports:
+      - 6042:5984
+
+  couchdb60:
+    image: hyperledger/fabric-couchdb
+    container_name: c60
+    ports:
+      - 6043:5984
+
+  couchdb61:
+    image: hyperledger/fabric-couchdb
+    container_name: c61
+    ports:
+      - 6044:5984
+
+  couchdb62:
+    image: hyperledger/fabric-couchdb
+    container_name: c62
+    ports:
+      - 6045:5984
+
+  couchdb63:
+    image: hyperledger/fabric-couchdb
+    container_name: c63
+    ports:
+      - 6046:5984
+
+  couchdb64:
+    image: hyperledger/fabric-couchdb
+    container_name: c64
+    ports:
+      - 6047:5984
+
+  couchdb65:
+    image: hyperledger/fabric-couchdb
+    container_name: c65
+    ports:
+      - 6048:5984
+
+  couchdb66:
+    image: hyperledger/fabric-couchdb
+    container_name: c66
+    ports:
+      - 6049:5984
+
+  couchdb67:
+    image: hyperledger/fabric-couchdb
+    container_name: c67
+    ports:
+      - 6050:5984
+
+  couchdb68:
+    image: hyperledger/fabric-couchdb
+    container_name: c68
+    ports:
+      - 6051:5984
+
+  couchdb69:
+    image: hyperledger/fabric-couchdb
+    container_name: c69
+    ports:
+      - 6052:5984
+
+  couchdb70:
+    image: hyperledger/fabric-couchdb
+    container_name: c70
+    ports:
+      - 6053:5984
+
+  couchdb71:
+    image: hyperledger/fabric-couchdb
+    container_name: c71
+    ports:
+      - 6054:5984
+
+  couchdb72:
+    image: hyperledger/fabric-couchdb
+    container_name: c72
+    ports:
+      - 6055:5984
+
+  couchdb73:
+    image: hyperledger/fabric-couchdb
+    container_name: c73
+    ports:
+      - 6056:5984
+
+  couchdb74:
+    image: hyperledger/fabric-couchdb
+    container_name: c74
+    ports:
+      - 6057:5984
+
+  couchdb75:
+    image: hyperledger/fabric-couchdb
+    container_name: c75
+    ports:
+      - 6058:5984
+
+  couchdb76:
+    image: hyperledger/fabric-couchdb
+    container_name: c76
+    ports:
+      - 6059:5984
+
+  couchdb77:
+    image: hyperledger/fabric-couchdb
+    container_name: c77
+    ports:
+      - 6060:5984
+
+  couchdb78:
+    image: hyperledger/fabric-couchdb
+    container_name: c78
+    ports:
+      - 6061:5984
+
+  couchdb79:
+    image: hyperledger/fabric-couchdb
+    container_name: c79
+    ports:
+      - 6062:5984
+
+  couchdb80:
+    image: hyperledger/fabric-couchdb
+    container_name: c80
+    ports:
+      - 6063:5984
+
+  couchdb81:
+    image: hyperledger/fabric-couchdb
+    container_name: c81
+    ports:
+      - 6064:5984
+
+  couchdb82:
+    image: hyperledger/fabric-couchdb
+    container_name: c82
+    ports:
+      - 6065:5984
+
+  couchdb83:
+    image: hyperledger/fabric-couchdb
+    container_name: c83
+    ports:
+      - 6066:5984
+
+  couchdb84:
+    image: hyperledger/fabric-couchdb
+    container_name: c84
+    ports:
+      - 6067:5984
+
+  couchdb85:
+    image: hyperledger/fabric-couchdb
+    container_name: c85
+    ports:
+      - 6068:5984
+
+  couchdb86:
+    image: hyperledger/fabric-couchdb
+    container_name: c86
+    ports:
+      - 6069:5984
+
+  couchdb87:
+    image: hyperledger/fabric-couchdb
+    container_name: c87
+    ports:
+      - 6070:5984
+
+  couchdb88:
+    image: hyperledger/fabric-couchdb
+    container_name: c88
+    ports:
+      - 6071:5984
+
+  couchdb89:
+    image: hyperledger/fabric-couchdb
+    container_name: c89
+    ports:
+      - 6072:5984
+
+  couchdb90:
+    image: hyperledger/fabric-couchdb
+    container_name: c90
+    ports:
+      - 6073:5984
+
+  couchdb91:
+    image: hyperledger/fabric-couchdb
+    container_name: c91
+    ports:
+      - 6074:5984
+
+  couchdb92:
+    image: hyperledger/fabric-couchdb
+    container_name: c92
+    ports:
+      - 6075:5984
+
+  couchdb93:
+    image: hyperledger/fabric-couchdb
+    container_name: c93
+    ports:
+      - 6076:5984
+
+  couchdb94:
+    image: hyperledger/fabric-couchdb
+    container_name: c94
+    ports:
+      - 6077:5984
+
+  couchdb95:
+    image: hyperledger/fabric-couchdb
+    container_name: c95
+    ports:
+      - 6078:5984
+
+  couchdb96:
+    image: hyperledger/fabric-couchdb
+    container_name: c96
+    ports:
+      - 6079:5984
+
+  couchdb97:
+    image: hyperledger/fabric-couchdb
+    container_name: c97
+    ports:
+      - 6080:5984
+
+  couchdb98:
+    image: hyperledger/fabric-couchdb
+    container_name: c98
+    ports:
+      - 6081:5984
+
+  couchdb99:
+    image: hyperledger/fabric-couchdb
+    container_name: c99
+    ports:
+      - 6082:5984
+
+  couchdb100:
+    image: hyperledger/fabric-couchdb
+    container_name: c100
+    ports:
+      - 6083:5984
+
+  couchdb101:
+    image: hyperledger/fabric-couchdb
+    container_name: c101
+    ports:
+      - 6084:5984
+
+  couchdb102:
+    image: hyperledger/fabric-couchdb
+    container_name: c102
+    ports:
+      - 6085:5984
+
+  couchdb103:
+    image: hyperledger/fabric-couchdb
+    container_name: c103
+    ports:
+      - 6086:5984
+
+  couchdb104:
+    image: hyperledger/fabric-couchdb
+    container_name: c104
+    ports:
+      - 6087:5984
+
+  couchdb105:
+    image: hyperledger/fabric-couchdb
+    container_name: c105
+    ports:
+      - 6088:5984
+
+  couchdb106:
+    image: hyperledger/fabric-couchdb
+    container_name: c106
+    ports:
+      - 6089:5984
+
+  couchdb107:
+    image: hyperledger/fabric-couchdb
+    container_name: c107
+    ports:
+      - 6090:5984
+
+  couchdb108:
+    image: hyperledger/fabric-couchdb
+    container_name: c108
+    ports:
+      - 6091:5984
+
+  couchdb109:
+    image: hyperledger/fabric-couchdb
+    container_name: c109
+    ports:
+      - 6092:5984
+
+  couchdb110:
+    image: hyperledger/fabric-couchdb
+    container_name: c110
+    ports:
+      - 6093:5984
+
+  couchdb111:
+    image: hyperledger/fabric-couchdb
+    container_name: c111
+    ports:
+      - 6094:5984
+
+  couchdb112:
+    image: hyperledger/fabric-couchdb
+    container_name: c112
+    ports:
+      - 6095:5984
+
+  couchdb113:
+    image: hyperledger/fabric-couchdb
+    container_name: c113
+    ports:
+      - 6096:5984
+
+  couchdb114:
+    image: hyperledger/fabric-couchdb
+    container_name: c114
+    ports:
+      - 6097:5984
+
+
+
+networks:
+  default:
+    external:
+      name: genesis  # docker network create --subnet=192.168.118.0/24 genesis
