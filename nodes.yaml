@@ -1,0 +1,4755 @@
+version: '2'
+
+services:
+  net_check2:
+    image: net_check:1.0
+    container_name: k2
+    environment:
+      - DB_URL=2
+      - LOCAL_IP="192.168.118.132"
+    ports:
+      - 5679:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.132
+
+  net_check3:
+    image: net_check:1.0
+    container_name: k3
+    environment:
+      - DB_URL=3
+      - LOCAL_IP="192.168.118.133"
+    ports:
+      - 5680:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.133
+
+  net_check4:
+    image: net_check:1.0
+    container_name: k4
+    environment:
+      - DB_URL=4
+      - LOCAL_IP="192.168.118.134"
+    ports:
+      - 5681:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.134
+
+  net_check5:
+    image: net_check:1.0
+    container_name: k5
+    environment:
+      - DB_URL=5
+      - LOCAL_IP="192.168.118.135"
+    ports:
+      - 5682:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.135
+
+  net_check6:
+    image: net_check:1.0
+    container_name: k6
+    environment:
+      - DB_URL=6
+      - LOCAL_IP="192.168.118.136"
+    ports:
+      - 5683:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.136
+
+  net_check7:
+    image: net_check:1.0
+    container_name: k7
+    environment:
+      - DB_URL=7
+      - LOCAL_IP="192.168.118.137"
+    ports:
+      - 5684:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.137
+
+  net_check8:
+    image: net_check:1.0
+    container_name: k8
+    environment:
+      - DB_URL=8
+      - LOCAL_IP="192.168.118.138"
+    ports:
+      - 5685:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.138
+
+  net_check9:
+    image: net_check:1.0
+    container_name: k9
+    environment:
+      - DB_URL=9
+      - LOCAL_IP="192.168.118.139"
+    ports:
+      - 5686:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.139
+
+  net_check10:
+    image: net_check:1.0
+    container_name: k10
+    environment:
+      - DB_URL=10
+      - LOCAL_IP="192.168.118.140"
+    ports:
+      - 5687:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.140
+
+  net_check11:
+    image: net_check:1.0
+    container_name: k11
+    environment:
+      - DB_URL=11
+      - LOCAL_IP="192.168.118.141"
+    ports:
+      - 5688:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.141
+
+  net_check12:
+    image: net_check:1.0
+    container_name: k12
+    environment:
+      - DB_URL=12
+      - LOCAL_IP="192.168.118.142"
+    ports:
+      - 5689:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.142
+
+  net_check13:
+    image: net_check:1.0
+    container_name: k13
+    environment:
+      - DB_URL=13
+      - LOCAL_IP="192.168.118.143"
+    ports:
+      - 5690:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.143
+
+  net_check14:
+    image: net_check:1.0
+    container_name: k14
+    environment:
+      - DB_URL=14
+      - LOCAL_IP="192.168.118.144"
+    ports:
+      - 5691:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.144
+
+  net_check15:
+    image: net_check:1.0
+    container_name: k15
+    environment:
+      - DB_URL=15
+      - LOCAL_IP="192.168.118.145"
+    ports:
+      - 5692:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.145
+
+  net_check16:
+    image: net_check:1.0
+    container_name: k16
+    environment:
+      - DB_URL=16
+      - LOCAL_IP="192.168.118.146"
+    ports:
+      - 5693:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.146
+
+  net_check17:
+    image: net_check:1.0
+    container_name: k17
+    environment:
+      - DB_URL=17
+      - LOCAL_IP="192.168.118.147"
+    ports:
+      - 5694:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.147
+
+  net_check18:
+    image: net_check:1.0
+    container_name: k18
+    environment:
+      - DB_URL=18
+      - LOCAL_IP="192.168.118.148"
+    ports:
+      - 5695:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.148
+
+  net_check19:
+    image: net_check:1.0
+    container_name: k19
+    environment:
+      - DB_URL=19
+      - LOCAL_IP="192.168.118.149"
+    ports:
+      - 5696:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.149
+
+  net_check20:
+    image: net_check:1.0
+    container_name: k20
+    environment:
+      - DB_URL=20
+      - LOCAL_IP="192.168.118.150"
+    ports:
+      - 5697:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.150
+
+  net_check21:
+    image: net_check:1.0
+    container_name: k21
+    environment:
+      - DB_URL=21
+      - LOCAL_IP="192.168.118.151"
+    ports:
+      - 5698:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.151
+
+  net_check22:
+    image: net_check:1.0
+    container_name: k22
+    environment:
+      - DB_URL=22
+      - LOCAL_IP="192.168.118.152"
+    ports:
+      - 5699:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.152
+
+  net_check23:
+    image: net_check:1.0
+    container_name: k23
+    environment:
+      - DB_URL=23
+      - LOCAL_IP="192.168.118.153"
+    ports:
+      - 5700:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.153
+
+  net_check24:
+    image: net_check:1.0
+    container_name: k24
+    environment:
+      - DB_URL=24
+      - LOCAL_IP="192.168.118.154"
+    ports:
+      - 5701:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.154
+
+  net_check25:
+    image: net_check:1.0
+    container_name: k25
+    environment:
+      - DB_URL=25
+      - LOCAL_IP="192.168.118.155"
+    ports:
+      - 5702:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.155
+
+  net_check26:
+    image: net_check:1.0
+    container_name: k26
+    environment:
+      - DB_URL=26
+      - LOCAL_IP="192.168.118.156"
+    ports:
+      - 5703:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.156
+
+  net_check27:
+    image: net_check:1.0
+    container_name: k27
+    environment:
+      - DB_URL=27
+      - LOCAL_IP="192.168.118.157"
+    ports:
+      - 5704:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.157
+
+  net_check28:
+    image: net_check:1.0
+    container_name: k28
+    environment:
+      - DB_URL=28
+      - LOCAL_IP="192.168.118.158"
+    ports:
+      - 5705:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.158
+
+  net_check29:
+    image: net_check:1.0
+    container_name: k29
+    environment:
+      - DB_URL=29
+      - LOCAL_IP="192.168.118.159"
+    ports:
+      - 5706:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.159
+
+  net_check30:
+    image: net_check:1.0
+    container_name: k30
+    environment:
+      - DB_URL=30
+      - LOCAL_IP="192.168.118.160"
+    ports:
+      - 5707:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.160
+
+  net_check31:
+    image: net_check:1.0
+    container_name: k31
+    environment:
+      - DB_URL=31
+      - LOCAL_IP="192.168.118.161"
+    ports:
+      - 5708:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.161
+
+  net_check32:
+    image: net_check:1.0
+    container_name: k32
+    environment:
+      - DB_URL=32
+      - LOCAL_IP="192.168.118.162"
+    ports:
+      - 5709:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.162
+
+  net_check33:
+    image: net_check:1.0
+    container_name: k33
+    environment:
+      - DB_URL=33
+      - LOCAL_IP="192.168.118.163"
+    ports:
+      - 5710:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.163
+
+  net_check34:
+    image: net_check:1.0
+    container_name: k34
+    environment:
+      - DB_URL=34
+      - LOCAL_IP="192.168.118.164"
+    ports:
+      - 5711:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.164
+
+  net_check35:
+    image: net_check:1.0
+    container_name: k35
+    environment:
+      - DB_URL=35
+      - LOCAL_IP="192.168.118.165"
+    ports:
+      - 5712:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.165
+
+  net_check36:
+    image: net_check:1.0
+    container_name: k36
+    environment:
+      - DB_URL=36
+      - LOCAL_IP="192.168.118.166"
+    ports:
+      - 5713:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.166
+
+  net_check37:
+    image: net_check:1.0
+    container_name: k37
+    environment:
+      - DB_URL=37
+      - LOCAL_IP="192.168.118.167"
+    ports:
+      - 5714:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.167
+
+  net_check38:
+    image: net_check:1.0
+    container_name: k38
+    environment:
+      - DB_URL=38
+      - LOCAL_IP="192.168.118.168"
+    ports:
+      - 5715:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli2.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.168
+
+  net_check39:
+    image: net_check:1.0
+    container_name: k39
+    environment:
+      - DB_URL=39
+      - LOCAL_IP="192.168.118.169"
+    ports:
+      - 5716:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.169
+
+  net_check40:
+    image: net_check:1.0
+    container_name: k40
+    environment:
+      - DB_URL=40
+      - LOCAL_IP="192.168.118.170"
+    ports:
+      - 5717:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.170
+
+  net_check41:
+    image: net_check:1.0
+    container_name: k41
+    environment:
+      - DB_URL=41
+      - LOCAL_IP="192.168.118.171"
+    ports:
+      - 5718:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.171
+
+  net_check42:
+    image: net_check:1.0
+    container_name: k42
+    environment:
+      - DB_URL=42
+      - LOCAL_IP="192.168.118.172"
+    ports:
+      - 5719:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.172
+
+  net_check43:
+    image: net_check:1.0
+    container_name: k43
+    environment:
+      - DB_URL=43
+      - LOCAL_IP="192.168.118.173"
+    ports:
+      - 5720:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.173
+
+  net_check44:
+    image: net_check:1.0
+    container_name: k44
+    environment:
+      - DB_URL=44
+      - LOCAL_IP="192.168.118.174"
+    ports:
+      - 5721:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.174
+
+  net_check45:
+    image: net_check:1.0
+    container_name: k45
+    environment:
+      - DB_URL=45
+      - LOCAL_IP="192.168.118.175"
+    ports:
+      - 5722:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.175
+
+  net_check46:
+    image: net_check:1.0
+    container_name: k46
+    environment:
+      - DB_URL=46
+      - LOCAL_IP="192.168.118.176"
+    ports:
+      - 5723:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.176
+
+  net_check47:
+    image: net_check:1.0
+    container_name: k47
+    environment:
+      - DB_URL=47
+      - LOCAL_IP="192.168.118.177"
+    ports:
+      - 5724:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.177
+
+  net_check48:
+    image: net_check:1.0
+    container_name: k48
+    environment:
+      - DB_URL=48
+      - LOCAL_IP="192.168.118.178"
+    ports:
+      - 5725:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.178
+
+  net_check49:
+    image: net_check:1.0
+    container_name: k49
+    environment:
+      - DB_URL=49
+      - LOCAL_IP="192.168.118.179"
+    ports:
+      - 5726:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.179
+
+  net_check50:
+    image: net_check:1.0
+    container_name: k50
+    environment:
+      - DB_URL=50
+      - LOCAL_IP="192.168.118.180"
+    ports:
+      - 5727:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.180
+
+  net_check51:
+    image: net_check:1.0
+    container_name: k51
+    environment:
+      - DB_URL=51
+      - LOCAL_IP="192.168.118.181"
+    ports:
+      - 5728:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.181
+
+  net_check52:
+    image: net_check:1.0
+    container_name: k52
+    environment:
+      - DB_URL=52
+      - LOCAL_IP="192.168.118.182"
+    ports:
+      - 5729:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.182
+
+  net_check53:
+    image: net_check:1.0
+    container_name: k53
+    environment:
+      - DB_URL=53
+      - LOCAL_IP="192.168.118.183"
+    ports:
+      - 5730:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.183
+
+  net_check54:
+    image: net_check:1.0
+    container_name: k54
+    environment:
+      - DB_URL=54
+      - LOCAL_IP="192.168.118.184"
+    ports:
+      - 5731:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.184
+
+  net_check55:
+    image: net_check:1.0
+    container_name: k55
+    environment:
+      - DB_URL=55
+      - LOCAL_IP="192.168.118.185"
+    ports:
+      - 5732:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.185
+
+  net_check56:
+    image: net_check:1.0
+    container_name: k56
+    environment:
+      - DB_URL=56
+      - LOCAL_IP="192.168.118.186"
+    ports:
+      - 5733:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.186
+
+  net_check57:
+    image: net_check:1.0
+    container_name: k57
+    environment:
+      - DB_URL=57
+      - LOCAL_IP="192.168.118.187"
+    ports:
+      - 5734:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.187
+
+  net_check58:
+    image: net_check:1.0
+    container_name: k58
+    environment:
+      - DB_URL=58
+      - LOCAL_IP="192.168.118.188"
+    ports:
+      - 5735:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.188
+
+  net_check59:
+    image: net_check:1.0
+    container_name: k59
+    environment:
+      - DB_URL=59
+      - LOCAL_IP="192.168.118.189"
+    ports:
+      - 5736:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.189
+
+  net_check60:
+    image: net_check:1.0
+    container_name: k60
+    environment:
+      - DB_URL=60
+      - LOCAL_IP="192.168.118.190"
+    ports:
+      - 5737:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.190
+
+  net_check61:
+    image: net_check:1.0
+    container_name: k61
+    environment:
+      - DB_URL=61
+      - LOCAL_IP="192.168.118.191"
+    ports:
+      - 5738:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.191
+
+  net_check62:
+    image: net_check:1.0
+    container_name: k62
+    environment:
+      - DB_URL=62
+      - LOCAL_IP="192.168.118.192"
+    ports:
+      - 5739:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.192
+
+  net_check63:
+    image: net_check:1.0
+    container_name: k63
+    environment:
+      - DB_URL=63
+      - LOCAL_IP="192.168.118.193"
+    ports:
+      - 5740:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.193
+
+  net_check64:
+    image: net_check:1.0
+    container_name: k64
+    environment:
+      - DB_URL=64
+      - LOCAL_IP="192.168.118.194"
+    ports:
+      - 5741:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.194
+
+  net_check65:
+    image: net_check:1.0
+    container_name: k65
+    environment:
+      - DB_URL=65
+      - LOCAL_IP="192.168.118.195"
+    ports:
+      - 5742:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.195
+
+  net_check66:
+    image: net_check:1.0
+    container_name: k66
+    environment:
+      - DB_URL=66
+      - LOCAL_IP="192.168.118.196"
+    ports:
+      - 5743:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.196
+
+  net_check67:
+    image: net_check:1.0
+    container_name: k67
+    environment:
+      - DB_URL=67
+      - LOCAL_IP="192.168.118.197"
+    ports:
+      - 5744:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.197
+
+  net_check68:
+    image: net_check:1.0
+    container_name: k68
+    environment:
+      - DB_URL=68
+      - LOCAL_IP="192.168.118.198"
+    ports:
+      - 5745:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.198
+
+  net_check69:
+    image: net_check:1.0
+    container_name: k69
+    environment:
+      - DB_URL=69
+      - LOCAL_IP="192.168.118.199"
+    ports:
+      - 5746:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.199
+
+  net_check70:
+    image: net_check:1.0
+    container_name: k70
+    environment:
+      - DB_URL=70
+      - LOCAL_IP="192.168.118.200"
+    ports:
+      - 5747:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.200
+
+  net_check71:
+    image: net_check:1.0
+    container_name: k71
+    environment:
+      - DB_URL=71
+      - LOCAL_IP="192.168.118.201"
+    ports:
+      - 5748:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.201
+
+  net_check72:
+    image: net_check:1.0
+    container_name: k72
+    environment:
+      - DB_URL=72
+      - LOCAL_IP="192.168.118.202"
+    ports:
+      - 5749:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.202
+
+  net_check73:
+    image: net_check:1.0
+    container_name: k73
+    environment:
+      - DB_URL=73
+      - LOCAL_IP="192.168.118.203"
+    ports:
+      - 5750:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.203
+
+  net_check74:
+    image: net_check:1.0
+    container_name: k74
+    environment:
+      - DB_URL=74
+      - LOCAL_IP="192.168.118.204"
+    ports:
+      - 5751:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.204
+
+  net_check75:
+    image: net_check:1.0
+    container_name: k75
+    environment:
+      - DB_URL=75
+      - LOCAL_IP="192.168.118.205"
+    ports:
+      - 5752:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.205
+
+  net_check76:
+    image: net_check:1.0
+    container_name: k76
+    environment:
+      - DB_URL=76
+      - LOCAL_IP="192.168.118.206"
+    ports:
+      - 5753:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.206
+
+  net_check77:
+    image: net_check:1.0
+    container_name: k77
+    environment:
+      - DB_URL=77
+      - LOCAL_IP="192.168.118.207"
+    ports:
+      - 5754:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.207
+
+  net_check78:
+    image: net_check:1.0
+    container_name: k78
+    environment:
+      - DB_URL=78
+      - LOCAL_IP="192.168.118.208"
+    ports:
+      - 5755:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.208
+
+  net_check79:
+    image: net_check:1.0
+    container_name: k79
+    environment:
+      - DB_URL=79
+      - LOCAL_IP="192.168.118.209"
+    ports:
+      - 5756:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.209
+
+  net_check80:
+    image: net_check:1.0
+    container_name: k80
+    environment:
+      - DB_URL=80
+      - LOCAL_IP="192.168.118.210"
+    ports:
+      - 5757:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.210
+
+  net_check81:
+    image: net_check:1.0
+    container_name: k81
+    environment:
+      - DB_URL=81
+      - LOCAL_IP="192.168.118.211"
+    ports:
+      - 5758:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.211
+
+  net_check82:
+    image: net_check:1.0
+    container_name: k82
+    environment:
+      - DB_URL=82
+      - LOCAL_IP="192.168.118.212"
+    ports:
+      - 5759:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.212
+
+  net_check83:
+    image: net_check:1.0
+    container_name: k83
+    environment:
+      - DB_URL=83
+      - LOCAL_IP="192.168.118.213"
+    ports:
+      - 5760:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.213
+
+  net_check84:
+    image: net_check:1.0
+    container_name: k84
+    environment:
+      - DB_URL=84
+      - LOCAL_IP="192.168.118.214"
+    ports:
+      - 5761:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.214
+
+  net_check85:
+    image: net_check:1.0
+    container_name: k85
+    environment:
+      - DB_URL=85
+      - LOCAL_IP="192.168.118.215"
+    ports:
+      - 5762:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.215
+
+  net_check86:
+    image: net_check:1.0
+    container_name: k86
+    environment:
+      - DB_URL=86
+      - LOCAL_IP="192.168.118.216"
+    ports:
+      - 5763:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.216
+
+  net_check87:
+    image: net_check:1.0
+    container_name: k87
+    environment:
+      - DB_URL=87
+      - LOCAL_IP="192.168.118.217"
+    ports:
+      - 5764:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.217
+
+  net_check88:
+    image: net_check:1.0
+    container_name: k88
+    environment:
+      - DB_URL=88
+      - LOCAL_IP="192.168.118.218"
+    ports:
+      - 5765:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.218
+
+  net_check89:
+    image: net_check:1.0
+    container_name: k89
+    environment:
+      - DB_URL=89
+      - LOCAL_IP="192.168.118.219"
+    ports:
+      - 5766:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.219
+
+  net_check90:
+    image: net_check:1.0
+    container_name: k90
+    environment:
+      - DB_URL=90
+      - LOCAL_IP="192.168.118.220"
+    ports:
+      - 5767:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.220
+
+  net_check91:
+    image: net_check:1.0
+    container_name: k91
+    environment:
+      - DB_URL=91
+      - LOCAL_IP="192.168.118.221"
+    ports:
+      - 5768:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.221
+
+  net_check92:
+    image: net_check:1.0
+    container_name: k92
+    environment:
+      - DB_URL=92
+      - LOCAL_IP="192.168.118.222"
+    ports:
+      - 5769:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.222
+
+  net_check93:
+    image: net_check:1.0
+    container_name: k93
+    environment:
+      - DB_URL=93
+      - LOCAL_IP="192.168.118.223"
+    ports:
+      - 5770:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.223
+
+  net_check94:
+    image: net_check:1.0
+    container_name: k94
+    environment:
+      - DB_URL=94
+      - LOCAL_IP="192.168.118.224"
+    ports:
+      - 5771:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.224
+
+  net_check95:
+    image: net_check:1.0
+    container_name: k95
+    environment:
+      - DB_URL=95
+      - LOCAL_IP="192.168.118.225"
+    ports:
+      - 5772:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.225
+
+  net_check96:
+    image: net_check:1.0
+    container_name: k96
+    environment:
+      - DB_URL=96
+      - LOCAL_IP="192.168.118.226"
+    ports:
+      - 5773:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.226
+
+  net_check97:
+    image: net_check:1.0
+    container_name: k97
+    environment:
+      - DB_URL=97
+      - LOCAL_IP="192.168.118.227"
+    ports:
+      - 5774:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.227
+
+  net_check98:
+    image: net_check:1.0
+    container_name: k98
+    environment:
+      - DB_URL=98
+      - LOCAL_IP="192.168.118.228"
+    ports:
+      - 5775:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.228
+
+  net_check99:
+    image: net_check:1.0
+    container_name: k99
+    environment:
+      - DB_URL=99
+      - LOCAL_IP="192.168.118.229"
+    ports:
+      - 5776:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.229
+
+  net_check100:
+    image: net_check:1.0
+    container_name: k100
+    environment:
+      - DB_URL=100
+      - LOCAL_IP="192.168.118.230"
+    ports:
+      - 5777:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.230
+
+  net_check101:
+    image: net_check:1.0
+    container_name: k101
+    environment:
+      - DB_URL=101
+      - LOCAL_IP="192.168.118.231"
+    ports:
+      - 5778:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.231
+
+  net_check102:
+    image: net_check:1.0
+    container_name: k102
+    environment:
+      - DB_URL=102
+      - LOCAL_IP="192.168.118.232"
+    ports:
+      - 5779:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.232
+
+  net_check103:
+    image: net_check:1.0
+    container_name: k103
+    environment:
+      - DB_URL=103
+      - LOCAL_IP="192.168.118.233"
+    ports:
+      - 5780:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.233
+
+  net_check104:
+    image: net_check:1.0
+    container_name: k104
+    environment:
+      - DB_URL=104
+      - LOCAL_IP="192.168.118.234"
+    ports:
+      - 5781:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.234
+
+  net_check105:
+    image: net_check:1.0
+    container_name: k105
+    environment:
+      - DB_URL=105
+      - LOCAL_IP="192.168.118.235"
+    ports:
+      - 5782:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.235
+
+  net_check106:
+    image: net_check:1.0
+    container_name: k106
+    environment:
+      - DB_URL=106
+      - LOCAL_IP="192.168.118.236"
+    ports:
+      - 5783:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.236
+
+  net_check107:
+    image: net_check:1.0
+    container_name: k107
+    environment:
+      - DB_URL=107
+      - LOCAL_IP="192.168.118.237"
+    ports:
+      - 5784:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.237
+
+  net_check108:
+    image: net_check:1.0
+    container_name: k108
+    environment:
+      - DB_URL=108
+      - LOCAL_IP="192.168.118.238"
+    ports:
+      - 5785:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.238
+
+  net_check109:
+    image: net_check:1.0
+    container_name: k109
+    environment:
+      - DB_URL=109
+      - LOCAL_IP="192.168.118.239"
+    ports:
+      - 5786:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.239
+
+  net_check110:
+    image: net_check:1.0
+    container_name: k110
+    environment:
+      - DB_URL=110
+      - LOCAL_IP="192.168.118.240"
+    ports:
+      - 5787:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.240
+
+  net_check111:
+    image: net_check:1.0
+    container_name: k111
+    environment:
+      - DB_URL=111
+      - LOCAL_IP="192.168.118.241"
+    ports:
+      - 5788:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.241
+
+  net_check112:
+    image: net_check:1.0
+    container_name: k112
+    environment:
+      - DB_URL=112
+      - LOCAL_IP="192.168.118.242"
+    ports:
+      - 5789:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.242
+
+  net_check113:
+    image: net_check:1.0
+    container_name: k113
+    environment:
+      - DB_URL=113
+      - LOCAL_IP="192.168.118.243"
+    ports:
+      - 5790:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli3.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.243
+
+  net_check114:
+    image: net_check:1.0
+    container_name: k114
+    environment:
+      - DB_URL=114
+      - LOCAL_IP="192.168.118.244"
+    ports:
+      - 5791:5678
+    privileged: true
+    volumes:
+      - ./conf.py:/run/conf.py
+      - ./cli4.py:/run/cli.py
+      - ./base58.py:/run/base58.py
+      - ./block.py:/run/block.py
+      - ./block_chain.py:/run/block_chain.py
+      - ./block_header.py:/run/block_header.py
+      - ./db.py:/run/db.py
+      - ./errors.py:/run/errors.py
+      - ./merkle.py:/run/merkle.py
+      - ./network.py:/run/network.py
+      - ./packing.py:/run/packing.py
+      - ./pow.py:/run/pow.py
+      - ./random_distributions.py:/run/random_distributions.py
+      - ./random_distribution2.py:/run/random_distribution2.py
+      - ./rpcserver.py:/run/rpcserver.py
+      - ./sorting.py:/run/sorting.py
+      - ./stopmine.py:/run/stopmine.py
+      - ./transactions.py:/run/transactions.py
+      - ./txpool.py:/run/txpool.py
+      - ./utils.py:/run/utils.py
+      - ./utxo.py:/run/utxo.py
+      - ./wallet.py:/run/wallet.py
+      - ./wallets.py:/run/wallets.py
+      - ./wallet.dat:/run/wallet.dat
+      - ./PDF2.txt:/run/PDF2.txt
+      - ./data.txt:/run/data.txt
+      - ./address.txt:/run/address.txt
+      - ./shit.txt:/run/shit.txt
+    networks:
+      default:
+        ipv4_address: 192.168.118.244
+
+
+
+networks:
+  default:
+    external:
+      name: genesis  # docker network create --subnet=192.168.118.0/24 genesis
