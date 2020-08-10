@@ -325,8 +325,8 @@ def client4():
             time.sleep(5)
             blo = bc1.get_block_by_height(i)
         txs = blo._transactions
-        tx = txs[1]
-        if tx.ip:
+        if len(txs) > 1:
+            tx = txs[1]
             u_total_payoff += (1.33 - tx.amount - 0.05*j)
             m_total_payoff += (tx.amount - 0.1 - 0.9)
             if tx.ip in users.keys():
