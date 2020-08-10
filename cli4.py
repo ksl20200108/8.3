@@ -306,19 +306,12 @@ def client4():
         except:
             time.sleep(30)
 
-    j = 1
+    j = 0
     m_total_payoff = 0
     u_total_payoff = 0
     users = {}
-    genesis_blo = None
-    while not genesis_blo:
-        genesis_blo = bc1.get_block_by_height(0)
-        time.sleep(1)
 
-    fo.write(str(genesis_blo.serialize()))
-    fo.write('\n')
-
-    for i in range(1, 12):
+    for i in range(0, 12):
         j += 1
         blo = None
         while not blo:

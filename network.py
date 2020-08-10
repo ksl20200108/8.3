@@ -17,6 +17,7 @@ from transactions import Transaction
 from utils import Singleton
 from conf import bootstrap_host, bootstrap_port, listen_port
 from stopmine import StopMine
+from utxo import *
 
 handler = logging.StreamHandler()
 formatter = logging.Formatter(
@@ -232,28 +233,15 @@ class TCPServer(object):
                  str(get_range[0]) + " " + str(get_range[1]) + "------")
         block_chain = BlockChain()
         data = []
-        for height in range(get_range[0], get_range[1]):
-            already_get = False
-            for i in range(0, 2):
-                block = None
+        for height in range(1, get_range[1]):
+            block = None
+            while not block:
                 try:
                     block = block_chain.get_block_by_height(height)
+                    time.sleep(2)
                 except:
-                    continue
-                if block:
-                    already_get = True
-                    break
-            if already_get:
-                block = block.serialize()
-                data.append(block)
-            elif data:
-                msg = Msg(Msg.GET_BLOCK_MSG, data)
-                log.info("------server send get_block msg------")
-                return msg
-            else:
-                msg = Msg(Msg.NONE_MSG, "")
-                return msg
-        log.info("------server handle_get_block: get_block_by_height------")
+                    time.sleep(2)
+            data.append(block.serialize())
         msg = Msg(Msg.GET_BLOCK_MSG, data)
         log.info("------server send get_block msg" +
                  str(data) + "------")
@@ -322,24 +310,49 @@ class TCPServer(object):
         except:
             log.info('------failed to stop mine------')
         try:
-            ls_blo = None
-            while not ls_blo:
-                ls_blo = bc.get_last_block()
-                log.info('------s handle_syn ls_blo ' + str(ls_blo) + '------')
-                time.sleep(2)
-            if ls_blo:
-                l_height = ls_blo.block_header.height
-                for data in datas:
-                    block = Block.deserialize(data)
-                    if block.block_header.height == l_height + 1:
-                        # time.sleep(random.uniform(0, 1))
-                        bc.add_block_from_peers(block, ls_blo)
-                        l_height += 1
-                        ls_blo = block
-                        log.info(
-                            "------server handle_get_block add_block_from_peers------")
+            last_block = None
+            while not last_block:
+                last_block = bc.get_last_block()
+                time.sleep(1)
+            last_height = last_block.block_header.height
+            for i in range(len(datas)-1, -1, -1):
+                block = Block.deserialize(datas[i])
+                if block.block_header.height > last_height:
+                    last_height -= 1
+                    continue
+                elif block.block_header.height == last_height:
+                    last_height -= 1
+                    local_block = None
+                    while not local_block:
+                        local_block = bc.get_block_by_height(block.block_header.height)
+                        time.sleep(1)
+                    if local_block != block:
+                        utxo_set = UTXOSet()
+                        utxo.roll_back(local_block)
+                        bc.roll_back()
                     else:
-                        log.info("------error add------")
+                        break
+                else:
+                    last_height -= 1
+                    local_block = None
+                    while not local_block:
+                        local_block = bc.get_block_by_height(block.block_header.height)
+                        time.sleep(1)
+                    if local_block != block:
+                        utxo_set = UTXOSet()
+                        utxo.roll_back(local_block)
+                        bc.roll_back()
+                    else:
+                        break
+            last_height = last_block.block_header.height
+            for data in datas:
+                block = Block.deserialize(data)
+                if block.block_header.height <= last_height:
+                    continue
+                elif block.block_header.height == last_height + 1:
+                    last_height += 1
+                    bc.add_block_from_peers(block, last_block)
+                    last_block = block
             msg = Msg(Msg.NONE_MSG, "")
             return msg
         except:
@@ -543,28 +556,15 @@ class TCPClient(object):
             log.info("client local_last_height %d, last_height %d" %
                      (local_last_height, last_height))
             send_data = []
-            for i in range(last_height + 1, local_last_height + 1):
-                already_get = False
-                for i in range(0, 2):
-                    block = None
+            for i in range(1, local_last_height + 1):
+                block = None
+                while not block:
                     try:
                         block = block_chain.get_block_by_height(i)
+                        time.sleep(2)
                     except:
-                        continue
-                    if block:
-                        already_get = True
-                        break
-                if already_get:
-                    send_data.append(block.serialize())
-                elif send_data:
-                    msg = Msg(Msg.SYNCHRONIZE_MSG, send_data)
-                    self.send(msg)
-                    return
-                else:
-                    t = threading.Thread(target=self.shake_loop(), args=())
-                    t.start()
-                    # self.shake_loop()
-                    return
+                        time.sleep(2)
+                send_data.append(block.serialize())
             msg = Msg(Msg.SYNCHRONIZE_MSG, send_data)
             self.send(msg)
             log.info(
@@ -602,36 +602,58 @@ class TCPClient(object):
                 log.info('------not ip ' + str(st.ip) + '------')
                 t = threading.Thread(target=self.shake_loop(), args=())
                 t.start()
-                # self.shake_loop()
                 return
         except:
             log.info('------failed to stop mine------')
         try:
-            ls_blo = None
-            while not ls_blo:
-                ls_blo = bc.get_last_block()
-                log.info('------c get blo ls_blo ' + str(ls_blo) + '------')
-                time.sleep(2)
-            l_height = ls_blo.block_header.height
+            last_block = None
+            while not last_block:
+                last_block = bc.get_last_block()
+                time.sleep(1)
+            last_height = last_block.block_header.height
+            for i in range(len(datas)-1, -1, -1):
+                block = Block.deserialize(datas[i])
+                if block.block_header.height > last_height:
+                    last_height -= 1
+                    continue
+                elif block.block_header.height == last_height:
+                    last_height -= 1
+                    local_block = None
+                    while not local_block:
+                        local_block = bc.get_block_by_height(block.block_header.height)
+                        time.sleep(1)
+                    if local_block != block:
+                        utxo_set = UTXOSet()
+                        utxo.roll_back(local_block)
+                        bc.roll_back()
+                    else:
+                        break
+                else:
+                    last_height -= 1
+                    local_block = None
+                    while not local_block:
+                        local_block = bc.get_block_by_height(block.block_header.height)
+                        time.sleep(1)
+                    if local_block != block:
+                        utxo_set = UTXOSet()
+                        utxo.roll_back(local_block)
+                        bc.roll_back()
+                    else:
+                        break
+            last_height = last_block.block_header.height
             for data in datas:
                 block = Block.deserialize(data)
-                log.info("c handle_get_block local last height and last height " +
-                         str(ls_blo.block_header.height) + " " + str(block.block_header.height))
-                if block.block_header.height == l_height + 1:
-                    # time.sleep(random.uniform(0, 1))
-                    bc.add_block_from_peers(block, ls_blo)
-                    l_height += 1
-                    ls_blo = block
-                    log.info(
-                        "------client handle_get_block add_block_from_peers------")
-                else:
-                    log.info("------error add as last height " +
-                             str(block.block_header.height) + "------")
+                if block.block_header.height <= last_height:
+                    continue
+                elif block.block_header.height == last_height + 1:
+                    last_height += 1
+                    bc.add_block_from_peers(block, last_block)
+                    last_block = block
             t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
         except:
             log.info(
-                "------client handle_get_block failed to add_block_from_peers------")
+                "------client handle_get_block failed------")
             t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
 
@@ -682,28 +704,15 @@ class TCPClient(object):
         data = []
         log.info("------client handle_synchronize with range " +
                  str(synchronize_range[0]) + " " + str(synchronize_range[1]) + "------")
-        for height in range(synchronize_range[0], synchronize_range[1]):
-            already_get = False
-            for i in range(0, 2):
-                block = None
+        for height in range(1, synchronize_range[1]):
+            block = None
+            while not block:
                 try:
                     block = block_chain.get_block_by_height(height)
+                    time.sleep(2)
                 except:
-                    continue
-                if block:
-                    already_get = True
-                    break
-            if already_get:
-                data.append(block.serialize())
-            elif data:
-                msg = Msg(Msg.SYNCHRONIZE_MSG, data)
-                self.send(msg)
-                return
-            else:
-                t = threading.Thread(target=self.shake_loop(), args=())
-                t.start()
-                # self.shake_loop()
-                return
+                    time.sleep(2)
+            data.append(block.serialize())
         msg = Msg(Msg.SYNCHRONIZE_MSG, data)
         self.send(msg)
 
