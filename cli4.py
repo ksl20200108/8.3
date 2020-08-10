@@ -255,7 +255,6 @@ def main():
         print(txs6)
 
     if hasattr(args, 'alive'):
-        chain_doc = []
         bc1 = BlockChain()
         last_blo = bc1.get_last_block()
         last_height = last_blo.block_header.height
@@ -295,7 +294,7 @@ def client4():
     time.sleep(60)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
-    chain_doc = []
+
     while True:
         try:
             bc1 = BlockChain()
@@ -306,60 +305,51 @@ def client4():
             time.sleep(30)
         except:
             time.sleep(30)
-    while True:
-        f = open('shit.txt', 'w')
-        f.truncate()
-        f.write('into while')
-        f.write('\n')
-        # f.close()
-        try:
-            j = 0
-            m_total_payoff = 0
-            u_total_payoff = 0
-            users = {}
-            for i in range(0, 12):
-                j += 1
-                blo = None
-                while not blo:
-                    time.sleep(5)
-                    blo = bc1.get_block_by_height(i)
-                f.write('after while not blo')
-                f.write('\n')
-                txs = blo._transactions
-                # for tx in txs:
-                # f.write('for tx in txs')
-                # f.write('\n')
-                tx = txs[1]
-                if tx.ip:
-                    u_total_payoff += (1.33 - tx.amount - 0.05*j)
-                    m_total_payoff += (tx.amount - 0.1 - 0.9)
-                    if tx.ip in users.keys():
-                        users[tx.ip] += (1.33 - tx.amount - 0.05*j)
-                    else:
-                        users[tx.ip] = (1.33 - tx.amount - 0.05*j)
-                fo.write(str(blo.serialize()))
-                fo.write('\n')
-            fo.write("the length of the block chain is ")
-            fo.write(str(j))
-            fo.write("\n")
-            fo.write("m_total_payoff: ")
-            fo.write(str(m_total_payoff))
-            fo.write("\n")
-            fo.write("u_total_payoff: ")
-            fo.write(str(u_total_payoff))
-            f.write('before key')
-            f.write('\n')
-            for key in users:
-                fo.write("\n")
-                fo.write("the user ")
-                fo.write(str(key))
-                fo.write("'s pay off is ")
-                fo.write(str(users[key]))
-            fo.close()
-            f.close()
-            break
-        except:
-            f.close()
+
+    j = 1
+    m_total_payoff = 0
+    u_total_payoff = 0
+    users = {}
+    genesis_blo = None
+    while not genesis_blo:
+        genesis_blo = bc1.get_block_by_height(0)
+        time.sleep(1)
+
+    fo.write(str(genesis_blo.serialize()))
+    fo.write('\n')
+
+    for i in range(1, 12):
+        j += 1
+        blo = None
+        while not blo:
+            time.sleep(5)
+            blo = bc1.get_block_by_height(i)
+        txs = blo._transactions
+        tx = txs[1]
+        if tx.ip:
+            u_total_payoff += (1.33 - tx.amount - 0.05*j)
+            m_total_payoff += (tx.amount - 0.1 - 0.9)
+            if tx.ip in users.keys():
+                users[tx.ip] += (1.33 - tx.amount - 0.05*j)
+            else:
+                users[tx.ip] = (1.33 - tx.amount - 0.05*j)
+        fo.write(str(blo.serialize()))
+        fo.write('\n')
+    fo.write("the length of the block chain is ")
+    fo.write(str(j))
+    fo.write("\n")
+    fo.write("m_total_payoff: ")
+    fo.write(str(m_total_payoff))
+    fo.write("\n")
+    fo.write("u_total_payoff: ")
+    fo.write(str(u_total_payoff))
+    for key in users:
+        fo.write("\n")
+        fo.write("the user ")
+        fo.write(str(key))
+        fo.write("'s pay off is ")
+        fo.write(str(users[key]))
+    fo.close()
 
 
 if __name__ == "__main__":
