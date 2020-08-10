@@ -308,7 +308,7 @@ class TCPServer(object):
                 return Msg(Msg.NONE_MSG, "")
             log.info('------is the highest ' + str(st.ip) + "------")
         except:
-            log.info('------failed to stop mine------')
+            return Msg(Msg.NONE_MSG, "")
         try:
             last_block = None
             while not last_block:
@@ -317,6 +317,7 @@ class TCPServer(object):
             last_height = last_block.block_header.height
             for i in range(len(datas)-1, -1, -1):
                 block = Block.deserialize(datas[i])
+                log.info("roll back others' block at " + str(i) + str(block))
                 if block.block_header.height > last_height:
                     last_height -= 1
                     continue
@@ -327,23 +328,19 @@ class TCPServer(object):
                         local_block = bc.get_block_by_height(block.block_header.height)
                         time.sleep(1)
                     if local_block != block:
+                        log.info("not the same ")
+                        log.info("local" + str(local_block))
+                        log.info("block " + str(block))
                         utxo_set = UTXOSet()
                         utxo.roll_back(local_block)
                         bc.roll_back()
                     else:
+                        log.info("the same at " + str(local_block.block_header.height))
                         break
                 else:
-                    last_height -= 1
-                    local_block = None
-                    while not local_block:
-                        local_block = bc.get_block_by_height(block.block_header.height)
-                        time.sleep(1)
-                    if local_block != block:
-                        utxo_set = UTXOSet()
-                        utxo.roll_back(local_block)
-                        bc.roll_back()
-                    else:
-                        break
+                    log.info("local >> " + str(last_block.block_header.height))
+                    msg = Msg(Msg.NONE_MSG, "")
+                    return msg
             last_height = last_block.block_header.height
             for data in datas:
                 block = Block.deserialize(data)
@@ -352,6 +349,7 @@ class TCPServer(object):
                 elif block.block_header.height == last_height + 1:
                     last_height += 1
                     bc.add_block_from_peers(block, last_block)
+                    log.info("s add block from peers " + str(block))
                     last_block = block
             msg = Msg(Msg.NONE_MSG, "")
             return msg
@@ -612,8 +610,10 @@ class TCPClient(object):
                 time.sleep(1)
             last_height = last_block.block_header.height
             for i in range(len(datas)-1, -1, -1):
+                log.info("roll back others' block at " + str(i) + str(block))
                 block = Block.deserialize(datas[i])
                 if block.block_header.height > last_height:
+                    log.info("last >> at " + str(last_height))
                     last_height -= 1
                     continue
                 elif block.block_header.height == last_height:
@@ -623,23 +623,20 @@ class TCPClient(object):
                         local_block = bc.get_block_by_height(block.block_header.height)
                         time.sleep(1)
                     if local_block != block:
+                        log.info("not the same ")
+                        log.info("local" + str(local_block))
+                        log.info("block " + str(block))
                         utxo_set = UTXOSet()
                         utxo.roll_back(local_block)
                         bc.roll_back()
                     else:
+                        log.info("the same at " + str(local_block.block_header.height))
                         break
                 else:
-                    last_height -= 1
-                    local_block = None
-                    while not local_block:
-                        local_block = bc.get_block_by_height(block.block_header.height)
-                        time.sleep(1)
-                    if local_block != block:
-                        utxo_set = UTXOSet()
-                        utxo.roll_back(local_block)
-                        bc.roll_back()
-                    else:
-                        break
+                    log.info("local >> " + str(last_block.block_header.height))
+                    t = threading.Thread(target=self.shake_loop(), args=())
+                    t.start()
+                    return
             last_height = last_block.block_header.height
             for data in datas:
                 block = Block.deserialize(data)
@@ -648,6 +645,7 @@ class TCPClient(object):
                 elif block.block_header.height == last_height + 1:
                     last_height += 1
                     bc.add_block_from_peers(block, last_block)
+                    log.info("c add block from peers " + str(block))
                     last_block = block
             t = threading.Thread(target=self.shake_loop(), args=())
             t.start()
