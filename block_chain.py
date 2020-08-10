@@ -10,7 +10,7 @@ from block_header import BlockHeader
 from db import DB
 from transactions import TXInput, TXOutput, Transaction
 from errors import *
-from utils import address_to_pubkey_hash
+from utils import address_to_pubkey_hash, sum256_hex
 from wallets import Wallets
 from utxo import UTXOSet
 from conf import db_url
@@ -24,7 +24,10 @@ class BlockChain(object):
         if 'l' not in self.db:
             transactions = [transaction]
             genesis_block = Block.new_genesis_block(transactions)
-            genesis_block.set_header_hash()
+            # genesis_block.set_header_hash()
+            data_list = [str(0), str(""), str(""), str(0), str("")]
+            data = ''.join(data_list)
+            genesis_block.block_header.hash = sum256_hex(data)
             self.db.create(genesis_block.block_header.hash,
                            genesis_block.serialize())
             self.set_last_hash(genesis_block.block_header.hash)
