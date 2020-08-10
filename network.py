@@ -171,6 +171,7 @@ class TCPServer(object):
         log.info("------with last_height " + str(last_height) + "------")
         block_chain = BlockChain()
         block = block_chain.get_last_block()
+        log.info('------s hand_shake ls_blo ' + str(block) + '------')
 
         if block:
             local_last_height = block.block_header.height
@@ -270,6 +271,7 @@ class TCPServer(object):
                 log.info("------server never get this transaction before------")
                 bc = BlockChain()
                 ls_bl = bc.get_last_block()
+                log.info('------s handle_tran ls_blo ' + str(ls_bl) + '------')
                 if ls_bl:
                     ls_height = ls_bl.block_header.height
                     for i in range(0, ls_height + 1):
@@ -323,6 +325,7 @@ class TCPServer(object):
             ls_blo = None
             while not ls_blo:
                 ls_blo = bc.get_last_block()
+                log.info('------s handle_syn ls_blo ' + str(ls_blo) + '------')
                 time.sleep(2)
             if ls_blo:
                 l_height = ls_blo.block_header.height
@@ -330,7 +333,7 @@ class TCPServer(object):
                     block = Block.deserialize(data)
                     if block.block_header.height == l_height + 1:
                         # time.sleep(random.uniform(0, 1))
-                        bc.add_block_from_peers(block)
+                        bc.add_block_from_peers(block, ls_blo)
                         l_height += 1
                         ls_blo = block
                         log.info(
@@ -468,6 +471,7 @@ class TCPClient(object):
                 log.info("shake")
                 block_chain = BlockChain()
                 block = block_chain.get_last_block()
+                log.info('------c s_loop ls_blo' + str(block) + '------')
                 try:
                     genesis_block = block_chain[0]
                 except:
@@ -491,6 +495,7 @@ class TCPClient(object):
             log.info("shake")
             block_chain = BlockChain()
             block = block_chain.get_last_block()
+            log.info('------c s_loop ls_blo' + str(block) + '------')
             try:
                 genesis_block = block_chain[0]
             except:
@@ -519,6 +524,7 @@ class TCPClient(object):
         log.info("------with last height " + str(last_height) + "------")
         block_chain = BlockChain()
         block = block_chain.get_last_block()
+        log.info('------c handle_sh ls_blo ' + str(block) + '------')
         if block:
             local_last_height = block.block_header.height
         else:
@@ -604,6 +610,7 @@ class TCPClient(object):
             ls_blo = None
             while not ls_blo:
                 ls_blo = bc.get_last_block()
+                log.info('------c get blo ls_blo ' + str(ls_blo) + '------')
                 time.sleep(2)
             l_height = ls_blo.block_header.height
             for data in datas:
@@ -638,6 +645,7 @@ class TCPClient(object):
             log.info("------client never get this transaction before------")
             bc = BlockChain()
             ls_bl = bc.get_last_block()
+            log.info('------c handle_tran ls_blo ' + str(ls_bl) + '------')
             if ls_bl:
                 ls_height = ls_bl.block_header.height
                 for i in range(0, ls_height + 1):
@@ -718,6 +726,7 @@ class TCPClient(object):
                 log.info("------client miss this transaction before------")
                 bc = BlockChain()
                 ls_bl = bc.get_last_block()
+                log.info('------c handle_m ls_blo ' + str(ls_bl) + '------')
                 if ls_bl:
                     ls_height = ls_bl.block_header.height
                     for i in range(0, ls_height + 1):
