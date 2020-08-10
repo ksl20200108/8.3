@@ -456,7 +456,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data12.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -498,7 +498,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data13.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -540,7 +540,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data14.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -582,7 +582,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data15.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -624,7 +624,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data16.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -666,7 +666,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data17.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -708,7 +708,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data18.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -750,7 +750,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data19.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -792,7 +792,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data20.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
@@ -834,7 +834,7 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data21.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
     networks:
