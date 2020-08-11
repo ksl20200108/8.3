@@ -308,6 +308,8 @@ def client4():
         for line in f2:
             if line[0] != 'y':
                 users[str("192.168.118."+str(130+i))] = 0
+    f_shit = open("shit.txt", 'w')
+    f_shit.write('after determine send or not ')
 
     while True:
         try:
