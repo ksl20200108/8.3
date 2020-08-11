@@ -295,23 +295,35 @@ def client4():
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
 
+    j = 0
+    m_total_payoff = 0
+    u_total_payoff = 0
+    max_height = 11
+    users = {
+        '192.168.118.131': -0.5, '192.168.118.132': -0.5, '192.168.118.133': -0.5,
+        '192.168.118.134': -0.5, '192.168.118.135': -0.5, '192.168.118.136': -0.5,
+        '192.168.118.137': -0.5, '192.168.118.138': -0.5, '192.168.118.139': -0.5,
+        '192.168.118.140': -0.5, '192.168.118.141': -0.5}
+    for i in range(1, 12):
+        file_name = 'u' + str(i) +'.txt'
+        f2 = open(file_name, 'r')
+        for line in f2:
+            if line[0] == 'n':
+                users[str('192.168.118.'+str(130+i))] = 0
+                max_height -= 1
+
     while True:
         try:
             bc1 = BlockChain()
             last_blo = bc1.get_last_block()
             last_height = last_blo.block_header.height
-            if last_height >= 11:
+            if last_height >= max_height:
                 break
             time.sleep(30)
         except:
             time.sleep(30)
 
-    j = 0
-    m_total_payoff = 0
-    u_total_payoff = 0
-    users = {}
-
-    for i in range(0, 12):
+    for i in range(0, max_height+1):
         j += 1
         blo = None
         while not blo:

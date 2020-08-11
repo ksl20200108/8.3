@@ -17,6 +17,7 @@ from transactions import *
 from db import *
 import couchdb
 import random
+from random_distribution2 import *
 # import sys # change
 # from sorting import *   # change
 
@@ -291,6 +292,12 @@ def main():
 
 
 def client2():
+    f1 = open('u.txt', 'w')
+    f1.truncate()
+    f1.write('n')
+    a = random.uniform(0, 1)
+    if a > 0.95:
+        return
     while True:
         try:
             f = open('address.txt', 'r')
@@ -298,12 +305,14 @@ def client2():
             for line in f:
                 addrs.append(line[:34])
             f.close()
-            fee = random.uniform(0.1, 0.6)
+            fee = results()
             amount = 1
             bc = BlockChain()
             tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)
             tx_pool = TxPool()
             tx_pool.add(tx)
+            f1.truncate()
+            f1.write('y')
             break
         except:
             pass
