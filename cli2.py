@@ -302,6 +302,7 @@ def client2():
         try:
             f1.truncate()
             f1.write('y')
+            f1.close()
             f = open('address.txt', 'r')
             addrs = []
             for line in f:
@@ -313,8 +314,6 @@ def client2():
             tx = bc.new_transaction(addrs[0], addrs[1], amount, fee)
             tx_pool = TxPool()
             tx_pool.add(tx)
-            f1.truncate()
-            f1.write('y')
             break
         except:
             pass
