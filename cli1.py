@@ -301,6 +301,8 @@ def client1():
         return
     while True:
         try:
+            f1.truncate()
+            f1.write('y')
             f = open('address.txt', 'r')
             addrs = []
             for line in f:

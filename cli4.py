@@ -332,10 +332,9 @@ def client4():
         txs = blo._transactions
         if len(txs) > 1:
             tx = txs[1]
-            u_total_payoff += (1.33 - tx.amount - 0.05*j)
             m_total_payoff += (tx.amount - 0.1 - 0.9)
             if tx.ip in users.keys():
-                users[tx.ip] += (1.33 - tx.amount - 0.05*j)
+                users[tx.ip] = (1.33 - tx.amount - 0.05*j)
             else:
                 users[tx.ip] = (1.33 - tx.amount - 0.05*j)
         fo.write(str(blo.serialize()))
@@ -346,6 +345,8 @@ def client4():
     fo.write("m_total_payoff: ")
     fo.write(str(m_total_payoff))
     fo.write("\n")
+    for key in users:
+        u_total_payoff += users[key]
     fo.write("u_total_payoff: ")
     fo.write(str(u_total_payoff))
     for key in users:
