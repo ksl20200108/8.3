@@ -289,7 +289,6 @@ def main():
 
 def client4():
     fo = open("data.txt", "w")
-    fo.truncate()
 
     time.sleep(60)
     t1 = threading.Thread(target=finding_new_block, args=())
@@ -308,7 +307,7 @@ def client4():
         file_name = 'u' + str(i) +'.txt'
         f2 = open(file_name, 'r')
         for line in f2:
-            if line[1] != 'y':
+            if line[0] != 'y':
                 users[str('192.168.118.'+str(130+i))] = 0
                 max_height -= 1
 

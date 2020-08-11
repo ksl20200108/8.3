@@ -294,14 +294,12 @@ def main():
 
 def client1():
     f1 = open('u.txt', 'w')
-    f1.truncate()
-    f1.write('n')
     a = random.uniform(0, 1)
     if a > 0.95:
+        f1.close()
         return
     while True:
         try:
-            f1.truncate()
             f1.write('y')
             f1.close()
             f = open('address.txt', 'r')
