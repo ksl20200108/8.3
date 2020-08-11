@@ -308,8 +308,10 @@ def client4():
         f2 = open(file_name, 'r')
         for line in f2:
             if line[0] != 'y':
-                users[str('192.168.118.'+str(130+i))] = 0
+                users[str("192.168.118."+str(130+i))] = 0
                 max_height -= 1
+    fo.write(str(max_height))
+    fo.write('\n')
 
     while True:
         try:
