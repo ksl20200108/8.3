@@ -289,9 +289,11 @@ def main():
 
 def client4():
     fo = open("data.txt", "w")
+    f_shit = open('shit.txt', 'w')
     time.sleep(60)
     t1 = threading.Thread(target=finding_new_block, args=())
     t1.start()
+    f_shit.write('after find\n')
     j = 0
     m_total_payoff = 0
     u_total_payoff = 0
@@ -307,6 +309,8 @@ def client4():
             if line[0] != 'y':
                 users[str("192.168.118."+str(130+i))] = 0
 
+    f_shit.write('after determine\n')
+
     while True:
         try:
             bc1 = BlockChain()
@@ -317,6 +321,7 @@ def client4():
             time.sleep(30)
         except:
             time.sleep(30)
+    f_shit.write('after sleep\n')
 
     for i in range(0, 12):
         j += 1
