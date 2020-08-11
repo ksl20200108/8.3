@@ -297,7 +297,6 @@ def client4():
     j = 0
     m_total_payoff = 0
     u_total_payoff = 0
-    max_height = 11
     users = {
         '"192.168.118.131"': -0.5, '"192.168.118.132"': -0.5, '"192.168.118.133"': -0.5,
         '"192.168.118.134"': -0.5, '"192.168.118.135"': -0.5, '"192.168.118.136"': -0.5,
@@ -309,22 +308,19 @@ def client4():
         for line in f2:
             if line[0] != 'y':
                 users[str("192.168.118."+str(130+i))] = 0
-                max_height -= 1
-    fo.write(str(max_height))
-    fo.write('\n')
 
     while True:
         try:
             bc1 = BlockChain()
             last_blo = bc1.get_last_block()
             last_height = last_blo.block_header.height
-            if last_height >= max_height:
+            if last_height >= 11:
                 break
             time.sleep(30)
         except:
             time.sleep(30)
 
-    for i in range(0, max_height+1):
+    for i in range(0, 12):
         j += 1
         blo = None
         while not blo:

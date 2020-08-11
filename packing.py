@@ -36,6 +36,8 @@ def packing():
     log.info("------into packing------")
     bc1 = BlockChain()  # used to verify the transactions
     tx_pool1 = TxPool()
+    if len(tx_pool1.txs) == 0:
+        return [], "no"
     total_fee = 0   # total fee 6.19
     for tx1 in tx_pool1.txs:    # 1. search in txpool : delete invalid transactions
         # if not bc1.verify_transaction(tx1):   # e1
@@ -99,7 +101,7 @@ def finding_new_block():
         tx3, total_fee = packing()
         log.info("------return these information:" + str(tx3) + str(total_fee) + "------")
         try:
-            if tx3:
+            if tx3 or total_fee == "no":
                 bc1.add_block(tx3, total_fee)    # wait try when there's no transaction
         except:
             log.info("------fall behind in mine------")
