@@ -39,18 +39,11 @@ def packing():
     if len(tx_pool1.txs) == 0:
         return [], "no"
     total_fee = 0   # total fee 6.19
-    for tx1 in tx_pool1.txs:    # 1. search in txpool : delete invalid transactions
-        # if not bc1.verify_transaction(tx1):   # e1
-            # raise NotError('valid')
-            # tx_pool1.txs.remove(tx1)  # e1
-            # raise NotError('invalid')
-        if tx1.amount <= 0.1:   # e1
-            tx_pool1.txs.remove(tx1)    # e1
+    for tx1 in tx_pool1.txs:
+        if tx1.amount <= 0.1:
+            tx_pool1.txs.remove(tx1)
         if type(tx1) == 'dict':
-            tx_pool1[tx_pool1.txs.index(tx1)] = Transaction.deserialize(tx1)    # change 6.22
-    # txs = sorting(tx_pool1.txs)    # 2. sort the txpool
-    # log.info("------after sorting------")
-    # log.info(txs)
+            tx_pool1[tx_pool1.txs.index(tx1)] = Transaction.deserialize(tx1)
     selected_txs = []
     if not tx_pool1.txs:
         return [], 0
@@ -75,7 +68,10 @@ def packing():
         #     total_fee += tx1.amount    # add the fee
         # if selected_txs:
         #     log.info("------before return------")   # e1
-    selected_txs.append(selected_tx)
+    if selected_tx.verify():
+        selected_txs.append(selected_tx)
+    else:
+        return [], "no"
     total_fee += selected_tx.amount
     remain_txs = []
     for i in tx_pool1.txs:
