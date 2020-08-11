@@ -172,7 +172,7 @@ class Transaction(object):
             sign = sk.sign(tx_copy.txid.encode())
             self.vins[in_id].signature = binascii.hexlify(sign).decode()
 
-    def verify(self, prev_txs):
+    def verify(self, prev_txs=None):
         # if self.is_coinbase():
         #     return True
         # tx_copy = self._trimmed_copy()
@@ -192,7 +192,7 @@ class Transaction(object):
             # if not vk.verify(sign, tx_copy.txid.encode()):
             #     return False
 
-        end_time = time.time()  # change
+        end_time = time.time()
         if (end_time - self.generation_time) > 600:
             return False
         return True
