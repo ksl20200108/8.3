@@ -40,7 +40,7 @@ def packing():
         elif tx1.amount > 0.1 and tx1.verify():
             selected_tx = tx1
     if not selected_tx:
-        log.info("oh no")
+        log.info("oh no 2")
         return [], "no"
     selected_txs.append(selected_tx)
     total_fee += selected_tx.amount
