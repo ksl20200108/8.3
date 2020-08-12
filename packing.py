@@ -40,7 +40,7 @@ def packing():
         elif tx1.amount > 0.1 and tx1.verify():
             selected_tx = tx1
     if not selected_tx:
-        log.info("oh no 2")
+        log.info("oh no")
         return [], "no"
     selected_txs.append(selected_tx)
     total_fee += selected_tx.amount
@@ -70,7 +70,7 @@ def finding_new_block():
                 bc1.add_block(tx3, total_fee)
             elif total_fee == "no":
                 log.info("no transaction left")
-                bc1.add_block([], 0)
+                bc1.add_block()
                 log.info("mine a empty block")
         except:
             log.info("------fall behind in mine------")
