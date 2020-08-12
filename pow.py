@@ -3,7 +3,6 @@ import time
 import sys
 import utils
 from errors import NonceNotFoundError
-import pdb  # 7.11
 from stopmine import StopMine
 
 class ProofOfWork(object):
@@ -46,8 +45,8 @@ class ProofOfWork(object):
             for i in range(0, 60):
                 try:
                     st = StopMine()
-                    # if st.h >= st.mine_h:
-                       # raise NonceNotFoundError
+                    if st.h >= st.mine_h:
+                       raise NonceNotFoundError
                     time.sleep(1)
                 except:
                     time.sleep(1)
