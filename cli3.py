@@ -1,4 +1,4 @@
-# coding:utf-8  # miners * 10
+# coding:utf-8
 import argparse
 import threading
 import time

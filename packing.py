@@ -21,6 +21,7 @@ def packing():
     bc1 = BlockChain()
     tx_pool1 = TxPool()
     if len(tx_pool1.txs) == 0:
+        log.info("oh no")
         return [], "no"
     total_fee = 0
     for tx1 in tx_pool1.txs:
@@ -39,10 +40,12 @@ def packing():
         elif tx1.amount > 0.1 and tx1.verify():
             selected_tx = tx1
     if not selected_tx:
+        log.info("oh no 2")
         return [], "no"
     selected_txs.append(selected_tx)
     total_fee += selected_tx.amount
     remain_txs = []
+    log.info("selected")
     for i in tx_pool1.txs:
         if i.txid != selected_tx.txid and i.amount > 0.1:
             remain_txs.append(i)
@@ -66,7 +69,9 @@ def finding_new_block():
             if tx3:
                 bc1.add_block(tx3, total_fee)
             elif total_fee == "no":
-                bc1.add_block(tx3, 0)
+                log.info("no transaction left")
+                bc1.add_block([], 0)
+                log.info("mine a empty block")
         except:
             log.info("------fall behind in mine------")
             try:

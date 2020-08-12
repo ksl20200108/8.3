@@ -17,9 +17,6 @@ from transactions import *
 from db import *
 import couchdb
 import random
-import pdb  # 7.11
-# import sys # change
-# from sorting import *   # change
 
 
 def new_parser():

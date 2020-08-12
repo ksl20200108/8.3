@@ -87,7 +87,7 @@ class BlockChain(object):
         block.deserialize(block_data)
         return block
 
-    def add_block(self, transactions, fee=0):
+    def add_block(self, transactions=[], fee=0):
         last_block = None
         while not last_block:
             last_block = self.get_last_block()
