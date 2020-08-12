@@ -87,7 +87,7 @@ class BlockChain(object):
         block.deserialize(block_data)
         return block
 
-    def add_block(self, transactions, fee=0):
+    def add_block(self, transactions=[], fee=0):
         last_block = None
         while not last_block:
             last_block = self.get_last_block()
@@ -101,7 +101,10 @@ class BlockChain(object):
         keys = list(wallets.keys())
         w = wallets[keys[0]]
         coin_base_tx = self.coin_base_tx(w.address, fee)
-        transactions.insert(0, coin_base_tx)
+        if transactions:
+            transactions.insert(0, coin_base_tx)
+        else:
+            transactions = [coin_base_tx]
 
         utxo_set = UTXOSet()
         txs = utxo_set.clear_transactions(transactions)

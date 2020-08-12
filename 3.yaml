@@ -39,6 +39,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u2.txt:/run/u.txt
     networks: 
       default: 
         ipv4_address: 192.168.118.132
@@ -81,6 +82,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u3.txt:/run/u.txt
     networks: 
       default: 
         ipv4_address: 192.168.118.133
@@ -123,6 +125,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u4.txt:/run/u.txt
     networks: 
       default: 
         ipv4_address: 192.168.118.134
@@ -165,6 +168,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u5.txt:/run/u.txt
     networks: 
       default: 
         ipv4_address: 192.168.118.135
@@ -207,6 +211,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u6.txt:/run/u.txt
     networks: 
       default: 
         ipv4_address: 192.168.118.136
@@ -249,6 +254,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u7.txt:/run/u.txt
     networks:
       default:
         ipv4_address: 192.168.118.137
@@ -291,6 +297,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u8.txt:/run/u.txt
     networks:
       default:
         ipv4_address: 192.168.118.138
@@ -333,6 +340,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u9.txt:/run/u.txt
     networks:
       default:
         ipv4_address: 192.168.118.139
@@ -375,6 +383,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u10.txt:/run/u.txt
     networks:
       default:
         ipv4_address: 192.168.118.140
@@ -417,6 +426,7 @@ services:
       - ./data.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u11.txt:/run/u.txt
     networks:
       default:
         ipv4_address: 192.168.118.141
@@ -436,7 +446,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -456,9 +466,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data12.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.142
@@ -478,7 +499,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -498,9 +519,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data13.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.143
@@ -520,7 +552,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -540,9 +572,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data14.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.144
@@ -562,7 +605,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -582,9 +625,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data15.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.145
@@ -604,7 +658,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -624,9 +678,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data16.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.146
@@ -646,7 +711,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -666,9 +731,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data17.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.147
@@ -688,7 +764,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -708,9 +784,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data18.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.148
@@ -730,7 +817,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -750,9 +837,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data19.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.149
@@ -772,7 +870,7 @@ services:
       - ./block.py:/run/block.py
       - ./block_chain.py:/run/block_chain.py
       - ./block_header.py:/run/block_header.py
-      - ./cli3.py:/run/cli.py
+      - ./cli4.py:/run/cli.py
       - ./db.py:/run/db.py
       - ./errors.py:/run/errors.py
       - ./merkle.py:/run/merkle.py
@@ -792,9 +890,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data20.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.150
@@ -834,9 +943,20 @@ services:
       - ./wallets.py:/run/wallets.py
       - ./wallet.dat:/run/wallet.dat
       - ./PDF2.txt:/run/PDF2.txt
-      - ./data.txt:/run/data.txt
+      - ./data21.txt:/run/data.txt
       - ./address.txt:/run/address.txt
       - ./shit.txt:/run/shit.txt
+      - ./u1.txt:/run/u1.txt
+      - ./u2.txt:/run/u2.txt
+      - ./u3.txt:/run/u3.txt
+      - ./u4.txt:/run/u4.txt
+      - ./u5.txt:/run/u5.txt
+      - ./u6.txt:/run/u6.txt
+      - ./u7.txt:/run/u7.txt
+      - ./u8.txt:/run/u8.txt
+      - ./u9.txt:/run/u9.txt
+      - ./u10.txt:/run/u10.txt
+      - ./u11.txt:/run/u11.txt
     networks:
       default:
         ipv4_address: 192.168.118.151
