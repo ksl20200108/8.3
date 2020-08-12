@@ -57,11 +57,11 @@ def packing():
 def finding_new_block():
     i = 1
     while i < 12:
-        try:
-            st = StopMine()
-            st.mine_h = i
-        except:
-            pass
+        # try:
+            # st = StopMine()
+            # st.mine_h = i
+        # except:
+            # pass
         bc1 = BlockChain()
         tx3, total_fee = packing()
         log.info("------return these information:" + str(tx3) + str(total_fee) + "------")
@@ -74,12 +74,12 @@ def finding_new_block():
                 log.info("mine a empty block")
         except:
             log.info("------fall behind in mine------")
-            try:
-                st = StopMine()
-                log.info("------with longest " + str(st.h) + " and local " + str(i) + "------")
-                while i < st.h:
-                    tx3, total_fee = packing()
-                    i += 1
-            except:
-                pass
+            # try:
+                # st = StopMine()
+                # log.info("------with longest " + str(st.h) + " and local " + str(i) + "------")
+                # while i < st.h:
+                    # tx3, total_fee = packing()
+                    # i += 1
+            # except:
+                # pass
         i += 1
