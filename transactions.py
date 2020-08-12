@@ -193,6 +193,6 @@ class Transaction(object):
             #     return False
 
         end_time = time.time()
-        if (end_time - self.generation_time) > 600:
+        if (end_time - self.generation_time) > 660:
             return False
         return True
