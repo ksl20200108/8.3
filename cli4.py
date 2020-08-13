@@ -302,7 +302,7 @@ def client4():
         f2 = open(file_name, 'r')
         for line in f2:
             if line[0] != 'y':
-                users[str("192.168.118."+str(130+i))] = 0
+                users["192.168.118."+str(130+i)] = 0
 
     while True:
         try:
