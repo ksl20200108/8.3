@@ -298,11 +298,11 @@ def client4():
         '"192.168.118.137"': -0.5, '"192.168.118.138"': -0.5, '"192.168.118.139"': -0.5,
         '"192.168.118.140"': -0.5, '"192.168.118.141"': -0.5}
     for i in range(1, 12):
-        file_name = 'u' + str(i) +'.txt'
+        file_name = 'u' + str(i) + '.txt'
         f2 = open(file_name, 'r')
         for line in f2:
             if line[0] != 'y':
-                users["192.168.118."+str(130+i)] = 0
+                users['"' + "192.168.118." + str(130+i) + '"'] = 0
 
     while True:
         try:
