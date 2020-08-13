@@ -76,12 +76,12 @@ def finding_new_block():
                 log.info("error in packing")
         except:
             log.info("------fall behind in mine------")
-            # try:
-                # st = StopMine()
-                # log.info("------with longest " + str(st.h) + " and local " + str(i) + "------")
-                # while i < st.h:
-                    # tx3, total_fee = packing()
-                    # i += 1
-            # except:
-                # pass
+            try:
+                st = StopMine()
+                log.info("------with longest " + str(st.h) + " and local " + str(i) + "------")
+                while i < st.h:
+                    tx3, total_fee = packing()
+                    i += 1
+            except:
+                pass
         i += 1

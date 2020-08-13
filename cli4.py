@@ -327,7 +327,7 @@ def client4():
             m_total_payoff += (tx.amount - 0.1 - 0.9)
             if tx.ip in users.keys():
                 users[tx.ip] = (1.33 - tx.amount - 0.05*j)
-            else:
+            elif tx.ip:
                 users[tx.ip] = (1.33 - tx.amount - 0.05*j)
         fo.write(str(blo.serialize()))
         fo.write('\n')

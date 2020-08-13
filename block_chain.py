@@ -117,10 +117,10 @@ class BlockChain(object):
             blo = self.get_last_block()
             time.sleep(5)
         txs1 = blo._transactions
-        if txs1:
-            if len(txs1) > 1:
-                if txs1[1].txid == txs[1].txid:
-                    return
+        # if txs1:
+            # if len(txs1) > 1:
+                # if txs1[1].txid == txs[1].txid:
+                    # return
 
         block.set_header_hash()
         self.db.create(block.block_header.hash, block.serialize())
