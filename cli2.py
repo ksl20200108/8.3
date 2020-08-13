@@ -295,6 +295,7 @@ def client2():
     f1 = open('u.txt', 'w')
     a = random.uniform(0, 1)
     if a > 0.95:
+        f1.write('n')
         f1.close()
         return
     while True:
